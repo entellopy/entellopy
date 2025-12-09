@@ -9,6 +9,13 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 - Building applied AI/ML capabilities with mentor guidance, focused on real‑world projects from organizations worldwide.
 - Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresigh newsletter.
 
+### Highlights
+- **Newsletter:** Strategic foresight and trend analysis [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
+- **Amazon eBooks:** [The Strategic Foundations](https://lnkd.in/eUjGfcyJ)<br>
+- **Medium:** [My Stories](https://medium.com/@mmejiapascuales)
+- **Featured GitHub Projects:** Applied AI/ML experiments and startup advisory tools  
+- **Talks & Presentations:** Sharing insights on AI, Economics, and Organizational resilience
+
 ### Skills & Tools
 - **Data & Analytics:** Python, R, SQL, Excel, Power BI, Tableau, Looker<br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -42,14 +49,3 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)
 ![JIRA](https://img.shields.io/badge/JIRA-273347?style=for-the-badge&logo=jira&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-
-
-
-### Highlights
-- **Newsletter:** Strategic foresight and trend analysis [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
-- **Amazon eBooks:** [The Strategic Foundations](https://lnkd.in/eUjGfcyJ)<br>
-- **Medium:** [My Stories](https://medium.com/@mmejiapascuales)
-- **Featured GitHub Projects:** Applied AI/ML experiments and startup advisory tools  
-- **Talks & Presentations:** Sharing insights on AI, Economics, and Organizational resilience  
-
-
