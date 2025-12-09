@@ -10,7 +10,11 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 - Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresigh newsletter.
 
 ### Skills & Tools
-
+- **Data & Analytics:** Python, R, SQL, Excel, Power BI, Tableau, Looker
+- **AI/ML:** Scikit‑learn, TensorFlow, PyTorch, Jupyter Notebooks, Colab, VSCode
+- **Business & Strategy:** Lean Startup, Agile, Design Thinking, Strategic Foresight
+- **Marketing & Growth:** Google Analytics, SEO tools, Digital Ads platforms
+- **Workflow & Productivity:** Notion, Trello, JIRA, GitHub
 
 ### Highlights
 **Newsletter:** [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
