@@ -1,6 +1,6 @@
 
 ## Hi, I'm Maria Elena Mejia
-![My Photo](me.jpg)
+![My Photo](me.jpg)<br>
 Economist and Data Strategist with 10+ years in Analytics, now applying that expertise to organizations by helping them refine processes, validate pre‑launch strategies, and align marketing with data‑driven insights. 
 <br>Passionate about turning knowledge into innovation, resilience, and sustainable outcomes that drive measurable impact.
 
