@@ -10,7 +10,7 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 - Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresigh newsletter.
 
 ### Skills & Tools
-- **Data & Analytics:** Python, R, SQL, Excel, Power BI, Tableau, Looker
+- **Data & Analytics:** Python, R, SQL, Excel, Power BI, Tableau, Looker<br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -18,28 +18,28 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 ![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white)
 ![Power BI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
-- **AI/ML:** Scikit‑learn, TensorFlow, PyTorch, Jupyter Notebooks, Colab, VSCode
+- **AI/ML:** Scikit‑learn, TensorFlow, PyTorch, Jupyter Notebooks, Colab, VSCode<br>
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
-![Colab](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=colab&logoColor=white)
-![VSCode](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=vscode&logoColor=white)
+![Colab](https://img.shields.io/badge/Colab-F37626?style=for-the-badge&logo=colab&logoColor=white)
+![VSCode](https://img.shields.io/badge/VSCode-F37626?style=for-the-badge&logo=vscode&logoColor=white)
 
-- **Business & Strategy:** Lean Startup, Agile, Design Thinking, Strategic Foresight
+- **Business & Strategy:** Lean Startup, Agile, Design Thinking, Strategic Foresight<br>
 ![Lean Startup](https://img.shields.io/badge/Lean%20Startup-grey?style=for-the-badge)
 ![Agile](https://img.shields.io/badge/Agile-009688?style=for-the-badge&logo=agile&logoColor=white)
 ![Design Thinking](https://img.shields.io/badge/Design%20Thinking-FF4088?style=for-the-badge)
 
-- **Marketing & Growth:** Google Analytics, SEO tools, Digital Ads platforms
+- **Marketing & Growth:** Google Analytics, SEO tools, Digital Ads platforms<br>
 ![Google Analytics](https://img.shields.io/badge/Google%20Analytics-E37400?style=for-the-badge&logo=google-analytics&logoColor=white)
 ![SEO](https://img.shields.io/badge/SEO-4285F4?style=for-the-badge&logo=google&logoColor=white)
 ![Digital Ads](https://img.shields.io/badge/Digital%20Ads-FF0000?style=for-the-badge&logo=google-ads&logoColor=white)
 
-- **Workflow & Productivity:** Notion, Trello, JIRA, GitHub
+- **Workflow & Productivity:** Notion, Trello, JIRA, GitHub<br>
 ![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)
 ![Trello](https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white)
-![JIRA](https://img.shields.io/badge/Asana-273347?style=for-the-badge&logo=jira&logoColor=white)
+![JIRA](https://img.shields.io/badge/JIRA-273347?style=for-the-badge&logo=jira&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
 
