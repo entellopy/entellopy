@@ -14,8 +14,8 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 
 ### Highlights
 **Newsletter:** [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
-**Amazon eBooks:** [The Strategic Foundations](https://lnkd.in/eUjGfcyJ)
-**Medium:** [Medium](https://medium.com/@mmejiapascuales)
+**Amazon eBooks:** [The Strategic Foundations](https://lnkd.in/eUjGfcyJ)<br>
+**Medium:** [My Stories](https://medium.com/@mmejiapascuales)
 
 
 I’m looking to collaborate on ...
