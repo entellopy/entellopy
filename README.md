@@ -1,6 +1,6 @@
 ## Hi there 👋
 Economist and data strategist with 10+ years in analytics, now applying that expertise to organizations by helping them refine processes, validate pre‑launch strategies, and align marketing with data‑driven insights. 
-Passionate about turning knowledge into innovation, resilience, and sustainable outcomes that drive measurable impact.
+<br>Passionate about turning knowledge into innovation, resilience, and sustainable outcomes that drive measurable impact.
 
 ### Current Work
 - I'm working on connecting with startups to provide consulting feedback and identify areas of improve.
