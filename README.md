@@ -17,6 +17,7 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 ![Excel](https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white)
 ![Tableau](https://img.shields.io/badge/Tableau-E97627?style=for-the-badge&logo=tableau&logoColor=white)
 ![Power BI](https://img.shields.io/badge/PowerBI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
+![Looker](https://img.shields.io/badge/Looker-F2C811?style=for-the-badge&logo=looker&logoColor=blue)
 
 - **AI/ML:** Scikit‑learn, TensorFlow, PyTorch, Jupyter Notebooks, Colab, VSCode<br>
 ![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
