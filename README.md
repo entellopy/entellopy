@@ -16,6 +16,13 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 - **Marketing & Growth:** Google Analytics, SEO tools, Digital Ads platforms
 - **Workflow & Productivity:** Notion, Trello, JIRA, GitHub
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Lean Startup](https://img.shields.io/badge/Lean%20Startup-grey?style=for-the-badge)
+
+
 ### Highlights
 - **Newsletter:** [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 - **Amazon eBooks:** [The Strategic Foundations](https://lnkd.in/eUjGfcyJ)<br>
