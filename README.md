@@ -10,7 +10,7 @@ I’m a startup advisor and business strategist exploring how economics and soci
 
 
 #### Highlights
-**Newsletter:** [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)
+**Newsletter:** [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 **Amazon eBooks:** [The Strategic Foundations](https://lnkd.in/eUjGfcyJ)
 
 #### Connect
