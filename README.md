@@ -4,7 +4,7 @@
 **Economist & Data Strategist | Strategic Foresight & AI/ML** <br>
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
-### The Ecosystem
+### The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
 * **The Strategic & Execution Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
 * **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
