@@ -1,6 +1,5 @@
 
-## Hi, I'm Maria Elena Mejia 
-**Economist & Data Strategist | Strategic Foresight & AI/ML** 
+## Maria Elena Mejia - **Economist & Data Strategist | Strategic Foresight & AI/ML** 
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
