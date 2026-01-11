@@ -17,7 +17,8 @@ _Where my research, strategy, and code intersect:_<br>
 * **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight.  <br>
 
 ### Featured GitHub Projects
-_Applied AI/ML experiments and essential advisory resources for startups._<br>
+_Applied AI/ML experiments and essential advisory resources for startups_<br>
+
 |**Project**                  |**Focus**                           |**Description**
 ---------------------------------------------------------------------------------------------------------------------------------- 
 |[AI/ML Experiments]      | Machine Learning               |Applied models for predictive analytics and organizational efficiency.
@@ -25,6 +26,7 @@ _Applied AI/ML experiments and essential advisory resources for startups._<br>
 |[Economic Indicators]    | Data Analysis                  |Visualizing macro trends and their impact on business.
 
 ### Skills & Tools
+
 - **Data & Analytics:** <br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
