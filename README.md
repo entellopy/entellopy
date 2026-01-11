@@ -7,7 +7,7 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 ### Current Work
 - I'm working on connecting with startups to provide consulting feedback and identify areas of improve.
 - Building applied AI/ML capabilities with mentor guidance, focused on real‑world projects from organizations worldwide.
-- Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresigh newsletter.
+- Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresight newsletter.
 
 ### Highlights
 - **Newsletter:** Strategic foresight and trend analysis [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
