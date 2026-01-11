@@ -1,20 +1,28 @@
 
 ## Hi, I'm Maria Elena Mejia
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
-Economist and Data Strategist with 10+ years in Analytics, now applying that expertise to organizations by helping them refine processes, validate pre‑launch strategies, and align marketing with data‑driven insights. 
-<br>Passionate about turning knowledge into innovation, resilience, and sustainable outcomes that drive measurable impact.
+**Economist & Data Strategist | Strategic Foresight & AI/ML**
+**10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
-### Current Work
-- I'm working on connecting with startups to provide consulting feedback and identify areas of improve.
-- Building applied AI/ML capabilities with mentor guidance, focused on real‑world projects from organizations worldwide.
-- Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresight newsletter.
+### The Content Ecosystem
+_Where my research, strategy, and code intersect:_
+**Patreon | The Strategy Hub:** My primary knowledge vault. Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
+**The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
+**The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making.[The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
+**Medium:** Long-form essays on organizational resilience and innovation.[My Stories](https://medium.com/@mmejiapascuales)
 
-### Highlights
-- **LinkedIn Newsletter:** Strategic foresight and trend analysis [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
-- **Amazon eBooks:** Review core pillars that shape organizational performance: Metrics, Operations, and Decisions. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
-- **Medium:** [My Stories](https://medium.com/@mmejiapascuales)
-- **Featured GitHub Projects:** Applied AI/ML experiments and essential advisory resources for startups.
-- **Insights & Recommendations:** Sharing content and recommendation decks on AI, Economics, and Organizational resilience.
+### Current Focus & Initiatives
+**Strategic Advisory:** Partnering with startups to audit pre-launch strategies and optimize operational workflows. <br>
+**Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
+**Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight.  <br>
+
+### Featured GitHub Projects
+_Applied AI/ML experiments and essential advisory resources for startups._
+|**Project**                  |**Focus**                           |**Description**
+---------------------------------------------------------------------------------------------------------------------------------- 
+|[AI/ML Experiments]      | Machine Learning               |Applied models for predictive analytics and organizational efficiency.
+|[Startup Advisory Kit]   |Strategy                        |Open-source resources and recommendation decks for early-stage founders.
+|[Economic Indicators]    | Data Analysis                  |Visualizing macro trends and their impact on business.
 
 ### Skills & Tools
 - **Data & Analytics:** <br>
