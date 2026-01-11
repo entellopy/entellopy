@@ -24,9 +24,11 @@ _Applied AI/ML experiments and essential advisory resources for startups_<br>
 |[Startup Advisory Kit]   |Strategy                        |Open-source resources and recommendation decks for early-stage founders.
 |[Economic Indicators]    | Data Analysis                  |Visualizing macro trends and their impact on business.
 
-### Skills & Tools
+### Skills
 - **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
 - **Applied Analysis:** Economic Modeling, Trend Analysis, Marketing Alignment.<br>
+
+### Tools
 - **Data & Analytics:** <br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
