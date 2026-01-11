@@ -7,17 +7,17 @@
 ### The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
 * **Patreon | The Strategy Hub:** My primary knowledge vault. Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
-**The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
-**The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making.[The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
-**Medium:** Long-form essays on organizational resilience and innovation.[My Stories](https://medium.com/@mmejiapascuales)
+* **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
+* **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making.[The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
+* **Medium:** Long-form essays on organizational resilience and innovation.[My Stories](https://medium.com/@mmejiapascuales)
 
 ### Current Focus & Initiatives
-**Strategic Advisory:** Partnering with startups to audit pre-launch strategies and optimize operational workflows. <br>
-**Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
-**Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight.  <br>
+* **Strategic Advisory:** Partnering with startups to audit pre-launch strategies and optimize operational workflows. <br>
+* **Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
+* **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight.  <br>
 
 ### Featured GitHub Projects
-_Applied AI/ML experiments and essential advisory resources for startups._
+_Applied AI/ML experiments and essential advisory resources for startups._<br>
 |**Project**                  |**Focus**                           |**Description**
 ---------------------------------------------------------------------------------------------------------------------------------- 
 |[AI/ML Experiments]      | Machine Learning               |Applied models for predictive analytics and organizational efficiency.
