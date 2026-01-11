@@ -10,7 +10,7 @@ Economist and Data Strategist with 10+ years in Analytics, now applying that exp
 - Analyzing critical trends across AI, Operations, Economics, and Talent Development through my strategic foresight newsletter.
 
 ### Highlights
-- **Newsletter:** Strategic foresight and trend analysis [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
+- **LinkedIn Newsletter:** Strategic foresight and trend analysis [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 - **Amazon eBooks:** Review core pillars that shape organizational performance: Metrics, Operations, and Decisions. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
 - **Medium:** [My Stories](https://medium.com/@mmejiapascuales)
 - **Featured GitHub Projects:** Applied AI/ML experiments and essential advisory resources for startups.
