@@ -6,7 +6,7 @@
 
 ### The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
-**Patreon | The Strategy Hub:** My primary knowledge vault. Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
+!**Patreon | The Strategy Hub:** My primary knowledge vault. Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
 **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making.[The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
 **Medium:** Long-form essays on organizational resilience and innovation.[My Stories](https://medium.com/@mmejiapascuales)
