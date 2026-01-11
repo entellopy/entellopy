@@ -6,10 +6,9 @@
 
 ### The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
-* **Patreon | The Strategy Hub:** My primary knowledge vault. Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
+* **The Strategy Hub:** Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
 * **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 * **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making.[The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
-* **Medium:** Long-form essays on organizational resilience and innovation.[My Stories](https://medium.com/@mmejiapascuales)
 
 ### Current Focus & Initiatives
 * **Strategic Advisory:** Partnering with startups to audit pre-launch strategies and optimize operational workflows. <br>
@@ -26,7 +25,8 @@ _Applied AI/ML experiments and essential advisory resources for startups_<br>
 |[Economic Indicators]    | Data Analysis                  |Visualizing macro trends and their impact on business.
 
 ### Skills & Tools
-
+- **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
+- **Applied Analysis:** Economic Modeling, Trend Analysis, Marketing Alignment.<br>
 - **Data & Analytics:** <br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
