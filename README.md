@@ -4,16 +4,17 @@
 **Economist & Data Strategist | Strategic Foresight & AI/ML** <br>
 **10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
+
 ### The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
-* **The Strategy Hub:** Exclusive access to my strategic frameworks, raw data analysis, and deep-dive advisory reports. <br>
+* **The Strategic & Execution Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
 * **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
-* **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making.[The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
+* **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
 
 ### Current Focus & Initiatives
-* **Strategic Advisory:** Partnering with startups to audit pre-launch strategies and optimize operational workflows. <br>
+* **Strategic Advisory:** Partnering with business to audit strategies and optimize workflows. <br>
 * **Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
-* **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight.  <br>
+* **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight. <br>
 
 ### Featured GitHub Projects
 _Applied AI/ML experiments and essential advisory resources for startups_<br>
