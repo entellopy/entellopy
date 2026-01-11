@@ -18,11 +18,11 @@ _Where my research, strategy, and code intersect:_<br>
 ### Featured GitHub Projects
 _Applied AI/ML experiments and essential advisory resources for startups_<br>
 
-|**Project**                  |**Focus**                           |**Description**
----------------------------------------------------------------------------------------------------------------------------------- 
-|[AI/ML Experiments]      | Machine Learning               |Applied models for predictive analytics and organizational efficiency.
-|[Startup Advisory Kit]   |Strategy                        |Open-source resources and recommendation decks for early-stage founders.
-|[Economic Indicators]    | Data Analysis                  |Visualizing macro trends and their impact on business.
+|**Project**              |**Focus**           |**Description**          |
+| :---                    | :---               |:---                      |
+|[AI/ML Experiments]      | Machine Learning   |Applied models for predictive analytics and organizational efficiency.|
+|[Startup Advisory Kit]   |Strategy            |Open-source resources and recommendation decks for early-stage founders.|
+|[Economic Indicators]    | Data Analysis      |Visualizing macro trends and their impact on business.|
 
 ### Skills
 - **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
