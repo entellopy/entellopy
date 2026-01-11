@@ -2,7 +2,7 @@
 ## Hi, I'm Maria Elena Mejia
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
 **Economist & Data Strategist | Strategic Foresight & AI/ML** <br>
-**10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
+**Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
 ### The Ecosystem
 _Where my research, strategy, and code intersect:_<br>
@@ -17,14 +17,10 @@ _Where my research, strategy, and code intersect:_<br>
 
 ### Technical Lab (GitHub)
 _This is where I build. For the strategic theory behind these builds, visit my Content Hub_<br>
-
 |**Project**              |**Focus**           |**Description**          |
 | :---                    | :---               |:---                      |
 |[AI/ML Experiments]      | Machine Learning   |Applied models for predictive analytics and organizational efficiency.|
-| :---                    | :---               |:---                      |
-|[Startup Advisory Kit]   |Strategy            |Open-source resources and recommendation decks for early-stage founders.|
-| :---                    | :---               |:---                      |
-|[Economic Indicators]    | Data Analysis      |Visualizing macro trends and their impact on business.|
+
 
 ### Skills
 - **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
