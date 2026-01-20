@@ -9,6 +9,7 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 
 #### A. Analytics & Strategy
 * **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Each case illustrates structured analysis and strategic decision‑making in action.
+* **[Management](https://github.com/entellopy/ceo-simulation-lab):** Exploration into leadership strategy. 
 
 #### B. The Content Hub 
 * **[The Strategic Lab:](https://www.patreon.com/posts/lab-directory-147782947)** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
