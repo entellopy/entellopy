@@ -1,29 +1,33 @@
 
-## Maria Elena Mejia - **Economist & Data Strategist | Strategic Foresight & AI/ML** 
+## [Maria Elena Mejia](https://www.linkedin.com/in/mariaelenamp/) - **Economist & Data Strategist | Strategic Foresight & AI/ML** 
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
-### 1. Portfolio Projects (Case Studies)
+### 1. Projects
+---
 _A collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
 * **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Each case illustrates structured analysis and strategic decision‑making in action.
 
-### 2. The Content Ecosystem
+### 2. The Content Hub
+---
 _Where my research, strategy, and code intersect:_<br>
 * **The Strategic & Execution Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
 * **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 * **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
 
+
 ### 3. Current Focus & Initiatives
+---
 * **Strategic Advisory:** Partnering with business to audit strategies and optimize workflows. <br>
 * **Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
 * **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight. <br>
 
 
-### Skills
+### 4. Skills & Tools
+---
 - **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
 - **Applied Analysis:** Economic Modeling, Trend Analysis, Marketing Alignment.<br>
 
-### Tools
 - **Data & Analytics:** <br>
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![R](https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white)
