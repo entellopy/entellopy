@@ -4,12 +4,15 @@
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
 ### 1. Portfolio Projects (case studies)
-**a) Project:** Candidate Drop-Off Analysis
-**Focus:**
-**Description:**
+**a) Project:** Candidate Drop-Off Analysis<br>
+**Focus:** <br>
+**Description:** <br>
 **Link:**
 
-
+**b) Project:** Candidate Drop-Off Analysis<br>
+**Focus:** <br>
+**Description:** <br>
+**Link:**
 
 ### The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
