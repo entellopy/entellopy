@@ -5,7 +5,7 @@ This folder contains a collection of applied business cases that bridge **econom
 ## ⚙️ How to Navigate
 - Each section groups cases by domain (**People Management**, **Startup & SMBs**, **Marketing/Growth**).  
 - Tables summarize the **project title**, **focus area**, and **description**.  
-- Detailed slide decks and code implementations are available in subfolders.  
+- Detailed slide decks are available in subfolders.  
 
 ---
 | Project | Focus | Description |
