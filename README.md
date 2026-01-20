@@ -11,9 +11,9 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 * **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Each case illustrates structured analysis and strategic decision‑making in action.
 
 ##### B. The Content Hub 
-* **The Strategic Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
-* **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
-* **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
+* **[The Strategic Lab:](https://www.patreon.com/posts/lab-directory-147782947)** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
+* **[The Trend Forecast:]((https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)** Weekly LinkedIn newsletter on AI, Operations, and Economics. <br>
+* **T[The Strategic Foundations:](https://www.amazon.com/dp/B0G545RHZB)** Amazon eBooks covering Metrics, Operations, and Decision-making. <br>
 
 
 ### 3. Current Focus & Initiatives
