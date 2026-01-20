@@ -15,13 +15,6 @@ This folder contains a collection of applied business cases that bridge **econom
 | **[Growth Analytics Dashboard](https://github.com/entellopy/entellopy/blob/main/business-cases/growth-marketing/Brand-Strategy-Review.pdf)** | Marketing Optimization | Built a data‑driven framework aligning marketing campaigns with measurable KPIs. Identified areas of improvement and provided tailored recommendations and action plan. |
 
 ---
-## Skills 
-- Strategic foresight & process refinement  
-- Economic modeling & trend analysis  
-- Machine Learning (classification, clustering, optimization)  
-- Workflow optimization & decision support  
-
----
 ## 📬 Connect
 This portfolio reflects independent work — data structuring, analysis, and recommendations fully authored by me.  
 If you’re looking for a professional that delivers clarity from complexity and measurable growth outcomes, let’s connect.
