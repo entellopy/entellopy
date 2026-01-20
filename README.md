@@ -5,10 +5,7 @@
 
 ### 1. Portfolio Projects (Case Studies)
 _This is where I build. For the strategic theory behind these builds, visit my Content Hub_<br>
-|**Project**              |**Focus**           |**Description**          |
-| :---                    | :---               |:---                     |
-|[Candidate Drop-Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/Candidate%20Drop-Off%20Analysis.pdf)  | Talent Acquisition   |AVisualized hiring funnel progression, identified critical drop‑off points, and delivered prioritized recommendations. Enhanced with ML models (classification, clustering, optimization) to predict attrition and prescribe targeted interventions.| 
-|[MVP Assessment Framework]      | Product Strategy   |Assessed Idea and MVP using Trust, Usage, and Validation Steps. Delivered structured validation criteria and recommendations to refine site version.| 
+* **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Bridge **Analytics**, **Machine Learning** and **Strategy**. Each case demonstrates how structured analysis and strategic foresight.
 
 ### 2. The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
