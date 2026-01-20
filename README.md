@@ -3,33 +3,23 @@
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
-### 1. Portfolio Projects (case studies)
-**a) Project:** Candidate Drop-Off Analysis<br>
-**Focus:** <br>
-**Description:** <br>
-**Link:**
+### 1. Portfolio Projects (Case Studies)
+_This is where I build. For the strategic theory behind these builds, visit my Content Hub_<br>
+|**Project**              |**Focus**           |**Description**          |
+| :---                    | :---               |:---                     |
+|[Candidate Drop-Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/Candidate%20Drop-Off%20Analysis.pdf)  | Machine Learning   |Applied models for predictive analytics and organizational efficiency.| 
+|[AI/ML Experiments]      | Machine Learning   |Applied models for predictive analytics and organizational efficiency.| 
 
-**b) Project:** Candidate Drop-Off Analysis<br>
-**Focus:** <br>
-**Description:** <br>
-**Link:**
-
-### The Content Ecosystem
+### 2. The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
 * **The Strategic & Execution Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
 * **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 * **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
 
-### Current Focus & Initiatives
+### 3. Current Focus & Initiatives
 * **Strategic Advisory:** Partnering with business to audit strategies and optimize workflows. <br>
 * **Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
 * **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight. <br>
-
-### Technical Lab (GitHub)
-_This is where I build. For the strategic theory behind these builds, visit my Content Hub_<br>
-|**Project**              |**Focus**           |**Description**          |
-| :---                    | :---               |:---                      |
-|[AI/ML Experiments]      | Machine Learning   |Applied models for predictive analytics and organizational efficiency.|
 
 
 ### Skills
