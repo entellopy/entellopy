@@ -4,7 +4,7 @@ This folder contains a collection of applied business cases that bridge **econom
 ---
 | Project | Focus | Description |
 |---------|-------|-------------|
-| **Candidate Drop‑Off Analysis** | Talent Acquisition | Visualized hiring funnel progression, identified critical drop‑off points, and delivered prioritized recommendations. Enhanced with ML models (classification, clustering, optimization) to predict attrition and prescribe targeted interventions. |
+| **[Candidate Drop‑Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/people-management/Case1-Opt-Hiring-Funnel.pdf)** | Talent Acquisition | Visualized hiring funnel progression, identified critical drop‑off points, and delivered prioritized recommendations. Enhanced with ML models (classification, clustering, optimization) to predict attrition and prescribe targeted interventions. |
 | **MVP Validation Framework** | Product Strategy | Assessed pre‑launch MVP performance using economic modeling and analytics. Delivered structured validation criteria, risk mapping, and recommendations to refine go‑to‑market strategy. |
 | **[Growth Analytics Dashboard](https://github.com/entellopy/entellopy/blob/main/business-cases/growth-marketing/Brand-Strategy-Review.pdf)** | Marketing Optimization | Built a data‑driven framework aligning marketing campaigns with measurable KPIs. Applied trend analysis and ML forecasting to optimize spend allocation and accelerate growth. |
 
