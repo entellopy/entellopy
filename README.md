@@ -7,8 +7,8 @@
 _This is where I build. For the strategic theory behind these builds, visit my Content Hub_<br>
 |**Project**              |**Focus**           |**Description**          |
 | :---                    | :---               |:---                     |
-|[Candidate Drop-Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/Candidate%20Drop-Off%20Analysis.pdf)  | Machine Learning   |Applied models for predictive analytics and organizational efficiency.| 
-|[AI/ML Experiments]      | Machine Learning   |Applied models for predictive analytics and organizational efficiency.| 
+|[Candidate Drop-Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/Candidate%20Drop-Off%20Analysis.pdf)  | Talent Acquisition   |AVisualized hiring funnel progression, identified critical drop‑off points, and delivered prioritized recommendations. Enhanced with ML models (classification, clustering, optimization) to predict attrition and prescribe targeted interventions.| 
+|[MVP Assessment Framework]      | Product Strategy   |Assessed Idea and MVP using Trust, Usage, and Validation Steps. Delivered structured validation criteria and recommendations to refine site version.| 
 
 ### 2. The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
