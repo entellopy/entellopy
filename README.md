@@ -5,13 +5,13 @@
 
 ### 1. Projects
 ---
-_A collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
+_Collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
+
+##### A. Analytics & Strategy
 * **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Each case illustrates structured analysis and strategic decision‑making in action.
 
-### 2. The Content Hub
----
-_Where my research, strategy, and code intersect:_<br>
-* **The Strategic & Execution Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
+##### B. The Content Hub 
+* **The Strategic Lab:** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
 * **The Trend Forecast:** Weekly LinkedIn newsletter on AI, Operations, and Economics. [The Trend Forecast](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/) <br>
 * **The Strategic Foundations:** Amazon eBooks covering Metrics, Operations, and Decision-making. [The Strategic Foundations](https://www.amazon.com/dp/B0G545RHZB)<br>
 
