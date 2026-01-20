@@ -2,6 +2,12 @@
 This folder contains a collection of applied business cases that bridge **economic logic** with **machine learning** and **analytics strategy**. Each case demonstrates how structured analysis, strategic foresight, and applied AI/ML can deliver measurable outcomes.
 
 ---
+## ⚙️ How to Navigate
+- Each section groups cases by domain (**People Management**, **Startup & SMBs**, **Marketing/Growth**).  
+- Tables summarize the **project title**, **focus area**, and **description**.  
+- Detailed slide decks and code implementations are available in subfolders.  
+
+---
 | Project | Focus | Description |
 |---------|-------|-------------|
 | **[Candidate Drop‑Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/people-management/Case1-Opt-Hiring-Funnel.pdf)** | Talent Acquisition | Visualized hiring funnel progression, identified critical drop‑off points, and delivered prioritized recommendations. Enhanced with ML models (classification, clustering, optimization) to predict attrition and prescribe targeted interventions. |
@@ -16,13 +22,7 @@ This folder contains a collection of applied business cases that bridge **econom
 - Workflow optimization & decision support  
 
 ---
-## ⚙️ How to Navigate
-- Each section groups cases by domain (**Hiring**, **MVP**, **Marketing/Growth**).  
-- Tables summarize the **project title**, **focus area**, and **description**.  
-- Detailed slide decks and code implementations are available in subfolders.  
-
----
 ## 📬 Connect
 This portfolio reflects independent work — data structuring, analysis, and recommendations fully authored by me.  
-If you’re looking for a profile that delivers clarity from complexity and measurable growth outcomes, let’s connect.
+If you’re looking for a professional that delivers clarity from complexity and measurable growth outcomes, let’s connect.
 
