@@ -4,8 +4,8 @@
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
 ### 1. Portfolio Projects (Case Studies)
-_This is where I build. For the strategic theory behind these builds, visit my Content Hub_<br>
-* **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Bridge **Analytics**, **Machine Learning** and **Strategy**. Each case demonstrates how structured analysis and strategic foresight.
+_A collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
+* **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Each case illustrates structured analysis and strategic decision‑making in action.
 
 ### 2. The Content Ecosystem
 _Where my research, strategy, and code intersect:_<br>
