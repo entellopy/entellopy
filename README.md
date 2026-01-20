@@ -4,7 +4,7 @@
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
 ### 1. Projects
----
+--
 _Collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
 
 #### A. Analytics & Strategy
@@ -14,18 +14,19 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 #### B. The Content Hub 
 * **[The Strategic Lab:](https://www.patreon.com/posts/lab-directory-147782947)** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
 * **[The Trend Forecast:](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)** Weekly LinkedIn newsletter on AI, Operations, and Economics. <br>
-* **T[The Strategic Foundations:](https://www.amazon.com/dp/B0G545RHZB)** Amazon eBooks covering Metrics, Operations, and Decision-making. <br>
+* **[The Strategic Foundations:](https://www.amazon.com/dp/B0G545RHZB)** Amazon eBooks covering Metrics, Operations, and Decision-making. <br>
+* **[The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows) Free ebook with practical workflows on how to use AI tools to simplify processes.
 
 
-### 3. Current Focus & Initiatives
----
+### 2. Current Focus & Initiatives
+--
 * **Strategic Advisory:** Partnering with business to audit strategies and optimize workflows. <br>
 * **Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
 * **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight. <br>
 
 
-### 4. Skills & Tools
----
+### 3. Skills & Tools
+--
 - **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
 - **Applied Analysis:** Economic Modeling, Trend Analysis, Marketing Alignment.<br>
 
