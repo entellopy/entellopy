@@ -18,7 +18,7 @@ Tables summarize the project title, focus area, and description. Detailed slide 
 |Business Case     | Talent Acquisition | **[Candidate Drop‑Off Analysis](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/Opt-Hiring-Funnel.pdf)** | Visualized hiring funnel progression, identified critical drop‑off points, and delivered prioritized recommendations. Enhanced with ML models (classification, clustering, optimization) to predict attrition and prescribe targeted interventions. |
 |Business Case    | Product Strategy |**[MVP Validation Framework](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/startup-smbs/Idea%26MVPValidation.pdf)** | Assessed Idea and MVP using Trust, Usage, and Validation Steps. Delivered structured validation criteria and recommendations to refine site version.| 
 |Business Case    | Marketing Optimization | **[Brand Strategy Analysis](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/growth-marketing/Brand-Strategy-Review.pdf)** | Built a data‑driven framework aligning marketing campaigns with measurable KPIs. Identified areas of improvement and provided tailored recommendations and action plan. |
-|Industry/Sector Analysis | People Management / Job Market | **[Fractional Career Talks]()** | PDF presentations covering fractional executive models, job market disruptions, and AI‑driven decision making.|
+|Industry/Sector Analysis | People Management / Job Market | **[Fractional Career Talks](https://github.com/entellopy/entellopy/tree/main/business-industry-cases/people-management/fractionalcareer-series)** | PDF presentations covering fractional executive models.|
 
 ---
 ## 📬 Connect
