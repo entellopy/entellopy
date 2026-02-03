@@ -8,15 +8,14 @@
 ---
 _Collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
 
-#### A. Analytics & Strategy
-* **[Business Cases](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Each case illustrates structured analysis and strategic decision‑making in action.
-* **[Management](https://github.com/entellopy/ceo-simulation-lab):** Exploration into leadership strategy. 
-
+#### A. Applied Strategy & Analytics
+* **[Business Cases & Industry Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Structured case studies and sector-specific deep dives. Each illustrates how analytics and strategy uncover opportunities and disruptions across industries.
+* **[Management & Leadership Strategy](https://github.com/entellopy/ceo-simulation-lab):** Explorations into organizational design, leadership, and decision-making frameworks.
 #### B. The Content Hub 
-* **[The Strategic Lab:](https://www.patreon.com/posts/lab-directory-147782947)** Exclusive access the "Pro" layer: Strategic briefings, Execution Toolkits, frameworks, deep-dive advisory reports, and the business logic behind my AI experiments. <br>
-* **[The Trend Forecast:](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)** Bi-Weekly Insights and Trends. <br>
-* **[The Strategic Foundations:](https://www.amazon.com/dp/B0G545RHZB)** Amazon eBooks covering relevant cases about Metrics, Operations, and Decision-making. <br>
-* **[The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows)** Hands-on, practical workflows on how to use AI tools to simplify processes (free eBook now).
+* **[The Strategic Lab (PRO Layer):](https://www.patreon.com/posts/lab-directory-147782947)** Strategic briefings, execution toolkits, frameworks, deep-dive advisory reports, and the business logic behind AI experiments. <br>
+* **[The Trend Forecast (Bi-Weekly Insights):](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)** Signals and foresight on global shifts, with practical applications. <br>
+* **[The Strategic Foundations (Amazon eBooks):](https://www.amazon.com/dp/B0G545RHZB)** Cases on Metrics, Operations, and Decision-making. <br>
+* **[The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows)** Hands-on workflows for simplifying processes with AI (free eBook now).
 
 
 ### 2. Current Focus & Initiatives
