@@ -1,7 +1,7 @@
 # Fractional Series – Industry & Job Market Insights
 This folder contains weekly presentations (PDFs) from the Fractional Series.  
 Each talk explores the evolving job market, fractional leadership models, and the skills required to thrive in a disrupted economy.
-
+**Join the  community:[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)**
 ---
 
 ## ⚙️ How to Navigate
@@ -31,6 +31,5 @@ Together, we are working to:
 * Help companies build stronger communities.
 
 These presentations combine applied research with collaborative insights, reflecting our shared commitment to clarity, opportunity, and measurable impact in the evolving world of work.
-If you’re interested in fractional leadership, job market disruption, or applied AI strategy, let’s connect.<br>
-**Join the  community:[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)**
+If you’re interested in fractional leadership, job market disruption, or applied AI strategy, **let's connet**.<br>
 
