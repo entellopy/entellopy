@@ -3,16 +3,11 @@ This folder contains weekly presentations (PDFs) from the Fractional Series.
 Each talk explores the evolving job market, fractional leadership models, and the skills required to thrive in a disrupted economy.
 
 #### **Join the  community:**[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)
-
 ---
-
 ## ⚙️ How to Navigate
-- Presentations are organized by week.
-- Each entry includes the theme, focus, and a short description.
-- PDFs are available inside this folder.
+- Presentations are organized by week. Each entry includes the theme, focus, and a short description.
 
 ---
-
 ## 📂 Weekly Talks Overview
 
 | Week | Date                | Theme   | Focus Area           | Description     |
