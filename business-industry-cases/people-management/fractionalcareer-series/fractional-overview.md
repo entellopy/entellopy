@@ -32,4 +32,5 @@ Together, we are working to:
 
 These presentations combine applied research with collaborative insights, reflecting our shared commitment to clarity, opportunity, and measurable impact in the evolving world of work.
 If you’re interested in fractional leadership, job market disruption, or applied AI strategy, let’s connect.
+**[Join the  community:](https://rocket.hirefreely.co/cities/de3bccad-f953490e-91e4243b107b22f8)**
 
