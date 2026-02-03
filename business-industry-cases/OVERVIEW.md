@@ -6,7 +6,7 @@ This folder contains a collection of applied business cases that bridge **econom
 * **Business Cases by Domain**
  - People Management
  - Startup & SMBs
- - Marketing/Growth <br>
+ - Marketing/Growth
 * **Industry & Sector Analysis**
  - Sector-specific disruptions, moats, and opportunities.
 
