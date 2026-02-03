@@ -5,7 +5,7 @@ Each talk explores the evolving job market, fractional leadership models, and th
 #### **Join the  community:**[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)
 ---
 ## ⚙️ How to Navigate
-- Presentations are organized by week. Each entry includes the theme, focus, and a short description.
+Presentations are organized by week. Each entry includes the theme, focus, and a short description.
 
 ---
 ## 📂 Weekly Talks Overview
