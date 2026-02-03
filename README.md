@@ -9,7 +9,7 @@
 _Collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
 
 #### A. Applied Strategy & Analytics
-* **[Business Cases & Industry Analysis](https://github.com/entellopy/entellopy/blob/main/business-cases/OVERVIEW.md)**: Structured case studies and sector-specific deep dives. Each illustrates how analytics and strategy uncover opportunities and disruptions across industries.
+* **[Business Cases & Industry Analysis](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/OVERVIEW.md)**: Structured case studies and sector-specific deep dives. Each illustrates how analytics and strategy uncover opportunities and disruptions across industries.
 * **[Management & Leadership Strategy](https://github.com/entellopy/ceo-simulation-lab):** Explorations into organizational design, leadership, and decision-making frameworks.
 #### B. The Content Hub 
 * **[The Strategic Lab (PRO Layer):](https://www.patreon.com/posts/lab-directory-147782947)** Strategic briefings, execution toolkits, frameworks, deep-dive advisory reports, and the business logic behind AI experiments. <br>
