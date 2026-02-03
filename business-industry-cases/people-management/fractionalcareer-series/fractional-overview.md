@@ -2,7 +2,7 @@
 This folder contains weekly presentations (PDFs) from the Fractional Series.  
 Each talk explores the evolving job market, fractional leadership models, and the skills required to thrive in a disrupted economy.
 
-##### **Join the  community:**[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)
+#### **Join the  community:**[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)
 
 ---
 
