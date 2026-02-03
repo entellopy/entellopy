@@ -15,7 +15,7 @@ Each talk explores the evolving job market, fractional leadership models, and th
 
 | Week | Date                | Theme   | Focus Area           | Description     |
 |------|------------------   |---------|-------------------   |-------------    |
-|  --  | Dec 23, 2026        | **[Intro](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk0_Intro-FractionalModel.pdf)**   | Job Market Evolution | The future of work is shifting and freelancing offers flexibility, independence, and resilience  |
+|  0  | Dec 23, 2026        | **[Intro](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk0_Intro-FractionalModel.pdf)**   | Job Market Evolution | The future of work is shifting and freelancing offers flexibility, independence, and resilience  |
 | 1    | Jan 8, 2026         | **[EaaS Model](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk1_ModernFreelancing.pdf)**   | Fractional Model     | Introduces the fractional executive model, its structure, and how it reshapes organizational design. |
 | 2     |  Jan 15, 2026        | **[Skills Audit](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk2_Fractional-Identity-Audit.pdf)**  | Talent & Capabilities | Outlines the critical skills needed in a fractional economy, with emphasis on adaptability and AI fluency. |
 | 3    |  Jan 22, 2026        | **[Profile](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk3_Fractional-Profile.pdf)** | Professional Identity | Explores the evolving profile of fractional professionals, including positioning, credibility, and market fit. |
@@ -31,6 +31,6 @@ Together, we are working to:
 * Help companies build stronger communities.
 
 These presentations combine applied research with collaborative insights, reflecting our shared commitment to clarity, opportunity, and measurable impact in the evolving world of work.
-If you’re interested in fractional leadership, job market disruption, or applied AI strategy, let’s connect.
+If you’re interested in fractional leadership, job market disruption, or applied AI strategy, let’s connect.<br>
 **Join the  community:[Here](https://rocket.hirefreely.co/?ref=leader-b9b42168-c7n8)**
 
