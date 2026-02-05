@@ -17,6 +17,7 @@ Presentations are organized by week. Each entry includes the theme, focus, and a
 | 2     |  Jan 15, 2026        | **[Skills Audit](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk2_Fractional-Identity-Audit.pdf)**  | Talent & Capabilities | Outlines the critical skills needed in a fractional economy, with emphasis on adaptability and AI fluency. |
 | 3    |  Jan 22, 2026        | **[Profile](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk3_Fractional-Profile.pdf)** | Professional Identity | Explores the evolving profile of fractional professionals, including positioning, credibility, and market fit. |
 | 4    | Jan 29, 2026         | **[Pricing](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk4_Pricing-Your-Expertise.pdf)** | Value & Compensation | Breaks down pricing strategies, value capture, and compensation models for fractional roles. |
+| 5    | Feb 5, 2026         | **[Professionalization](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk5_Building-Your-Fractional-Practice.pdf)** | Clear agreements, structured invoicing, and strong positioning transform fractional work from informal freelancing into trusted partnerships. |
 
 ---
 
