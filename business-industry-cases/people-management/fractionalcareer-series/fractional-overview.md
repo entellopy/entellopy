@@ -18,6 +18,7 @@ Presentations are organized by week. Each entry includes the theme, focus, and a
 | 3    |  Jan 22, 2026        | **[Profile](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk3_Fractional-Profile.pdf)** | Professional Identity | Explores the evolving profile of fractional professionals, including positioning, credibility, and market fit. |
 | 4    | Jan 29, 2026         | **[Pricing](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk4_Pricing-Your-Expertise.pdf)** | Value & Compensation | Breaks down pricing strategies, value capture, and compensation models for fractional roles. |
 | 5    | Feb 5, 2026         | **[Professionalization](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk5_Building-Your-Fractional-Practice.pdf)** |  Contracts & Compliance     | Clear agreements, structured invoicing, and strong positioning transform fractional work from informal freelancing into trusted partnerships. |
+| 6    | Feb 12, 2026         | **[Strategies](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk6_Crafting-Your-Client-Acquisition-Strategy.pdf)** |  Client Acquisition     | Discover practical strategies to strengthen client acquisition for fractional professionals. |
 
 ---
 
