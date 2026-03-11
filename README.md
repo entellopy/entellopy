@@ -22,7 +22,7 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 
 ---
 * **Applied AI/ML Lab:**
-[Interactive Training Hub]([https://your-app-url.streamlit.app](https://digital-marketing-lizw7udcvq9kqgkrysajtj.streamlit.app/) — Hands-on, interactive learning platform built with Python & Streamlit.
+[Interactive Training Hub](https://digital-marketing-lizw7udcvq9kqgkrysajtj.streamlit.app/): Hands-on, interactive learning platform built with Python & Streamlit.
 
 * **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight. <br>
 
