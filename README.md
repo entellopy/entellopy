@@ -21,8 +21,9 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 ### 2. Current Focus & Initiatives
 
 ---
-* **Strategic Advisory:** Partnering with business to audit strategies and optimize workflows. <br>
-* **Applied AI/ML Lab:** Building real-world AI capabilities (documented here on GitHub) under senior mentorship. <br>
+* **Applied AI/ML Lab:**
+[Interactive Training Hub]([https://your-app-url.streamlit.app](https://digital-marketing-lizw7udcvq9kqgkrysajtj.streamlit.app/) — Hands-on, interactive learning platform built with Python & Streamlit.
+
 * **Resilience Mapping:** Developing models to help organizations navigate economic volatility using strategic foresight. <br>
 
 
