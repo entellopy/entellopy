@@ -20,6 +20,7 @@ Presentations are organized by week. Each entry includes the theme, focus, and a
 | 5    | Feb 5, 2026         | **[Professionalization](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk5_Building-Your-Fractional-Practice.pdf)** |  Contracts & Compliance     | Clear agreements, structured invoicing, and strong positioning transform fractional work from informal freelancing into trusted partnerships. |
 | 6    | Feb 12, 2026         | **[Strategies](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk6_Crafting-Your-Client-Acquisition-Strategy.pdf)** |  Client Acquisition     | Discover practical strategies to strengthen client acquisition for fractional professionals. |
 | 7    | Feb 26, 2026         | **[Management](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/people-management/fractionalcareer-series/Wk7_Relationship_management.pdf)** |  Client Relationship     | Learn how trust and clear communication turn fractional work into lasting partnerships.|
+| 8    | mar 05, 2026         | **[Negotiation]()** |  Negotiation & Value Framing     | Sharpen your skills, frame your value, and master the art of negotiation.|
 ---
 
 ## 📬 Connect
