@@ -3,7 +3,7 @@
 An interactive Streamlit dashboard using AI/ML to predict employee attrition, surface engagement signals, and generate personalized learning recommendations.
 
 ## Live Demo
-[View on Streamlit Community Cloud](https://f4uz4csdpz6hrvxqqmzgrj.streamlit.app/)
+[HR Attrition Intelligence](https://f4uz4csdpz6hrvxqqmzgrj.streamlit.app/)
 
 ## What's Inside
 
