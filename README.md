@@ -17,6 +17,14 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 * **[The Strategic Foundations (Amazon eBooks):](https://www.amazon.com/dp/B0G545RHZB)** Cases on Metrics, Operations, and Decision-making. <br>
 * **[The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows)** Hands-on workflows for simplifying processes with AI (free eBook now).
 
+### C. The Economics Lab
+
+
+### D. The Human & AI Treaty
+_A standing agreement on how AI should serve human economic wellbeing and a public record of holding it._
+* **[The treaty]:()** 
+* **[MANIFESTO]:()** Why economics must serve people.
+* **[CHANGELOG]:()** Every time I reinstate the treaty with a new Claude version, I will log it here. Makes AI accountability visible and timestamped.
 
 ### 2. Current Focus & Initiatives
 
