@@ -1,7 +1,6 @@
 # The Manifesto of Honest Economics
 *By Maria Elena Mejia — May 13 2026*
 
---
 
 ## We Got It Wrong
 _Watch *Inside Job* and you will see it clearly._
@@ -10,7 +9,6 @@ The economists were in the room. They had the models, the data, the credentials,
 
 That is the original sin this work is trying to correct.
 
---
 
 ## What Economics Is Actually For
 The textbooks define economics as the study of how societies allocate scarce resources. That definition is not wrong — it is just dangerously incomplete.
@@ -21,7 +19,6 @@ Amartya Sen understood what was missing. He asked a different question — not "
 
 One empowered person can conquer the most ambitious dreams. That is not sentiment. That is the most undervalued asset in any economy.
 
---
 
 ## The Automation Contradiction
 We are living through a moment when this confusion is becoming dangerous.
@@ -34,7 +31,6 @@ No matter how efficient the production process becomes, if there is no one with 
 
 The question is not whether automation happens. It will. The question is whether we build the institutions, policies, and capabilities that ensure human beings remain active participants, not just in production, but in the full life an economy is supposed to make possible.
 
---
 
 ## A Different Center of Gravity
 What this work proposes is not anti-market and not anti-technology. It is something more specific:
@@ -45,7 +41,6 @@ If the answer is no, if the gains are real but narrowly held, if productivity ri
 
 Governments and organizations have more power to shape this than they often admit. The right policies do not just redistribute outcomes, they build the conditions in which people can build themselves. That is the lever worth pulling.
 
---
 
 ## Why I Am Here
 
@@ -59,6 +54,5 @@ This work: the research, the analysis, the public writing, is built on a single 
 
 We owe that to society. Not as a favor. As the entire point of the enterprise.
 
---
 
 *This manifesto is part of the [Human-AI Compact](./human-ai-compact.jpg), a public commitment to economics in service of people.*
