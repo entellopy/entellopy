@@ -15,9 +15,7 @@ The textbooks define economics as the study of how societies allocate scarce res
 
 Resources are allocated *by* people, *for* people, and *among* people. The moment you forget that, you start optimizing the wrong thing. You build models that treat a laid-off worker as a friction to be smoothed, a homeowner in foreclosure as a data point in a risk distribution, a generation of young people priced out of opportunity as an acceptable externality.
 
-Amartya Sen understood what was missing. He asked a different question — not "how much does a person have?" but "what can a person do and become?" His capability approach reframes the entire enterprise: an economy is only succeeding if it is expanding what real human beings can achieve with their lives. Material wealth changes hands, accumulates, evaporates. But an empowered person — someone with real capabilities, real choices, real dignity — that is a durable form of value that compounds in ways no balance sheet can fully capture.
-
-One empowered person can conquer the most ambitious dreams. That is not sentiment. That is the most undervalued asset in any economy.
+Amartya Sen understood what was missing. He asked a different question: not "how much does a person have?" but "what can a person do and become?" His capability approach reframes the entire enterprise: an economy is only succeeding if it is expanding what real human beings can achieve with their lives. Material wealth changes hands, accumulates, evaporates. But an empowered person, someone with real capabilities, real choices, and real dignity, that is a durable form of value that compounds in ways no balance sheet can fully capture. This person becomes in one of the most undervalued asset in any economy.
 
 
 ## The Automation Contradiction
