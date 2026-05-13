@@ -17,12 +17,12 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 * **[The Strategic Foundations (Amazon eBooks):](https://www.amazon.com/dp/B0G545RHZB)** Cases on Metrics, Operations, and Decision-making. <br>
 * **[The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows)** Hands-on workflows for simplifying processes with AI (free eBook now).
 
-### C. The Economics Lab
+#### C. The Economics Lab
 
 
-### D. The Human & AI Treaty
+#### D. The Human & AI Treaty
 _A standing agreement on how AI should serve human economic wellbeing and a public record of holding it._
-* **[The treaty]:()** 
+* **![The Commitment of Honest Economics]:(https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
 * **[MANIFESTO]:()** Why economics must serve people.
 * **[CHANGELOG]:()** Every time I reinstate the treaty with a new Claude version, I will log it here. Makes AI accountability visible and timestamped.
 
