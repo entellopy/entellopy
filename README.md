@@ -22,7 +22,7 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 
 #### D. The Human & AI Treaty
 _A standing agreement on how AI should serve human economic wellbeing and a public record of holding it._
-* **[The Commitment of Honest Economics]:(https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
+* **[The Commitment of Honest Economics:](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
 * **[MANIFESTO]:()** Why economics must serve people.
 * **[CHANGELOG]:()** Every time I reinstate the treaty with a new Claude version, I will log it here. Makes AI accountability visible and timestamped.
 
