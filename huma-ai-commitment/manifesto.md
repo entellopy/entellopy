@@ -11,9 +11,9 @@ That is the original sin this work is trying to correct.
 
 
 ## What Economics Is Actually For
-The textbooks define economics as the study of how societies allocate scarce resources. That definition is not wrong — it is just dangerously incomplete.
+The textbooks define economics as the study of how societies allocate scarce resources. That definition is not wrong, it is just dangerously incomplete.
 
-Resources are allocated *by* people, *for* people, *among* people. The moment you forget that, you start optimizing the wrong thing. You build models that treat a laid-off worker as a friction to be smoothed, a homeowner in foreclosure as a data point in a risk distribution, a generation of young people priced out of opportunity as an acceptable externality.
+Resources are allocated *by* people, *for* people, and *among* people. The moment you forget that, you start optimizing the wrong thing. You build models that treat a laid-off worker as a friction to be smoothed, a homeowner in foreclosure as a data point in a risk distribution, a generation of young people priced out of opportunity as an acceptable externality.
 
 Amartya Sen understood what was missing. He asked a different question — not "how much does a person have?" but "what can a person do and become?" His capability approach reframes the entire enterprise: an economy is only succeeding if it is expanding what real human beings can achieve with their lives. Material wealth changes hands, accumulates, evaporates. But an empowered person — someone with real capabilities, real choices, real dignity — that is a durable form of value that compounds in ways no balance sheet can fully capture.
 
