@@ -29,7 +29,7 @@ _A standing agreement on how AI should serve human economic wellbeing and a publ
 
 ---
 #### Applied AI/ML Lab:
-* **[Interactive Training Hub](https://digital-marketing-lizw7udcvq9kqgkrysajtj.streamlit.app/)**: Hands-on, interactive learning platform built with Python & Streamlit.
+* **[Interactive Training Hub](https://f4uz4csdpz6hrvxqqmzgrj.streamlit.app/)**: Hands-on, interactive learning platform built with Python & Streamlit.
 
 #### Resilience Mapping:
 * Developing models to help organizations navigate economic volatility using strategic foresight. <br>
