@@ -8,29 +8,32 @@
 ---
 _Collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
 
-#### A. Applied Strategy & Analytics
-* **[Business Cases & Industry Analysis](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/OVERVIEW.md)**: Structured case studies and sector-specific deep dives. Each illustrates how analytics and strategy uncover opportunities and disruptions across industries.
-* **[Management & Leadership Strategy](https://github.com/entellopy/management/blob/main/ceo-simulation/README.md):** Explorations into organizational design, leadership, and decision-making frameworks.
-#### B. The Content Hub 
-* **[The Strategic Lab (PRO Layer):](https://www.patreon.com/posts/lab-directory-147782947)** Strategic briefings, execution toolkits, frameworks, deep-dive advisory reports, and the business logic behind AI experiments. <br>
-* **[The Trend Forecast (Bi-Weekly Insights):](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)** Signals and foresight on global shifts, with practical applications. <br>
-* **[The Strategic Foundations (Amazon eBooks):](https://www.amazon.com/dp/B0G545RHZB)** Cases on Metrics, Operations, and Decision-making. <br>
-* **[The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows)** Hands-on workflows for simplifying processes with AI (free eBook now).
+#### 1. Applied Strategy & Analytics
+* **[1.1. Business Cases & Industry Analysis](https://github.com/entellopy/entellopy/blob/main/business-industry-cases/OVERVIEW.md)**: Structured case studies and sector-specific deep dives. Each illustrates how analytics and strategy uncover opportunities and disruptions across industries.
+* **[1.2. Management & Leadership Strategy](https://github.com/entellopy/management/blob/main/ceo-simulation/README.md):** Explorations into organizational design, leadership, and decision-making frameworks.
+#### 2. The Content Hub 
+* **[2.1. The Strategic Lab (PRO Layer):](https://www.patreon.com/posts/lab-directory-147782947)** Strategic briefings, execution toolkits, frameworks, deep-dive advisory reports, and the business logic behind AI experiments. <br>
+* **[2.2. The Trend Forecast (Bi-Weekly Insights):](https://www.linkedin.com/newsletters/the-trend-forecast-7391511619350052864/)** Signals and foresight on global shifts, with practical applications. <br>
+* **[2.3. The Strategic Foundations (Amazon eBooks):](https://www.amazon.com/dp/B0G545RHZB)** Cases on Metrics, Operations, and Decision-making. <br>
+* **[2.4. The Workflow Playbook:](https://github.com/entellopy/Hands-On-workflows)** Hands-on workflows for simplifying processes with AI (free eBook now).
 
-#### C. The Economics Lab
+#### 3. The Economics Lab
 
 
-#### D. The Human & AI Commitment
+#### 4. The Human & AI Commitment
 _A standing agreement on how AI should serve human economic wellbeing and a public record of holding it._
-* **[The Commitment of Honest Economics:](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
-* **[Manifesto](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/manifesto.md):** Why economics must serve people.
-* **[CHANGELOG:]()** Every time I reinstate the treaty with a new Claude version, I will log it here. Makes AI accountability visible and timestamped.
+* ** 4.1. Foundational Research: "The New Malthusian Mistake" (2026)** [Link to PDF]() | [Abstract/TL;DR]()
+    *Why this matters:* This paper reframes AI layoffs not as inevitable progress, but as an institutional choice, providing the economic justification for this commitment.
+
+* **[4.2. The Commitment of Honest Economics:](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
+* **[4.3. Manifesto](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/manifesto.md):** Why economics must serve people.
+* **[4.4. CHANGELOG:]()** Every time I reinstate the treaty with a new Claude version, I will log it here. Makes AI accountability visible and timestamped.
 
 
 ---
-#### Applied AI/ML Lab:
-* **[Interactive Training Hub](https://interactive-training-app-fp8pyjehmhqfxdyqtkx3ey.streamlit.app/)**: Hands-on, interactive learning platform built with Python & Streamlit.
-* **[Retention Interactive Dashboard](https://f4uz4csdpz6hrvxqqmzgrj.streamlit.app/)**
+#### 5. Applied AI/ML Lab:
+* **[5.1. Interactive Training Hub](https://interactive-training-app-fp8pyjehmhqfxdyqtkx3ey.streamlit.app/)**: Hands-on, interactive learning platform built with Python & Streamlit.
+* **[5.2. Retention Interactive Dashboard](https://f4uz4csdpz6hrvxqqmzgrj.streamlit.app/)**
 
 
 #### Resilience Mapping:
