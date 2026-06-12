@@ -22,7 +22,7 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 
 #### 4. The Human & AI Commitment
 _A standing agreement on how AI should serve human economic wellbeing and a public record of holding it._
-* **4.1. Foundational Research: "The New Malthusian Mistake" (2026)** [Link to PDF]() | [Abstract/TL;DR](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6865358)
+* **4.1. Foundational Research: "The New Malthusian Mistake" (2026)** [Link to PDF](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/%231_TheNewMalthusianMistake.pdf) | [Abstract/TL;DR](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6865358)
     *Why this matters:* This paper reframes AI layoffs not as inevitable progress, but as an institutional choice, providing the economic justification for this commitment.
 
 * **[4.2. The Commitment of Honest Economics:](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
