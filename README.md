@@ -3,7 +3,7 @@
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
 **Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
 
-### 1. Projects
+### A. Projects
 
 ---
 _Collection of work where I apply **Analytics**, **Machine Learning**, and **Strategy** to drive measurable impact._
@@ -22,7 +22,7 @@ _Collection of work where I apply **Analytics**, **Machine Learning**, and **Str
 
 #### 4. The Human & AI Commitment
 _A standing agreement on how AI should serve human economic wellbeing and a public record of holding it._
-* ** 4.1. Foundational Research: "The New Malthusian Mistake" (2026)** [Link to PDF]() | [Abstract/TL;DR]()
+* **4.1. Foundational Research: "The New Malthusian Mistake" (2026)** [Link to PDF]() | [Abstract/TL;DR](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6865358)
     *Why this matters:* This paper reframes AI layoffs not as inevitable progress, but as an institutional choice, providing the economic justification for this commitment.
 
 * **[4.2. The Commitment of Honest Economics:](https://github.com/entellopy/entellopy/blob/main/huma-ai-commitment/human-ai-compact.jpg)** An AI agreed to put people before models. We wrote it down.
@@ -40,7 +40,7 @@ _A standing agreement on how AI should serve human economic wellbeing and a publ
 * Developing models to help organizations navigate economic volatility using strategic foresight. <br>
 
 
-### 3. Skills & Tools
+### B. Skills & Tools
 
 ---
 - **Strategy:** Strategic Foresight, Process Refinement, Pre-launch Validation, Resilience Planning. <br>
