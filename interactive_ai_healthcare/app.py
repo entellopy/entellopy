@@ -33,38 +33,75 @@ DATA = {
 ('Preparar una síntesis ejecutiva responsable','Comunicar hechos, límites y próximos pasos de validación.','Prepara una síntesis ejecutiva breve con contexto, hallazgos respaldados, implicaciones posibles, limitaciones, preguntas pendientes y próximos pasos de validación. Evita lenguaje categórico cuando haya incertidumbre. No inventes cifras ni causalidad.\n\nDocumento: [PEGA DOCUMENTO FICTICIO]','Síntesis ejecutiva para revisión humana.')])
 }
 
-with st.sidebar:
-    st.header('Explora el laboratorio')
-    session = st.radio('Sesión', ['Módulo 2 — Sesión 1: prompts e interacción', 'Módulo 2 — Sesión 2: aplicación y revisión crítica'])
-    sidx = 0 if 'Sesión 1' in session else 1
-    segment = st.selectbox('Contexto profesional', list(DATA.keys()))
-    st.caption('MVP educativo: sin API, cuentas ni base de datos.')
+# Estilo visual con colores, tarjetas y jerarquía visual.
+st.markdown('''
+<style>
+:root { --navy:#103e66; --blue:#2f80ed; --teal:#078b91; --ink:#172b3a; --muted:#637582; }
+.block-container { padding-top:1.7rem; padding-bottom:3rem; max-width:1280px; }
+.hero { background:linear-gradient(125deg,#103e66 0%,#155a7d 62%,#087f8c 100%); color:white; padding:2.1rem 2rem 1.8rem; border-radius:20px; text-align:center; margin-bottom:1.2rem; box-shadow:0 12px 30px rgba(16,62,102,.16); }
+.hero-icon { font-size:2.2rem; line-height:1.2; margin-bottom:.45rem; }
+.hero h1 { color:white !important; font-size:2.15rem !important; margin:.15rem 0 .45rem !important; }
+.hero p { color:#eaf6ff; font-size:1.15rem; margin:0; }
+.step-card { border:1px solid #dce5ea; background:#fff; border-radius:15px; padding:1.1rem 1.35rem; margin:.8rem 0 1.15rem; box-shadow:0 3px 12px rgba(24,54,73,.035); }
+.step-kicker { text-transform:uppercase; font-size:.75rem; letter-spacing:.11em; font-weight:800; color:#087f8c; margin-bottom:.25rem; }
+.step-title { color:#172b3a; font-size:1.35rem; font-weight:750; margin-bottom:.35rem; }
+.step-copy { color:#60717c; font-size:1rem; margin:0; }
+.part-card { border-radius:17px; padding:1.25rem 1.3rem 1.15rem; min-height:178px; border:1px solid transparent; }
+.part-one { background:linear-gradient(135deg,#e8f4ff,#dceefa); border-color:#c8e4f7; }
+.part-two { background:linear-gradient(135deg,#e2f7f1,#d4f1e9); border-color:#bce8dc; }
+.pill { display:inline-block; border-radius:999px; padding:.28rem .75rem; font-weight:700; font-size:.86rem; margin-bottom:.75rem; }
+.pill-blue { color:#1769c2; background:#c7e4ff; }
+.pill-green { color:#087e57; background:#bfeedd; }
+.part-title { color:#172b3a; font-size:1.3rem; font-weight:800; margin:.1rem 0 .45rem; }
+.part-copy { color:#314b5b; font-size:.98rem; line-height:1.5; margin:0; }
+.part-icon { font-size:1.65rem; margin-top:.55rem; }
+.down-arrow { text-align:center; font-size:1.6rem; color:#80919b; margin:.4rem 0 .8rem; }
+.section-heading { color:#163e5d; font-size:1.25rem; font-weight:800; margin:1.3rem 0 .3rem; }
+div[data-testid="stSelectbox"] label, div[data-testid="stRadio"] label { font-weight:650; }
+.stButton>button, .stLinkButton a { border-radius:10px; }
+[data-testid="stAlert"] { border-radius:12px; }
+@media (max-width:700px) { .hero h1 {font-size:1.55rem !important;} .hero {padding:1.4rem 1rem;} }
+</style>
+<div class="hero"><div class="hero-icon">🩺</div><h1>Laboratorio de IA aplicada a salud</h1><p>Selecciona tu perfil y aprende haciendo</p></div>
+''', unsafe_allow_html=True)
 
-st.subheader(segment)
-st.write(DATA[segment][0])
-all_exercises = DATA[segment][1]
-exercises = all_exercises[sidx*2:sidx*2+2]
-title = st.selectbox('Elige un ejercicio', [e[0] for e in exercises])
+st.markdown('<div class="step-card"><div class="step-kicker">Paso 1</div><div class="step-title">Selecciona tu área de trabajo</div><p class="step-copy">Elige el contexto que mejor representa tu trabajo. Puedes explorar otras áreas cuando quieras.</p></div>', unsafe_allow_html=True)
+segment = st.selectbox('Área profesional', list(DATA.keys()), label_visibility='collapsed')
+st.caption(DATA[segment][0])
+st.markdown('<div class="down-arrow">↓</div>', unsafe_allow_html=True)
+
+c1, c2 = st.columns(2, gap='medium')
+with c1:
+    st.markdown('''<div class="part-card part-one"><span class="pill pill-blue">Parte 1 · Explorar</span><div class="part-title">Interactuar y mejorar prompts</div><p class="part-copy">Explorar asistentes, comparar instrucciones y mejorar resultados.</p><div class="part-icon">💬</div></div>''', unsafe_allow_html=True)
+with c2:
+    st.markdown('''<div class="part-card part-two"><span class="pill pill-green">Parte 2 · Aplicar</span><div class="part-title">Aplicar y verificar</div><p class="part-copy">Extraer información, resumir, comunicar y evaluar propuestas de IA.</p><div class="part-icon">☑️</div></div>''', unsafe_allow_html=True)
+
+st.markdown('<div class="down-arrow">↓</div>', unsafe_allow_html=True)
+st.markdown('<div class="step-card"><div class="step-kicker">Paso 2</div><div class="step-title">Elige por dónde quieres empezar</div><p class="step-copy">Cada parte incluye ejercicios prácticos, prompts sugeridos y una lista para revisar los resultados.</p></div>', unsafe_allow_html=True)
+part = st.radio('Parte de aprendizaje', ['Parte 1 · Interactuar y mejorar prompts', 'Parte 2 · Aplicar y verificar'], horizontal=True, label_visibility='collapsed')
+sidx = 0 if part.startswith('Parte 1') else 1
+exercises = DATA[segment][1][sidx*2:sidx*2+2]
+title = st.selectbox('Ejercicio práctico', [e[0] for e in exercises])
 e = next(x for x in exercises if x[0] == title)
 left, right = st.columns([1.15, .85], gap='large')
 with left:
-    st.markdown('### Situación y reto')
+    st.markdown('<div class="section-heading">Tu reto</div>', unsafe_allow_html=True)
     st.write(e[1])
-    st.markdown('### Prompt sugerido')
-    st.caption('Cópialo desde el bloque y reemplaza los campos entre corchetes con información ficticia.')
+    st.markdown('<div class="section-heading">Prompt sugerido</div>', unsafe_allow_html=True)
+    st.caption('Cópialo y reemplaza los campos entre corchetes con información ficticia.')
     st.code(e[2], language=None)
-    st.markdown('### Producto esperado')
+    st.markdown('<div class="section-heading">Producto esperado</div>', unsafe_allow_html=True)
     st.info(e[3])
 with right:
-    st.markdown('### Prueba con un asistente')
+    st.markdown('<div class="section-heading">Pruébalo con un asistente</div>', unsafe_allow_html=True)
     st.write('Abre una herramienta externa, pega el prompt y revisa la respuesta.')
     st.link_button('Abrir ChatGPT', 'https://chatgpt.com/')
     st.link_button('Abrir Microsoft Copilot', 'https://copilot.microsoft.com/')
-    st.markdown('### Lista de verificación')
+    st.markdown('<div class="section-heading">Verifica el resultado</div>', unsafe_allow_html=True)
     for i, q in enumerate(['¿La respuesta se basa en la información suministrada?', '¿Señala datos faltantes y límites?', '¿Distingue hechos de hipótesis?', '¿Evita inventar datos o conclusiones?', '¿Indica qué debe validar una persona responsable?']):
         st.checkbox(q, key=f'{sidx}_{segment}_{title}_{i}')
     st.text_area('Resultado (opcional; solo datos ficticios)', height=150, placeholder='Pega aquí la respuesta para discutirla. No se envía a un modelo ni se guarda en una base de datos.')
 st.divider()
-st.subheader('Preguntas de cierre')
+st.markdown('<div class="section-heading">Preguntas para cerrar</div>', unsafe_allow_html=True)
 st.markdown('- ¿Qué afirmaciones están respaldadas por la entrada?\n- ¿Qué falta o necesita validación?\n- ¿Qué decisión puede apoyar la IA y cuál sigue bajo responsabilidad humana?')
-st.caption('Laboratorio educativo. No sustituye protocolos institucionales, fuentes verificadas ni criterio profesional.')
+st.caption('Laboratorio educativo. Usa solo casos ficticios. No sustituye protocolos institucionales, fuentes verificadas ni criterio profesional.')
