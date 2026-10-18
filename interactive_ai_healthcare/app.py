@@ -80,13 +80,16 @@ st.markdown("""
     color: #3e5a6a;
 }
 
-/* Prompt code blocks: transparent background */
-div[data-testid="stCode"],
-div[data-testid="stCode"] > div,
+/* Prompt blocks: subtle light-blue background */
+div[data-testid="stCode"] {
+    background-color: #f0f6fc !important;
+    border: 1px solid #d9e6f2 !important;
+    border-radius: 12px !important;
+}
+
 div[data-testid="stCode"] pre,
 div[data-testid="stCode"] code {
-    background: rgba(255, 255, 255, 0.25) !important;
-    background-color: rgba(255, 255, 255, 0.25) !important;
+    background-color: transparent !important;
 }
 
 /* Main instruction labels */
