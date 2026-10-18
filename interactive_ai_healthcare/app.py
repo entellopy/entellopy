@@ -8,41 +8,53 @@ st.set_page_config(page_title="Casos prácticos de IA en salud", page_icon="🩺
 
 st.markdown("""
 <style>
+
 .block-container{max-width:1180px;padding-top:1.1rem;padding-bottom:3rem}
 .hero{background:linear-gradient(120deg,#e7f3ff,#e2f7ef,#fff4d8);border:1px solid #cfe2e8;border-radius:22px;padding:22px 26px;margin-bottom:14px}
-.hero h1{color:#17476b;margin:0 0 7px;font-size:2rem}.hero p{margin:0;color:#466273;font-size:1.02rem}
+.hero h1{color:#17476b;margin:0 0 7px;font-size:2rem}
+.hero p{margin:0;color:#466273;font-size:1.02rem}
 .intro{background:#f4f8fb;border-left:6px solid #2f80c9;border-radius:12px;padding:14px 17px;margin:12px 0 20px;color:#28485b}
 .sectionbox{border-radius:16px;padding:18px 20px;margin:12px 0 18px;border:1px solid}
-.blue{background:#eaf4ff;border-color:#b8d8f5}.green{background:#e8f7ef;border-color:#b9e4cc}.yellow{background:#fff7df;border-color:#f0d88a}.purple{background:#f2edff;border-color:#d6c9f7}
-.sectionbox h4{margin:0 0 7px;color:#17476b}.sectionbox p{margin:0;color:#3e5a6a}
-.prompt-card{background:#f8fafc;border:1px solid #d9e4ed;border-radius:12px;padding:12px 15px;margin:8px 0}
-.small{font-size:.9rem;color:#5c7180}
-div.stButton>button{border-radius:10px;font-weight:650;min-height:2.5rem}
-a{font-weight:600}
+.blue{background:#eaf4ff;border-color:#b8d8f5}
+.green{background:#e8f7ef;border-color:#b9e4cc}
+.yellow{background:#fff7df;border-color:#f0d88a}
+.purple{background:#f2edff;border-color:#d6c9f7}
+.sectionbox h4{margin:0 0 7px;color:#17476b}
+.sectionbox p{margin:0;color:#3e5a6a}
 
-/* Instrucciones principales: agrandar etiquetas */
+/* Prompts: fondo transparente */
+.prompt-card{
+    background:rgba(255,255,255,0.25) !important;
+    border:1px solid rgba(184,216,245,0.4);
+    border-radius:12px;
+    padding:12px 15px;
+    margin:8px 0;
+}
+
+/* Etiquetas principales */
 div[data-testid="stSelectbox"] [data-testid="stWidgetLabel"] p,
 div[data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
-    font-size: 1.3rem !important;
-    font-weight: 700 !important;
-    line-height: 1.5 !important;
+    font-size:1.3rem !important;
+    font-weight:700 !important;
+    line-height:1.5 !important;
+    color:#17476b !important;
+}
 
 /* Texto seleccionado en los dropdowns */
 div[data-baseweb="select"] * {
-    font-size: 1.15rem !important;
+    font-size:1.15rem !important;
 }
 
 /* Opciones del menú desplegable */
 div[role="listbox"] *,
 ul[role="listbox"] * {
-    font-size: 1.15rem !important;
+    font-size:1.15rem !important;
 }
 
-/* Updating prompts backgrounds */
-.blue .prompt-card{background:rgba(234,244,255,0.65)}
-.green .prompt-card{background:rgba(232,247,239,0.65)}
-.yellow .prompt-card{background:rgba(255,247,223,0.65)}
-.purple .prompt-card{background:rgba(242,237,255,0.65)}
+.small{font-size:.9rem;color:#5c7180}
+div.stButton>button{border-radius:10px;font-weight:650;min-height:2.5rem}
+a{font-weight:600}
+
 
 </style>
 """, unsafe_allow_html=True)
