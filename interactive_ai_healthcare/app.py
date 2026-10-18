@@ -1,6 +1,4 @@
-import os
 import streamlit as st
-from openai import OpenAI
 
 st.set_page_config(page_title="Laboratorio de IA aplicada a salud", page_icon="🩺", layout="wide", initial_sidebar_state="collapsed")
 
@@ -16,6 +14,7 @@ st.markdown("""
 .stitle{font-size:1.35rem;font-weight:850;color:#17476b}.sub{color:#5c7180;margin-top:3px}
 .partbox{border-radius:18px;padding:18px 20px;min-height:154px;border:2px solid transparent;margin-bottom:8px}
 .partblue{background:#e8f3ff;border-color:#b7d8fa}.partgreen{background:#e2f7ee;border-color:#b8e7d1}
+.selected-blue{outline:3px solid #2f80c9;box-shadow:0 5px 18px #2f80c922}.selected-green{outline:3px solid #138a8a;box-shadow:0 5px 18px #138a8a22}
 .parttag{display:inline-block;border-radius:99px;padding:5px 10px;font-size:.78rem;font-weight:850;margin-bottom:9px}
 .blue-tag{background:#cce5ff;color:#155d99}.green-tag{background:#c9efd9;color:#176d4b}
 .partbox h3{margin:0 0 6px;color:#17476b;font-size:1.18rem}.partbox p{margin:0;color:#3f5c6d}
@@ -78,10 +77,26 @@ case=CASES[area]
 st.caption(case["intro"])
 
 st.markdown('<div class="step"><div class="kicker">PASO 2</div><div class="stitle">Elige una ruta de aprendizaje</div><div class="sub">Ambas rutas trabajan el mismo caso mediante tres pasos conectados.</div></div>',unsafe_allow_html=True)
+if "part" not in st.session_state:
+    st.session_state.part = "PARTE 1 · EXPLORAR"
 c1,c2=st.columns(2,gap="large")
-with c1: st.markdown('<div class="partbox partblue"><span class="parttag blue-tag">PARTE 1 · EXPLORAR</span><h3>De una necesidad a un buen análisis</h3><p>Comprende el contexto, separa hechos de hipótesis y descubre oportunidades de mejora.</p></div>',unsafe_allow_html=True)
-with c2: st.markdown('<div class="partbox partgreen"><span class="parttag green-tag">PARTE 2 · APLICAR</span><h3>De los hallazgos a una mejora</h3><p>Prioriza una oportunidad y diseña cómo probarla y medirla.</p></div>',unsafe_allow_html=True)
-part=st.radio("Selecciona una parte",list(PARTS.keys()),horizontal=True,key="part",label_visibility="collapsed")
+with c1:
+    selected = st.session_state.part == "PARTE 1 · EXPLORAR"
+    cls = "partbox partblue selected-blue" if selected else "partbox partblue"
+    badge = '<span class="selection-badge">✓ SELECCIONADA</span>' if selected else ''
+    st.markdown(f'<div class="{cls}"><span class="parttag blue-tag">PARTE 1 · EXPLORAR</span>{badge}<h3>De una necesidad a un buen análisis</h3><p>Comprende el contexto, separa hechos de hipótesis y descubre oportunidades de mejora.</p></div>',unsafe_allow_html=True)
+    if st.button("Seleccionar Parte 1", key="choose_part1", use_container_width=True, type="primary" if selected else "secondary"):
+        st.session_state.part = "PARTE 1 · EXPLORAR"
+        st.rerun()
+with c2:
+    selected = st.session_state.part == "PARTE 2 · APLICAR"
+    cls = "partbox partgreen selected-green" if selected else "partbox partgreen"
+    badge = '<span class="selection-badge">✓ SELECCIONADA</span>' if selected else ''
+    st.markdown(f'<div class="{cls}"><span class="parttag green-tag">PARTE 2 · APLICAR</span>{badge}<h3>De los hallazgos a una mejora</h3><p>Prioriza una oportunidad y diseña cómo probarla y medirla.</p></div>',unsafe_allow_html=True)
+    if st.button("Seleccionar Parte 2", key="choose_part2", use_container_width=True, type="primary" if selected else "secondary"):
+        st.session_state.part = "PARTE 2 · APLICAR"
+        st.rerun()
+part=st.session_state.part
 
 st.markdown('<div class="step"><div class="kicker">CASO PRÁCTICO</div><div class="stitle">'+case["title"]+'</div></div>',unsafe_allow_html=True)
 a,b=st.columns([1.45,1],gap="large")
@@ -91,81 +106,91 @@ with st.expander("Ver los datos del caso"): st.write(case["data"])
 
 st.markdown('<div class="step"><div class="kicker">PASO 3</div><div class="stitle">Trabaja con 3 prompts conectados</div><div class="sub">La IA se ejecuta dentro de esta página. Cada paso recibe el caso y las respuestas anteriores; no tienes que copiar y pegar entre aplicaciones.</div></div>',unsafe_allow_html=True)
 
-# API key belongs to the app owner in Streamlit Secrets or environment; students do not need access to Settings.
-api_key=None
-try:
-    api_key=st.secrets.get("OPENAI_API_KEY",None)
-except Exception:
-    api_key=os.getenv("OPENAI_API_KEY")
-if not api_key: api_key=os.getenv("OPENAI_API_KEY")
-model="gpt-4.1-mini"
-try:
-    model=st.secrets.get("OPENAI_MODEL",model)
-except Exception: pass
-
-if not api_key:
-    st.error("La conexión con el modelo aún no está configurada. La persona administradora debe añadir OPENAI_API_KEY en los Secrets de Streamlit Cloud. Los estudiantes no necesitan ver ni configurar esa clave.")
-    st.code('OPENAI_API_KEY = "tu_clave_api"\nOPENAI_MODEL = "gpt-4.1-mini"',language="toml")
-    st.stop()
-
+# No API or external model required. This is a free guided simulation with curated
+# case-specific outputs. It preserves each step's output and uses it in later steps.
 chain_id=f"{area}::{part}"
-if chain_id not in st.session_state: st.session_state[chain_id]={"answers":["","",""],"done":[False,False,False]}
+if chain_id not in st.session_state:
+    st.session_state[chain_id]={"answers":["","",""],"done":[False,False,False]}
 chain=st.session_state[chain_id]
-client=OpenAI(api_key=api_key)
 
 if part.startswith("PARTE 1"):
-    st.info("Parte 1: observa cómo se construye el análisis, desde entender el problema hasta plantear una mejora medible.")
+    st.info("Parte 1: explora cómo pasar de entender un problema a identificar una oportunidad de mejora.")
 else:
-    st.success("Parte 2: lleva el mismo caso hacia una oportunidad priorizada y un piloto que pueda evaluarse.")
+    st.success("Parte 2: aplica el análisis para estructurar una prueba pequeña y medir si mejora el proceso.")
+
+# Curated model-free response templates. They are transparent examples, not live AI output.
+def make_answer(idx, case_data, prior):
+    name=area
+    data=case_data["data"]
+    if name.startswith("Atención clínica"):
+        answers=[
+            "HECHOS: persona de 52 años; dolor de rodilla de 3 días; dolor al caminar.\nDATOS FALTANTES: examen físico, antecedentes completos, medicamentos y plan.\nPREGUNTAS PARA REVISAR: evolución del dolor, limitación funcional y signos relevantes según criterio clínico. No se puede establecer un diagnóstico con la información disponible.",
+            "OPORTUNIDADES A INVESTIGAR: (1) usar una plantilla breve para ordenar notas; (2) marcar campos faltantes antes de la consulta; (3) evitar transcribir dos veces la misma información.\nVALIDAR: qué campos exige el flujo local y si la plantilla reduce retrabajo sin omitir datos importantes.",
+            "PILOTO: probar la plantilla durante una semana con un grupo pequeño de consultas.\nINDICADORES: tiempo de preparación por consulta = minutos totales / consultas; completitud = campos completos / campos requeridos × 100.\nPENDIENTE: línea base y meta. Revisar una muestra con profesionales antes de ampliar el uso."
+        ]
+    elif name.startswith("Aseguramiento"):
+        answers=[
+            "HECHOS: 132/200 tienen control registrado (66%); 68/200 no tienen control registrado (34%); HbA1c registrada: 118/200 (59%); presión arterial registrada: 145/200 (72,5%).\nLÍMITES: los grupos pueden superponerse y 54 citas pendientes no equivalen necesariamente a 54 personas únicas. Registro ausente no prueba que no hubo atención.",
+            "OPORTUNIDADES A INVESTIGAR: (1) verificar casos sin control registrado; (2) revisar oportunidad de medición de HbA1c; (3) depurar y caracterizar las citas pendientes.\nHIPÓTESIS, NO CONCLUSIONES: puede haber brechas de registro, acceso o seguimiento.\nDATOS NECESARIOS: fechas, unicidad de personas, contacto realizado y motivo de pendiente.",
+            "PILOTO: validar una lista de seguimiento de un grupo pequeño y contactar según el protocolo de la EPS.\nINDICADORES: proporción con seguimiento confirmado = personas con seguimiento validado / personas elegibles × 100; citas pendientes resueltas / citas pendientes verificadas × 100.\nDEFINIR antes de iniciar: población, línea base, meta, responsable y frecuencia. No inferir necesidades clínicas individuales."
+        ]
+    elif name.startswith("Operaciones"):
+        answers=[
+            "HECHOS: espera media 42 min; mediana 35 min; 8 de 30 citas superaron 60 min (8/30 × 100 = 26,7%).\nLÍMITES: solo hay un día de datos. No se sabe si el patrón es habitual ni qué lo explica.",
+            "HIPÓTESIS A COMPROBAR: (1) variación por especialidad; (2) concentración por franja horaria; (3) retrasos asociados a la hora de inicio o tipo de cita.\nDATOS: hora programada e inicio real, especialidad, tipo de cita y estado, recogidos durante varios días. Las hipótesis no son causas confirmadas.",
+            "PILOTO: elegir una franja o servicio tras analizar varios días y probar un ajuste operativo acotado.\nINDICADORES: espera mediana; porcentaje de citas con espera >60 min = citas >60 / citas atendidas × 100; indicador de balance: cancelaciones o sobrecarga del personal.\nPENDIENTE: línea base, meta, periodo y responsable. Comparar periodos equivalentes."
+        ]
+    elif name.startswith("Auditoría"):
+        answers=[
+            "REGISTRO A: fecha y firma visibles; evidencia disponible para ambos criterios.\nREGISTRO B: fecha visible; firma no legible, requiere revisión.\nREGISTRO C: fecha no visible y copia no legible; no es posible concluir sobre el documento original.\nLÍMITE: los criterios son ficticios y no se proporcionó normativa aplicable.",
+            "FLUJO PROPUESTO: (1) comprobar legibilidad; (2) marcar cada criterio como visible, ausente en la copia o no evaluable; (3) adjuntar evidencia; (4) escalar casos dudosos a auditoría humana.\nMEJORA: usar una matriz común para reducir criterios inconsistentes y retrabajo.",
+            "PILOTO: aplicar la matriz a una muestra definida de registros.\nINDICADORES: tiempo medio de revisión = minutos de revisión / registros revisados; concordancia = decisiones coincidentes en doble revisión / registros revisados por duplicado × 100.\nPENDIENTE: línea base y meta. Validar criterios y escalamiento con el equipo responsable antes de usarla formalmente."
+        ]
+    else:
+        answers=[
+            "HECHO: 45 de 120 participantes reportaron dificultades (45/120 × 100 = 37,5%).\nLIMITACIONES: encuesta por conveniencia; puede no representar a la población y no permite establecer causalidad.\nPREGUNTAS: ¿cómo se reclutó la muestra?, ¿qué se entiende por dificultad?, ¿hay diferencias por zona o grupo? Esos datos no se suministraron.",
+            "OPCIONES A EXPLORAR: (1) ampliar o diversificar la muestra; (2) segmentar dificultades por ubicación o tipo de servicio si hay datos; (3) mapear etapas del proceso de solicitud de citas.\nPARA VALIDAR: representatividad, definiciones, disponibilidad de datos y recursos. Los resultados actuales no demuestran la causa del problema.",
+            "SIGUIENTE PASO: revisar el instrumento de encuesta y diseñar una pequeña validación con una muestra más diversa.\nINDICADORES: tasa de respuesta = respuestas completas / personas invitadas × 100; proporción que reporta dificultad por segmento, solo si el tamaño de muestra permite interpretarlo.\nDEFINIR: responsable, método de muestreo, criterios y resguardos de privacidad antes de ejecutar."
+        ]
+    answer=answers[idx]
+    # Explicitly carry forward prior result in a compact context line to demonstrate the chain.
+    if idx > 0 and prior:
+        answer += "\n\nCONTEXTO USADO: se tomó en cuenta el resultado del paso anterior guardado en esta práctica."
+    return answer
 
 for i,(heading,instruction) in enumerate(case["steps"]):
     css=["s1","s2","s3"][i]
-    st.markdown(f'<div class="stage {css}"><div style="font-size:.76rem;font-weight:850;letter-spacing:.08em;color:#13818A">PROMPT {i+1} DE 3</div><h3>{heading}</h3><small>{["Comprender","Analizar","Probar y medir"][i]}</small></div>',unsafe_allow_html=True)
-    # The full prompt is displayed for transparency, but the model call uses the same context chain.
-    previous=""
-    if i>0 and chain["answers"][i-1]: previous=f"\n\nRESPUESTA DEL PASO {i}:\n{chain['answers'][i-1]}"
-    if i>1 and chain["answers"][0]: previous=f"\n\nRESPUESTA DEL PASO 1:\n{chain['answers'][0]}"+previous
-    full_prompt=f"Objetivo de la práctica: {case['goal']}\nÁrea profesional: {area}\nCaso ficticio: {case['case']}\nDatos disponibles: {case['data']}{previous}\n\nTarea: {instruction}\n\nReglas: responde en español, máximo 120 palabras o 5 viñetas. Usa solo la información suministrada. No inventes cifras, causas ni normas. Separa hechos de hipótesis y señala qué requiere validación humana."
-    with st.expander("Ver instrucciones de este paso",expanded=(i==0)):
-        st.code(full_prompt,language=None)
+    st.markdown(f'<div class="stage {css}"><div style="font-size:.76rem;font-weight:850;letter-spacing:.08em;color:#13818A">PASO {i+1} DE 3</div><h3>{heading}</h3><small>{["Comprender","Analizar","Probar y medir"][i]}</small></div>',unsafe_allow_html=True)
     if i>0 and not chain["answers"][i-1]:
-        st.info(f"Completa el paso {i} antes de generar el paso {i+1}; así la IA tendrá el contexto previo.")
+        st.info(f"Completa el paso {i} antes de avanzar. El resultado se incorporará al siguiente paso.")
     disabled=(i>0 and not chain["answers"][i-1].strip())
-    if st.button("Generar respuesta" if not chain["answers"][i] else "Volver a generar respuesta",key=f"generate_{i}_{area}_{part}",type="primary",use_container_width=True,disabled=disabled):
-        try:
-            with st.spinner(f"La IA está trabajando en el paso {i+1}..."):
-                response=client.chat.completions.create(
-                    model=model,
-                    messages=[
-                        {"role":"system","content":"Eres un facilitador experto en mejora de procesos de salud. Trabaja solo con casos ficticios y datos proporcionados. No des recomendaciones clínicas individuales. No inventes datos, causalidad ni normativa. Responde en español, máximo 120 palabras o 5 viñetas. Distingue hechos, hipótesis y datos faltantes. Indica qué debe validar un responsable humano."},
-                        {"role":"user","content":full_prompt},
-                    ],
-                    max_tokens=240,
-                    temperature=0.2,
-                )
-                answer=response.choices[0].message.content or "No se recibió texto en la respuesta."
-                chain["answers"][i]=answer.strip()
-                chain["done"][i]=True
-                # Invalidate downstream answers if an earlier stage is regenerated.
-                if i<2:
-                    for j in range(i+1,3): chain["answers"][j]=""; chain["done"][j]=False
-                st.session_state[chain_id]=chain
-                st.rerun()
-        except Exception as e:
-            st.error(f"No fue posible generar la respuesta. Revisa la configuración de la API y vuelve a intentar. Detalle: {str(e)[:240]}")
+    if st.button("Generar ejemplo guiado" if not chain["answers"][i] else "Volver a generar ejemplo",key=f"generate_{i}_{area}_{part}",type="primary",use_container_width=True,disabled=disabled):
+        prior="\n".join(chain["answers"][:i])
+        chain["answers"][i]=make_answer(i,case,prior)
+        chain["done"][i]=True
+        if i<2:
+            for j in range(i+1,3):
+                chain["answers"][j]=""
+                chain["done"][j]=False
+        st.session_state[chain_id]=chain
+        st.rerun()
     if chain["answers"][i]:
-        st.markdown("**Respuesta de la IA**")
+        st.markdown("**Resultado de ejemplo**")
         st.markdown(chain["answers"][i])
-        if st.button("Borrar esta respuesta y repetir desde aquí",key=f"clear_{i}_{area}_{part}"):
-            for j in range(i,3): chain["answers"][j]=""; chain["done"][j]=False
+        st.caption("Resultado guiado predefinido para practicar el flujo; no es una respuesta generada en vivo por un modelo de IA.")
+        if st.button("Borrar este paso y repetir desde aquí",key=f"clear_{i}_{area}_{part}"):
+            for j in range(i,3):
+                chain["answers"][j]=""
+                chain["done"][j]=False
             st.session_state[chain_id]=chain
             st.rerun()
 
 if all(x.strip() for x in chain["answers"]):
-    st.markdown('<div class="step" style="background:#E2F7EE;border-color:#B8E7D1"><div class="kicker" style="color:#176D4B">RESULTADO FINAL</div><div class="stitle">Ruta de mejora completada</div><div class="sub">Antes de actuar, valida la evidencia, los indicadores y los riesgos con el equipo responsable.</div></div>',unsafe_allow_html=True)
+    st.markdown('<div class="step" style="background:#E2F7EE;border-color:#B8E7D1"><div class="kicker" style="color:#176D4B">RESULTADO FINAL</div><div class="stitle">Ruta de mejora completada</div><div class="sub">Revisa evidencia, indicadores y validación humana antes de actuar.</div></div>',unsafe_allow_html=True)
     export="\n\n".join(f"PASO {i+1}: {case['steps'][i][0]}\n{answer}" for i,answer in enumerate(chain["answers"]))
     st.download_button("Descargar resultados (.txt)",data=export,file_name="laboratorio_ia_salud_resultados.txt",mime="text/plain")
     if st.button("Reiniciar esta práctica"):
-        st.session_state[chain_id]={"answers":["","",""],"done":[False,False,False]}; st.rerun()
+        st.session_state[chain_id]={"answers":["","",""],"done":[False,False,False]}
+        st.rerun()
 
 st.markdown('<div class="notice">💡 <b>Uso responsable:</b> la IA puede ayudar a organizar información, identificar oportunidades y estructurar pruebas; la validación de los datos y las decisiones siguen siendo responsabilidad del equipo.</div>',unsafe_allow_html=True)
