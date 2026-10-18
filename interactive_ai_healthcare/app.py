@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 import zipfile
 from pathlib import Path
 
@@ -21,9 +22,9 @@ a{font-weight:600}
 """, unsafe_allow_html=True)
 
 st.markdown("<div class='hero'><h1>🩺 Laboratorio de casos prácticos de IA en salud</h1><p>Practica con situaciones cercanas a tu trabajo. Cada caso incluye hasta tres prompts conectados: comprender, aplicar y verificar.</p></div>", unsafe_allow_html=True)
-st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige tu segmento y la parte de la clase. <br>2. Abre un caso y copia sus prompts en el asistente de IA que prefieras. <br>3. Sigue el orden: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones. <br>Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
+st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige tu segmento y la parte de la clase. 2. Abre un caso y copia sus prompts en el asistente de IA que prefieras. 3. Sigue el orden: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones. Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
 
-st.markdown("### Asistentes de IA")
+st.markdown("### Asistentes de IA para probar los prompts")
 links = [
     ("ChatGPT", "https://chatgpt.com/", "#eaf3ff"),
     ("Gemini", "https://gemini.google.com/", "#f2edff"),
@@ -40,10 +41,10 @@ st.caption("Usa únicamente herramientas autorizadas por tu institución. No peg
 SEGMENTS = {
 "Atención clínica y rehabilitación": {
 "Parte 1": [
- {"title":"Consulta externa: preparar una nota clínica sin inventar datos", "context":"Caso: consulta de fisioterapia por dolor de hombro. La nota inicial dice: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. No incluye examen físico, antecedentes ni evaluación funcional.", "prompts":[
-   """Actúa como asistente de documentación clínica, no como diagnosticador. Con esta nota: dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar."""Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. """No inventes examen físico, antecedentes ni diagnóstico.",
+ {"title":"Consulta externa: preparar una nota clínica sin inventar datos", "context":"Caso ficticio: consulta de fisioterapia por dolor de hombro. La nota inicial dice: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. No incluye examen físico, antecedentes ni evaluación funcional.", "prompts":[
+  "Actúa como asistente de documentación clínica, no como diagnosticador. Con esta nota ficticia: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. No inventes examen físico, antecedentes ni diagnóstico.",
   "Revisa la estructura que acabas de proponer. Separa explícitamente los datos aportados de los campos pendientes. Sugiere hasta cinco preguntas neutrales que el profesional podría considerar para completar la valoración, sin indicar tratamiento ni asumir una causa del dolor.",
-  "Convierte la estructura revisada en una plantilla breve de nota inicial para fisioterapia, con campos editables y una sección ‘por confirmar’. """Añade una lista final para que el profesional verifique exactitud, pertinencia y consentimiento antes de incorporar cualquier texto a la historia clínica."
+  "Convierte la estructura revisada en una plantilla breve de nota inicial para fisioterapia, con campos editables y una sección ‘por confirmar’. Añade una lista final para que el profesional verifique exactitud, pertinencia y consentimiento antes de incorporar cualquier texto a la historia clínica."
  ]},
  {"title":"Resumen rápido de una evolución para preparar la consulta", "context":"Caso ficticio: tres notas consecutivas describen que una persona mayor inició rehabilitación tras una caída; persiste dificultad para caminar y se menciona una recomendación de apoyo, pero las notas no precisan si se entregó el dispositivo.", "prompts":[
   "Resume este caso ficticio para preparar una consulta: ‘tras una caída inició rehabilitación; persiste dificultad para caminar; se menciona recomendación de apoyo, pero no consta si se entregó’. Devuelve máximo cinco viñetas bajo: evolución documentada, situación funcional descrita, acciones mencionadas y datos que no constan. No infieras diagnósticos.",
@@ -184,9 +185,22 @@ st.markdown("### Flujo de trabajo: máximo 3 prompts")
 st.caption("Los prompts están personalizados para el segmento y el caso elegido. Sigue el orden: cada paso usa el resultado anterior como referencia.")
 step_colors = ["blue", "purple", "yellow"]
 step_names = ["1 · Comprender y estructurar", "2 · Revisar y profundizar", "3 · Convertir en un producto útil"]
+
+def readable_prompt(prompt: str) -> str:
+    """Format prompt text for display without changing its wording."""
+    text = prompt.strip()
+    # Put each complete sentence on its own paragraph for easier reading/copying.
+    text = re.sub(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÜÑ¿¡])", "\n\n", text)
+    # Give instructions after an introductory colon their own line where helpful.
+    text = re.sub(
+        r":\s+(?=(?:Organiza|Devuelve|Entrega|Incluye|Separa|Marca|Distingue|Calcula|Conserva|No inventes|No añadas|No asumas|No propongas|Identifica|Sugiere|Prepara|Genera|Revisa|Comprueba|Enumera|Para cada|Usa solo|A partir|Con base|Transforma|Extrae|Clasifica|Redacta|Explica|Actúa|Resume|Convierte|Crea|Diseña|Propón|Mantén|Aclara|Limita|Solicita|Pide|Verifica)\b)",
+        ":\n",
+        text,
+    )
+    return text
 for i, prompt in enumerate(case["prompts"]):
     st.markdown(f"<div class='sectionbox {step_colors[i]}'><h3>{step_names[i]}</h3><p>{['Primero, delimita el contexto y organiza la información disponible.','Después, comprueba la salida y corrige supuestos o errores.','Por último, prepara un resultado utilizable y pide una verificación explícita.'][i]}</p></div>", unsafe_allow_html=True)
-    st.code(prompt, language="text")
+    st.code(readable_prompt(prompt), language="text")
     st.caption("Selecciona el texto del bloque y cópialo para pegarlo en el asistente elegido.")
     if i < 2:
         st.markdown("<p class='small'>Después de probarlo, conserva la respuesta. El siguiente prompt te ayudará a revisarla o utilizarla.</p>", unsafe_allow_html=True)
