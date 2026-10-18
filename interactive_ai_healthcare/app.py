@@ -354,12 +354,51 @@ def readable_prompt(prompt: str, width: int = 72) -> str:
             ))
         wrapped_paragraphs.append("\n".join(wrapped_lines))
     return "\n\n".join(wrapped_paragraphs)
+
+prompt_backgrounds = {
+    "blue": "#eaf4ff",
+    "purple": "#f2edff",
+    "yellow": "#fff7df",
+}
+
 for i, prompt in enumerate(case["prompts"]):
-    st.markdown(f"<div class='sectionbox {step_colors[i]}'><h4>{step_names[i]}</h4><p>{['Primero, delimita el contexto y organiza la información disponible.','Después, comprueba la salida y corrige supuestos o errores.','Por último, prepara un resultado utilizable y pide una verificación explícita.'][i]}</p></div>", unsafe_allow_html=True)
-    st.code(readable_prompt(prompt), language="text")
+    color = step_colors[i]
+    background = prompt_backgrounds[color]
+
+    st.markdown(
+        f"""
+        <div class="sectionbox {color}">
+            <h4>{step_names[i]}</h4>
+            <p>{[
+                'Primero, delimita el contexto y organiza la información disponible.',
+                'Después, comprueba la salida y corrige supuestos o errores.',
+                'Por último, prepara un resultado utilizable y pide una verificación explícita.'
+            ][i]}</p>
+            <div style="
+                background-color: {background};
+                border: 1px solid rgba(120, 150, 180, 0.25);
+                border-radius: 12px;
+                padding: 12px 15px;
+                margin-top: 12px;
+                color: #263746;
+                white-space: pre-wrap;
+                overflow-wrap: anywhere;
+                font-family: monospace;
+                font-size: 0.9rem;
+            ">{readable_prompt(prompt)}</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     st.caption("Selecciona el texto del bloque y cópialo para pegarlo en el asistente elegido.")
+
     if i < 2:
-        st.markdown("<p class='small'>Después de probarlo, conserva la respuesta. El siguiente prompt te ayudará a revisarla o utilizarla.</p>", unsafe_allow_html=True)
+        st.markdown(
+            "<p class='small'>Después de probarlo, conserva la respuesta. "
+            "El siguiente prompt te ayudará a revisarla o utilizarla.</p>",
+            unsafe_allow_html=True
+        )
 
 with st.expander("Lista rápida de verificación antes de usar un resultado"):
     st.markdown("- ¿Cada dato coincide con el caso o la fuente original?\n- ¿La IA distinguió hechos, hipótesis y datos faltantes?\n- ¿Inventó diagnósticos, citas, normas, cifras o recomendaciones?\n- ¿Se puede rastrear cada afirmación importante hasta su fuente?\n- ¿Una persona responsable revisó y aprobó el resultado antes de utilizarlo?")
