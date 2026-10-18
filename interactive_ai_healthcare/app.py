@@ -60,7 +60,7 @@ st.caption("Usa únicamente herramientas autorizadas por tu institución. No peg
 # Each prompt sequence is specific to the segment and case, and follows a connected workflow.
 SEGMENTS = {
 "Atención clínica y rehabilitación": {
-"Parte 1": [
+"Aplicación práctica y prompt engineering": [
  {"title":"Consulta externa: preparar una nota clínica sin inventar datos", "context":"Caso ficticio: consulta de fisioterapia por dolor de hombro. La nota inicial dice: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. No incluye examen físico, antecedentes ni evaluación funcional.", "prompts":[
   "Actúa como asistente de documentación clínica, no como diagnosticador. Con esta nota ficticia: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. No inventes examen físico, antecedentes ni diagnóstico.",
   "Revisa la estructura que acabas de proponer. Separa explícitamente los datos aportados de los campos pendientes. Sugiere hasta cinco preguntas neutrales que el profesional podría considerar para completar la valoración, sin indicar tratamiento ni asumir una causa del dolor.",
@@ -85,7 +85,7 @@ SEGMENTS = {
  ]}
 ]},
 "Aseguramiento y gestión del riesgo en salud (EPS)": {
-"Parte 1": [
+"Aplicación práctica y prompt engineering": [
  {"title":"Seguimiento de personas con diabetes: construir un prompt de análisis", "context":"Caso ficticio de una EPS: cohorte de 200 personas con diabetes tipo 2; 132 tienen control registrado en el trimestre y 68 no tienen control registrado. No se conocen aún las razones de los registros faltantes.", "prompts":[
   "Actúa como analista de gestión del riesgo de una EPS. Con estos datos ficticios: 200 personas con diabetes tipo 2; 132 con control registrado y 68 sin control registrado, calcula las proporciones y muestra la fórmula. Aclara que ‘sin registro’ no demuestra que no hubo atención. No atribuyas causas.",
   "Revisa los cálculos y la interpretación anterior. Comprueba que los denominadores sumen la cohorte y enumera tres explicaciones posibles para un registro faltante, etiquetándolas como hipótesis que requieren validación, no como hallazgos.",
@@ -110,7 +110,7 @@ SEGMENTS = {
  ]}
 ]},
 "Operaciones y administración de IPS": {
-"Parte 1": [
+"Aplicación práctica y prompt engineering": [
  {"title":"Quejas por espera: preparar un análisis operativo", "context":"Caso ficticio de consulta externa en una IPS: 30 citas en un día; espera media de 42 minutos; 8 citas superaron 60 minutos. No hay datos de otros días ni de especialidad o franja horaria.", "prompts":[
   "Actúa como apoyo de mejora de procesos de una IPS. Resume los datos ficticios: 30 citas, espera media 42 minutos y 8 esperas mayores de 60 minutos en un solo día. Calcula el porcentaje de citas que superaron 60 minutos y aclara qué no se puede concluir con un solo día de datos.",
   "A partir del resumen, propone hasta cuatro hipótesis operativas comprobables (por ejemplo, concentración por franja horaria), sin afirmar que sean causas. Para cada hipótesis, especifica qué variable se debería recolectar para comprobarla.",
@@ -135,7 +135,7 @@ SEGMENTS = {
  ]}
 ]},
 "Auditoría, calidad y regulación": {
-"Parte 1": [
+"Aplicación práctica y prompt engineering": [
  {"title":"Revisión documental: instruir a la IA para no inventar criterios", "context":"Caso ficticio: criterio interno del ejercicio indica que el formato debe tener fecha y firma legible. Registro A tiene fecha y firma visibles; B tiene fecha y firma ilegible; C no muestra fecha en la copia.", "prompts":[
   "Actúa como asistente de organización de evidencias para auditoría, no como autoridad regulatoria. Aplica solo el criterio ficticio del ejercicio: fecha y firma legible. Clasifica A: fecha y firma visibles; B: fecha visible y firma ilegible; C: fecha no visible en la copia. Usa estados ‘evidencia visible’, ‘no legible’ y ‘no visible en copia’; no cites normas externas.",
   "Verifica la clasificación contra cada descripción original. Distingue entre ‘no visible en esta copia’ y ‘no existe en el expediente’. Señala qué debe comprobar un auditor en la fuente antes de registrar un incumplimiento.",
@@ -160,7 +160,7 @@ SEGMENTS = {
  ]}
 ]},
 "Dirección, investigación y salud pública": {
-"Parte 1": [
+"Aplicación práctica y prompt engineering": [
  {"title":"Encuesta de acceso a citas: resumir sin generalizar", "context":"Caso ficticio: encuesta por conveniencia con 120 participantes; 45 reportaron dificultad para conseguir cita. No se conoce si la muestra representa a toda la población usuaria.", "prompts":[
   "Resume este resultado ficticio para un equipo directivo: encuesta por conveniencia, 120 participantes, 45 reportaron dificultad para conseguir cita. Calcula la proporción y aclara que no necesariamente representa a toda la población. No atribuyas causas.",
   "Revisa el resumen e identifica conclusiones que excedan la muestra o impliquen causalidad. Reescribe cada una como hallazgo limitado o pregunta pendiente de investigación.",
@@ -188,10 +188,10 @@ SEGMENTS = {
 
 # Top navigation: the two parts are parallel sections with different class themes, both case-based.
 seg = st.selectbox("1. Selecciona tu segmento profesional", list(SEGMENTS.keys()), key="segment")
-part = st.radio("2. Selecciona la parte de la clase", ["Parte 1", "Parte 2"], horizontal=True, key="part")
+part = st.radio("2. Selecciona la parte de la clase", ["Aplicación práctica y prompt engineering", "Parte 2"], horizontal=True, key="part")
 
-if part == "Parte 1":
-    st.markdown("<div class='sectionbox blue'><h3>PARTE 1 · Aplicación práctica y prompt engineering</h3><p><b>Temas de la sesión:</b> uso de ChatGPT, Copilot y otros asistentes en el entorno clínico; formulación de instrucciones claras y seguras; copilotos clínicos para redactar notas y evoluciones; resumen de historias clínicas extensas para consultas rápidas. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
+if part == "Aplicación práctica y prompt engineering":
+    st.markdown("<div class='sectionbox blue'><h4> Aplicación práctica y prompt engineering</h4><p><b>Temas de la sesión:</b> uso de ChatGPT, Copilot y otros asistentes en el entorno clínico; formulación de instrucciones claras y seguras; copilotos clínicos para redactar notas y evoluciones; resumen de historias clínicas extensas para consultas rápidas. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
 else:
     st.markdown("<div class='sectionbox green'><h3>PARTE 2 · Extraer, explicar y verificar</h3><p><b>Temas de la sesión:</b> extracción de información clave y diagnósticos ya documentados; traducción de lenguaje técnico a lenguaje sencillo; buenas prácticas y riesgos, incluidas alucinaciones, verificación de información y uso responsable. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
 
