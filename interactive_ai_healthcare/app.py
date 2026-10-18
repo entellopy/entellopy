@@ -201,10 +201,10 @@ case_titles = [c["title"] for c in cases]
 chosen_title = st.selectbox("3. Elige un caso", case_titles, key=f"case::{seg}::{part}")
 case = next(c for c in cases if c["title"] == chosen_title)
 st.markdown(f"<div class='sectionbox yellow'><h3>Situación del caso</h3><p>{case['context']}</p></div>", unsafe_allow_html=True)
-st.markdown("### Flujo de trabajo: máximo 3 prompts")
+st.markdown("### Flujo de Prompts")
 st.caption("Los prompts están personalizados para el segmento y el caso elegido. Sigue el orden: cada paso usa el resultado anterior como referencia.")
 step_colors = ["blue", "purple", "yellow"]
-step_names = ["1 · Comprender y estructurar", "2 · Revisar y profundizar", "3 · Convertir en un producto útil"]
+step_names = ["Prompt 1 · Comprender y estructurar", "Prompt 2 · Revisar y profundizar", "Prompt 3 · Convertir en un producto útil"]
 
 def readable_prompt(prompt: str, width: int = 72) -> str:
     """Break every prompt into readable lines while preserving its wording."""
