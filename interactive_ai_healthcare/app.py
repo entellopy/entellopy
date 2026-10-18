@@ -153,7 +153,7 @@ a {
 """, unsafe_allow_html=True)
 
 st.markdown("<div class='hero'><h1>🩺 Laboratorio de casos prácticos de IA en salud</h1><p>Practica con situaciones cercanas a tu trabajo. Cada caso incluye hasta tres prompts conectados: comprender, aplicar y verificar.</p></div>", unsafe_allow_html=True)
-st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige tu segmento y la parte de la clase.<br> 2. Abre un caso y copia sus prompts en el asistente de IA que prefieras.<br> 3. Sigue el orden: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones.<br> Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
+st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige el segmento de tu interes.<br> 2. Abre un caso y copia sus prompts en el asistente de IA que prefieras.<br> 3. Sigue el orden de los prompts: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones.<br> Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
 
 st.markdown("### Asistentes de IA para probar los prompts")
 links = [
@@ -298,7 +298,7 @@ SEGMENTS = {
 }
 
 # Top navigation: the two parts are parallel sections with different class themes, both case-based.
-seg = st.selectbox("1. Selecciona tu segmento profesional", list(SEGMENTS.keys()), key="segment")
+seg = st.selectbox("1. Selecciona un segmento", list(SEGMENTS.keys()), key="segment")
 part = st.radio("2. Selecciona la parte de la clase", ["Aplicación práctica y prompt engineering", "Extraer, explicar y verificar"], horizontal=True, key="part")
 
 if part == "Aplicación práctica y prompt engineering":
