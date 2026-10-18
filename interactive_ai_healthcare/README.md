@@ -1,38 +1,25 @@
 # Laboratorio de IA aplicada a salud
 
-Aplicación educativa de Streamlit para practicar cómo usar IA en la mejora de procesos en cinco áreas de salud.
+Aplicación educativa de Streamlit con rutas visuales y casos ficticios para practicar mejora de procesos en salud.
 
-## Funcionalidad
-- Interfaz con tarjetas de color, selector destacado e ilustración médica clara.
-- Cinco áreas profesionales con casos ficticios completos.
-- Dos rutas visuales: Parte 1 — Explorar y Parte 2 — Aplicar.
-- Tres prompts conectados: comprender el problema, analizar oportunidades y diseñar una mejora medible.
-- La respuesta del paso anterior se incorpora al siguiente prompt automáticamente.
-- Respuestas acotadas con instrucciones de máximo 120 palabras/5 viñetas y límite de tokens.
-- La API se configura una sola vez por la persona propietaria en Streamlit Secrets; los estudiantes no necesitan acceder a la configuración.
+## Características
+- Cinco áreas profesionales con casos y datos ficticios.
+- Dos rutas seleccionables en tarjetas de colores; la opción activa muestra una marca de selección.
+- Tres pasos encadenados por caso: comprender, identificar oportunidades y diseñar una mejora medible.
+- Sin API, sin claves, sin pagos y sin cuentas de IA para ejecutar la aplicación.
+- Resultados guiados predefinidos y descargables.
+
+## Importante sobre el modo gratuito
+Esta versión NO llama a un modelo de IA. Para que los estudiantes puedan generar respuestas libres de un modelo dentro de Streamlit se necesitaría alojar un modelo propio o utilizar un servicio de inferencia externo; no existe una API de LLM gratuita, ilimitada y garantizada para una aplicación pública. Para evitar costos, este MVP usa respuestas guiadas predefinidas que muestran cómo se encadenan los pasos.
 
 ## Ejecutar localmente
-Python 3.10+:
-
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Configure una variable de entorno `OPENAI_API_KEY` o cree `.streamlit/secrets.toml` localmente:
+## Desplegar en Streamlit Community Cloud
+Sube `app.py`, `requirements.txt`, `README.md`, `.gitignore` y `.streamlit/config.toml` a GitHub. En https://share.streamlit.io/ selecciona el repositorio, la rama `main` y `app.py`. No se requieren Secrets.
 
-```toml
-OPENAI_API_KEY = "tu_clave_api"
-OPENAI_MODEL = "gpt-4.1-mini"
-```
-
-No suba `secrets.toml` ni claves a GitHub.
-
-## Publicar en Streamlit Community Cloud
-1. Sube `app.py`, `requirements.txt`, `README.md`, `.gitignore` y `.streamlit/config.toml` a GitHub.
-2. Despliega desde https://share.streamlit.io/ seleccionando el repositorio, la rama `main` y `app.py`.
-3. En la configuración de la app, la persona propietaria agrega `OPENAI_API_KEY` y opcionalmente `OPENAI_MODEL` en **Settings → Secrets**. Esto es una configuración del despliegue, no de cada estudiante.
-4. Reinicia/redeploy la app. Los estudiantes podrán usar el modelo en la página sin ver la clave.
-
-## Privacidad y límites
-Usar solo casos ficticios; no introducir historias clínicas reales ni datos personales. Las respuestas se conservan en la sesión de Streamlit mientras dure la sesión y no se guardan en una base de datos. El proveedor de IA recibe el prompt y los datos ficticios enviados. El límite de palabras es una instrucción más un límite de tokens, no una garantía exacta. La IA puede equivocarse; valida todo resultado.
+## Privacidad
+Usa únicamente los casos ficticios. No introduzcas historias clínicas reales ni datos personales.
