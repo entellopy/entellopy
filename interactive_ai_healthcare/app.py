@@ -29,12 +29,12 @@ div[data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
 
 /* Texto dentro de los dropdowns */
 div[data-testid="stSelectbox"] div[data-baseweb="select"] {
-    font-size: 1.1rem !important;
+    font-size: 1.5rem !important;
 }
 
 /* Opciones que aparecen al abrir el dropdown */
 div[data-testid="stSelectbox"] ul li {
-    font-size: 1.1rem !important;
+    font-size: 1.5rem !important;
 }
 
 </style>
