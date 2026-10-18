@@ -80,10 +80,11 @@ st.markdown("""
     color: #3e5a6a;
 }
 
-/* Prompt blocks: subtle light-blue background */
+
+/* Default prompt background */
 div[data-testid="stCode"] {
-    background-color: #f0f6fc !important;
-    border: 1px solid #d9e6f2 !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #d9e4ed !important;
     border-radius: 12px !important;
 }
 
@@ -91,6 +92,23 @@ div[data-testid="stCode"] pre,
 div[data-testid="stCode"] code {
     background-color: transparent !important;
 }
+
+/* Match each prompt to its preceding title color */
+div[data-testid="stVerticalBlockBorderWrapper"]:has(.blue)
+    + div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stCode"] {
+    background-color: #eaf4ff !important;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:has(.purple)
+    + div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stCode"] {
+    background-color: #f2edff !important;
+}
+
+div[data-testid="stVerticalBlockBorderWrapper"]:has(.yellow)
+    + div[data-testid="stVerticalBlockBorderWrapper"] div[data-testid="stCode"] {
+    background-color: #fff7df !important;
+}
+
 
 /* Main instruction labels */
 div[data-testid="stSelectbox"] [data-testid="stWidgetLabel"] p,
