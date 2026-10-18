@@ -1,160 +1,171 @@
+import os
 import streamlit as st
+from openai import OpenAI
 
-st.set_page_config(page_title="Laboratorio de IA aplicada a salud", page_icon="🩺", layout="wide")
-
-# Workflows with a clear goal: diagnose a process, find improvement opportunities, and design a measurable pilot.
-WORKFLOWS = {
-    "Atención clínica y rehabilitación": {
-        "description": "Mejorar la continuidad y la calidad del registro clínico sin automatizar decisiones clínicas.",
-        "case": "En una consulta externa ficticia, una revisión de 30 notas encontró que 12 no dejaban claro el plan de seguimiento y 8 no documentaban de forma explícita las señales de alarma discutidas. La revisión no determinó si la información se comunicó verbalmente.",
-        "goal": "Mejorar la integridad y claridad de las notas de evolución y del plan de seguimiento.",
-        "data": "30 notas revisadas; 12 sin plan de seguimiento claramente documentado; 8 sin señales de alarma explícitas en la nota. Los grupos pueden solaparse. No se sabe si la información se comunicó verbalmente.",
-        "stage1": "Actúa como analista de mejora de procesos clínicos. Usa solo este caso ficticio: {case}\nResume el problema en máximo 5 viñetas. Separa hechos, incertidumbres y datos faltantes. No infieras que algo no ocurrió solo porque no está documentado. No propongas todavía soluciones.",
-        "stage2": "A partir del caso y del diagnóstico siguiente, identifica hasta 3 oportunidades de mejora del proceso de documentación: {previous}\nPara cada una indica evidencia, hipótesis por validar, dato adicional necesario y riesgo de una interpretación equivocada. No recomiendes diagnósticos ni tratamientos. Máximo 5 viñetas.",
-        "stage3": "Usa el caso y el análisis previos para proponer un piloto pequeño que mejore la claridad de las notas y el seguimiento: caso={case}; diagnóstico y oportunidades={previous}\nIncluye: cambio de proceso, responsable funcional, indicador con fórmula, forma de muestreo y salvaguarda de revisión humana. No inventes metas ni prometas resultados. Máximo 120 palabras.",
-    },
-    "Aseguramiento y gestión del riesgo en salud (EPS)": {
-        "description": "Detectar brechas de seguimiento poblacional y convertirlas en acciones medibles para validación.",
-        "case": "Una EPS ficticia revisa 200 personas con diabetes tipo 2: 132 tienen un control registrado en el trimestre; 68 no tienen control registrado; 118 tienen HbA1c registrada en los últimos seis meses; 145 tienen presión arterial registrada en el trimestre. Se reportan 54 citas pendientes, pero falta confirmar si son personas únicas.",
-        "goal": "Priorizar una brecha de seguimiento y diseñar una acción piloto con indicadores.",
-        "data": "Población: 200; control registrado: 132; sin control registrado: 68; HbA1c registrada: 118; presión arterial registrada: 145; citas pendientes reportadas: 54. La falta de registro no demuestra ausencia de atención.",
-        "stage1": "Actúa como analista de gestión del riesgo en salud. Analiza este caso ficticio: {case}\nResume máximo 5 hallazgos cuantitativos, muestra las fórmulas cuando calcules porcentajes y separa hechos de incertidumbres. No infieras causalidad ni equipares ausencia de registro con ausencia de atención. Señala los datos que deben validarse.",
-        "stage2": "A partir del caso y de este diagnóstico: {previous}\nIdentifica hasta 3 oportunidades para mejorar el seguimiento de la población. Para cada una incluye evidencia, hipótesis por validar, información adicional necesaria y posible indicador. No recomiendes tratamientos individuales ni inventes metas. Máximo 5 viñetas.",
-        "stage3": "Con base en el caso y el análisis: caso={case}; diagnóstico y oportunidades={previous}\nDiseña un piloto de mejora para discusión de la EPS. Incluye población objetivo, acción de proceso, responsable funcional, indicador con numerador/denominador, frecuencia de seguimiento y controles de calidad del dato. Distingue propuesta de decisión aprobada. Máximo 120 palabras.",
-    },
-    "Operaciones y administración de IPS": {
-        "description": "Investigar demoras operativas y definir una prueba de mejora basada en medición.",
-        "case": "En consulta externa de una IPS ficticia, durante un día se observaron 30 citas: la espera media fue de 42 minutos, la mediana de 35 minutos y 8 citas superaron los 60 minutos. No hay datos de otros días, especialidades ni causas de retraso.",
-        "goal": "Identificar qué medir primero y diseñar un piloto operativo que pueda evaluarse.",
-        "data": "30 citas de un solo día; espera media 42 minutos; mediana 35 minutos; 8 de 30 superaron 60 minutos. No hay segmentación ni causas registradas.",
-        "stage1": "Actúa como analista de procesos de una IPS. Revisa este caso ficticio: {case}\nResume qué sabemos, qué no sabemos y qué no podemos concluir. Calcula el porcentaje de citas con espera superior a 60 minutos mostrando la fórmula. Máximo 5 viñetas. No inventes causas.",
-        "stage2": "A partir del caso y este diagnóstico: {previous}\nPropón hasta 3 hipótesis comprobables sobre las demoras. Para cada hipótesis indica qué datos se necesitan, cómo segmentarlos y qué resultado la apoyaría o debilitaría. No presentes hipótesis como causas confirmadas. Máximo 5 viñetas.",
-        "stage3": "Usa el caso y el análisis: caso={case}; diagnóstico y oportunidades={previous}\nDiseña un piloto de mejora operativo de bajo riesgo. Incluye proceso a probar, responsable funcional, indicador principal con fórmula, indicador de balance para evitar efectos negativos, periodo de medición y criterios de revisión. No inventes metas. Máximo 120 palabras.",
-    },
-    "Auditoría, calidad y regulación": {
-        "description": "Convertir hallazgos documentales en una revisión trazable y un plan de mejora verificable.",
-        "case": "En una auditoría ficticia de 40 registros, 10 no muestran fecha de revisión en la copia disponible y 6 tienen una firma ilegible. No se ha revisado si existen documentos complementarios ni se ha definido aquí una norma aplicable.",
-        "goal": "Distinguir hallazgos documentales de incumplimientos confirmados y mejorar la trazabilidad.",
-        "data": "40 registros revisados; 10 sin fecha visible en la copia; 6 con firma ilegible. Puede haber solapamiento. No se suministró normativa ni se revisaron anexos.",
-        "stage1": "Actúa como asistente de análisis para auditoría y calidad. Examina este caso ficticio: {case}\nOrganiza los hallazgos observables, las limitaciones de la evidencia y los documentos o criterios que faltan. No cites normas no suministradas ni conviertas automáticamente falta de evidencia en incumplimiento. Máximo 5 viñetas.",
-        "stage2": "Con base en el caso y el diagnóstico: {previous}\nPropón hasta 3 oportunidades para mejorar la trazabilidad documental. Para cada una indica evidencia, posible causa por validar, información necesaria y criterio que debe confirmar el auditor. No emitas un dictamen de cumplimiento. Máximo 5 viñetas.",
-        "stage3": "Usa el caso y el análisis: caso={case}; diagnóstico y oportunidades={previous}\nDiseña un piloto para mejorar la revisión documental. Incluye cambio de proceso, responsable funcional, indicador con fórmula, muestreo y paso de validación humana. No inventes obligaciones legales ni metas. Máximo 120 palabras.",
-    },
-    "Dirección, investigación y salud pública": {
-        "description": "Transformar evidencia limitada en preguntas de decisión y opciones de mejora con cautelas explícitas.",
-        "case": "Una encuesta ficticia por conveniencia a 120 personas encontró que 45 reportaron dificultades para conseguir una cita. No es una muestra representativa y no permite concluir que el resultado describa a toda la población ni establecer causas.",
-        "goal": "Definir qué información adicional se necesita antes de priorizar una intervención institucional.",
-        "data": "Encuesta ficticia por conveniencia; 120 participantes; 45 reportaron dificultades para conseguir cita. El muestreo limita la generalización y no permite inferir causalidad.",
-        "stage1": "Actúa como analista de investigación y salud pública. Analiza este caso ficticio: {case}\nResume el hallazgo cuantitativo, qué significa y qué no permite afirmar. Muestra el cálculo del porcentaje y señala las limitaciones del muestreo. Máximo 5 viñetas; no agregues datos externos.",
-        "stage2": "A partir del caso y del diagnóstico: {previous}\nIdentifica hasta 3 preguntas prioritarias para comprender el problema y orientar una decisión institucional. Para cada pregunta explica qué dato recoger, de quién y cómo ayudaría a decidir. No asumas causas ni generalices más allá de la muestra. Máximo 5 viñetas.",
-        "stage3": "Usa el caso y el análisis: caso={case}; diagnóstico y oportunidades={previous}\nPropón un siguiente paso de mejora o aprendizaje institucional que sea proporcional a la evidencia disponible. Incluye acción, población a consultar, indicador, método de seguimiento y limitaciones que se comunicarán a dirección. No presentes la propuesta como una conclusión definitiva. Máximo 120 palabras.",
-    },
-}
+st.set_page_config(page_title="Laboratorio de IA aplicada a salud", page_icon="🩺", layout="wide", initial_sidebar_state="collapsed")
 
 st.markdown("""
 <style>
-:root {--navy:#103e66;--teal:#087f8c;--ink:#172b3a;}
-.block-container{padding-top:1.3rem;padding-bottom:3rem;max-width:1280px}
-.hero{background:linear-gradient(125deg,#103e66 0%,#155a7d 60%,#078b91 100%);color:#fff;padding:1.8rem 1.5rem;border-radius:20px;text-align:center;margin-bottom:1rem;box-shadow:0 10px 28px #103e6620}
-.hero h1{color:#fff!important;font-size:2.05rem!important;margin:.15rem 0 .4rem!important}.hero p{color:#eaf6ff;font-size:1.1rem;margin:0}
-.step-card{border:1px solid #dce5ea;background:#fff;border-radius:15px;padding:1rem 1.2rem;margin:.65rem 0 .7rem;box-shadow:0 3px 12px #18364909}
-.step-kicker{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:#087f8c}.step-title{font-size:1.3rem;font-weight:800;color:#172b3a}.step-copy{color:#60717c;margin:.2rem 0 0}
-div[data-testid="stSelectbox"] div[data-baseweb="select"]>div{background:#eaf5ff;border:2px solid #4b9ce8;border-radius:12px;min-height:3.35rem;font-size:1.08rem;font-weight:700}
-div[data-testid="stSelectbox"] label{font-size:1rem;font-weight:800;color:#164e82}
-div[data-testid="stRadio"]>label{font-size:1.02rem;font-weight:800;color:#172b3a}
-div[role="radiogroup"]{gap:1rem;width:100%}
-div[role="radiogroup"] label{background:#e8f4ff;border:2px solid #b9dafa;border-radius:16px;padding:1rem 1.1rem;min-height:74px;font-weight:800!important;flex:1}
-div[role="radiogroup"] label:has(input:checked){background:#d5edff;border-color:#2f80ed;color:#164e82}
-div[role="radiogroup"] label p{font-size:1.03rem!important}
-.stCode pre{white-space:pre-wrap}.stButton>button,.stLinkButton a{border-radius:10px;font-weight:650}
-@media(max-width:700px){.hero h1{font-size:1.55rem!important}.hero{padding:1.35rem .8rem}div[role="radiogroup"]{flex-direction:column}}
+.block-container{max-width:1180px;padding-top:1.25rem;padding-bottom:3rem}
+.hero{background:linear-gradient(120deg,#E5F4FF 0%,#E1F7F0 58%,#FFF3D5 100%);border:1px solid #C7E3E7;border-radius:24px;padding:25px 30px;display:flex;gap:22px;align-items:center;box-shadow:0 8px 22px #244e6410}
+.hero h1{color:#17476B;font-size:clamp(1.7rem,3vw,2.5rem);margin:0 0 7px}.hero p{color:#416173;font-size:1.05rem;margin:0}
+.med-icon{width:104px;height:104px;flex:0 0 104px;border-radius:24px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 15px #244e6412}
+.notice{background:#FFF6D9;border-left:6px solid #E6B33F;border-radius:10px;padding:13px 16px;color:#624C19;margin:14px 0 22px}
+.step{border-radius:17px;padding:16px 20px;margin:17px 0 10px;border:1px solid #d9e8ed;background:#f7fbfd}
+.kicker{font-size:.76rem;letter-spacing:.1em;font-weight:850;text-transform:uppercase;color:#12818a;margin-bottom:4px}
+.stitle{font-size:1.35rem;font-weight:850;color:#17476b}.sub{color:#5c7180;margin-top:3px}
+.partbox{border-radius:18px;padding:18px 20px;min-height:154px;border:2px solid transparent;margin-bottom:8px}
+.partblue{background:#e8f3ff;border-color:#b7d8fa}.partgreen{background:#e2f7ee;border-color:#b8e7d1}
+.parttag{display:inline-block;border-radius:99px;padding:5px 10px;font-size:.78rem;font-weight:850;margin-bottom:9px}
+.blue-tag{background:#cce5ff;color:#155d99}.green-tag{background:#c9efd9;color:#176d4b}
+.partbox h3{margin:0 0 6px;color:#17476b;font-size:1.18rem}.partbox p{margin:0;color:#3f5c6d}
+div[data-testid="stSelectbox"] label{font-weight:850!important;color:#17476b!important;font-size:1.03rem!important}
+div[data-testid="stSelectbox"] div[data-baseweb="select"]>div{min-height:3.5rem;background:#eaf5ff;border:2px solid #58a5d8;border-radius:13px;font-size:1.08rem;font-weight:700}
+div[data-testid="stRadio"]>label{font-weight:850;color:#17476b;font-size:1.02rem}
+div[role="radiogroup"]{gap:12px;width:100%}
+div[role="radiogroup"] label{flex:1;background:#e8f3ff;border:2px solid #b7d8fa;border-radius:15px;padding:13px 15px;min-height:62px;font-weight:800}
+div[role="radiogroup"] label:has(input:checked){background:#d1eaff;border-color:#2f80c9;color:#164e82}
+div[role="radiogroup"] label p{font-size:1.02rem!important}
+.casebox{background:#f5faff;border:1px solid #cfe4f6;border-left:6px solid #2f80c9;border-radius:15px;padding:17px 19px}
+.goalbox{background:#fff8e5;border:1px solid #f2dda0;border-left:6px solid #e6b33f;border-radius:15px;padding:17px 19px;height:100%}
+.stage{border-radius:15px;padding:14px 17px;margin:8px 0;border:1px solid #d7e5ec}
+.s1{background:#f2f8ff;border-left:6px solid #2f80c9}.s2{background:#effaf5;border-left:6px solid #138a8a}.s3{background:#fff9e9;border-left:6px solid #e6b33f}
+.stage h3{margin:0;color:#17476b;font-size:1.08rem}.stage small{color:#5c7180}
+div.stButton>button{border-radius:11px;font-weight:750;min-height:2.7rem}
+@media(max-width:700px){.hero{padding:18px;gap:13px}.med-icon{width:72px;height:72px;flex-basis:72px}.med-icon svg{width:62px;height:62px}.hero h1{font-size:1.55rem}}
 </style>
-<div class="hero"><div style="font-size:2rem">🩺</div><h1>Laboratorio de IA aplicada a salud</h1><p>Selecciona tu perfil y aprende haciendo</p></div>
 """, unsafe_allow_html=True)
 
-st.warning("⚠️ Usa solo los casos ficticios de esta aplicación. No pegues historias clínicas reales ni datos personales o sensibles. Las respuestas de IA requieren revisión humana.")
+medical_svg="""<svg viewBox="0 0 100 100" width="88" height="88" aria-label="Ilustración médica"><circle cx="50" cy="50" r="47" fill="#EAF5FF"/><path d="M29 18v23c0 11 7 18 17 18s17-7 17-18V18" fill="none" stroke="#2F80C9" stroke-width="5.5" stroke-linecap="round"/><path d="M23 18h12M57 18h12" stroke="#2F80C9" stroke-width="5.5" stroke-linecap="round"/><circle cx="29" cy="17" r="6" fill="#F07D62"/><circle cx="63" cy="17" r="6" fill="#F07D62"/><path d="M46 59v8c0 10 7 16 16 16h4" fill="none" stroke="#138A8A" stroke-width="5.5" stroke-linecap="round"/><circle cx="75" cy="83" r="9" fill="#fff" stroke="#138A8A" stroke-width="5"/><path d="M46 38h13M52.5 31.5v13" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>"""
+st.markdown(f'<div class="hero"><div class="med-icon">{medical_svg}</div><div><h1>Laboratorio de IA aplicada a salud</h1><p>Explora un caso, trabaja con IA y convierte los resultados en oportunidades de mejora.</p></div></div>',unsafe_allow_html=True)
+st.markdown('<div class="notice">⚠️ <b>Privacidad y uso responsable:</b> trabaja únicamente con los casos ficticios de esta aplicación. No ingreses historias clínicas reales ni datos personales. Revisa críticamente cada resultado de IA.</div>',unsafe_allow_html=True)
 
-st.markdown('<div class="step-card"><div class="step-kicker">Paso 1</div><div class="step-title">Selecciona tu área de trabajo</div><p class="step-copy">Elige el contexto que mejor representa tu trabajo.</p></div>', unsafe_allow_html=True)
-segment = st.selectbox("Área profesional", list(WORKFLOWS.keys()), label_visibility="visible")
-flow = WORKFLOWS[segment]
-st.caption(flow["description"])
+CASES={
+"Atención clínica y rehabilitación":{
+"intro":"Documentación clínica, síntesis de información y comunicación clara.","title":"Preparar mejor una consulta","goal":"Organizar información sin perder detalles ni automatizar decisiones clínicas.","case":"En una consulta externa ficticia, una persona de 52 años consulta por dolor de rodilla de 3 días y refiere dolor al caminar. No se aportan examen físico, antecedentes completos ni plan.","data":"Persona de 52 años; dolor de rodilla desde hace 3 días; dolor al caminar. Examen físico, antecedentes completos y plan: no informados.","steps":[
+("Comprender la situación","Resume los hechos explícitos, los datos faltantes y las preguntas que el profesional debe revisar antes de la consulta. No diagnostiques ni recomiendes tratamientos."),
+("Encontrar una oportunidad","Usa el caso y el análisis anterior. Propón hasta 3 mejoras del proceso de preparación de la consulta. Para cada una indica evidencia, qué debe confirmarse y cómo evitar duplicar trabajo."),
+("Diseñar una prueba","Usa el caso y las respuestas anteriores. Diseña un piloto de una semana para probar la mejora más viable. Incluye pasos, responsable funcional, indicador con fórmula y validación humana. No inventes metas ni línea base.")],"deliverable":"Flujo de preparación + piloto e indicador."},
+"Aseguramiento y gestión del riesgo en salud (EPS)":{
+"intro":"Seguimiento poblacional, continuidad de atención e indicadores de programas de riesgo.","title":"Encontrar brechas en el seguimiento de diabetes","goal":"Detectar oportunidades que una EPS pueda investigar y medir.","case":"Una EPS ficticia revisa el seguimiento trimestral de 200 personas con diabetes tipo 2. Existen registros de control, HbA1c, presión arterial y citas pendientes, pero no se conocen las causas de los registros faltantes.","data":"Población: 200; control registrado en el trimestre: 132; sin control registrado: 68; HbA1c registrada en últimos 6 meses: 118; presión arterial registrada en trimestre: 145; citas pendientes reportadas: 54. Los grupos pueden superponerse y no se ha confirmado si las citas son personas únicas.","steps":[
+("Comprender los indicadores","Analiza los datos ficticios. Calcula porcentajes cuando el denominador esté claro y muestra la fórmula. Separa hechos, incertidumbres y datos faltantes. No asumas que un registro ausente significa que la atención no ocurrió."),
+("Priorizar oportunidades","Usa el caso y el análisis anterior. Identifica hasta 3 oportunidades de mejora para investigar. Para cada una indica evidencia, hipótesis por validar y dato adicional necesario. No atribuyas causas ni inventes metas."),
+("Diseñar una prueba","Usa el caso y las respuestas anteriores. Diseña un piloto de mejora con acción, población o proceso objetivo, responsable funcional, indicador con fórmula y frecuencia de seguimiento. Incluye validaciones previas; no recomiendes tratamientos individuales.")],"deliverable":"Indicadores interpretados + oportunidad priorizada + piloto medible."},
+"Operaciones y administración de IPS":{
+"intro":"Oportunidad, tiempos de espera, cancelaciones y mejora de procesos.","title":"Reducir tiempos de espera","goal":"Convertir quejas por demoras en un proceso medible de mejora.","case":"Una IPS ficticia recibe quejas por largas esperas en consulta externa. Solo tiene un resumen de un día; todavía no sabe si las demoras varían por especialidad, hora o tipo de cita.","data":"Un día ficticio: 30 citas; espera media: 42 minutos; mediana: 35 minutos; 8 citas superaron 60 minutos. No hay datos de otros días ni causas registradas.","steps":[
+("Entender el problema","Resume los datos disponibles y calcula qué porcentaje de citas superó 60 minutos, mostrando la fórmula. Señala qué no se puede concluir con datos de un solo día."),
+("Investigar oportunidades","Usa el caso y el análisis anterior. Propón hasta 3 hipótesis operativas comprobables. Para cada una indica qué datos se necesitan y cómo segmentarlos. No presentes hipótesis como causas confirmadas."),
+("Probar una mejora","Usa el caso y las respuestas anteriores. Diseña un piloto de bajo riesgo con cambio a probar, responsable funcional, indicador y fórmula, periodo de medición e indicador de balance. No inventes metas ni prometas resultados.")],"deliverable":"Diagnóstico inicial + hipótesis + piloto operativo."},
+"Auditoría, calidad y regulación":{
+"intro":"Revisión documental, trazabilidad de hallazgos y verificación contra criterios.","title":"Hacer más consistente la revisión documental","goal":"Mejorar trazabilidad y reducir retrabajo sin emitir dictámenes automáticos.","case":"Un equipo auditor ficticio revisa registros y quiere reducir el tiempo dedicado a localizar faltantes. Para este ejercicio se usan dos criterios internos ficticios: debe aparecer fecha y firma del responsable.","data":"Registro A: fecha y firma visibles. Registro B: fecha visible, firma ilegible. Registro C: fecha no visible y copia no legible. Criterios ficticios; no se suministró normativa aplicable.","steps":[
+("Revisar la evidencia","Compara los registros con los criterios ficticios de fecha y firma. Clasifica la evidencia como visible, ausente en la copia o no evaluable. No inventes normas ni declares incumplimiento definitivo."),
+("Estandarizar la revisión","Usa el caso y la respuesta anterior. Propón un flujo de revisión consistente e identifica qué casos deben escalarse a una persona auditora. Distingue evidencia de interpretación."),
+("Medir la mejora","Usa el caso y las respuestas anteriores. Diseña un piloto del flujo de revisión con responsable funcional, indicador de tiempo o consistencia con fórmula, muestra y paso de validación humana. No inventes línea base ni meta.")],"deliverable":"Matriz de revisión + flujo estandarizado + piloto."},
+"Dirección, investigación y salud pública":{
+"intro":"Síntesis de evidencia, investigación y apoyo a decisiones institucionales.","title":"Convertir un informe en opciones de mejora","goal":"Distinguir evidencia y limitaciones antes de recomendar una intervención.","case":"Un equipo directivo revisa una encuesta ficticia sobre acceso a citas. Necesita distinguir hallazgos, limitaciones y acciones por explorar sin presentar los resultados como representativos de toda la población.","data":"Encuesta ficticia por conveniencia: 120 participantes; 45 reportaron dificultades para conseguir cita. La muestra no es necesariamente representativa y no permite concluir causalidad.","steps":[
+("Sintetizar la evidencia","Resume el hallazgo explícito, calcula el porcentaje de participantes que reportó dificultades y señala qué no puede afirmarse debido al muestreo por conveniencia. No agregues datos externos."),
+("Explorar opciones","Usa el caso y la respuesta anterior. Propón hasta 3 opciones de investigación o mejora. Para cada una indica evidencia, incertidumbre y dato adicional necesario. No presentes opciones como decisiones aprobadas."),
+("Definir el siguiente paso","Usa el caso y las respuestas anteriores. Diseña un siguiente paso de bajo riesgo con actividad, responsable funcional, indicador de avance y validaciones necesarias. Distingue recomendación preliminar de decisión institucional.")],"deliverable":"Síntesis de evidencia + opciones + siguiente paso medible."}
+}
+PARTS={
+"PARTE 1 · EXPLORAR":{"title":"De una necesidad a un buen análisis","desc":"Comprende el contexto, distingue evidencia de suposiciones y encuentra oportunidades.","color":"blue"},
+"PARTE 2 · APLICAR":{"title":"De los hallazgos a una mejora verificable","desc":"Usa los resultados previos para diseñar una prueba y decidir cómo medirla.","color":"green"}}
 
-st.markdown('<div class="step-card"><div class="step-kicker">Paso 2</div><div class="step-title">Elige una etapa del laboratorio</div><p class="step-copy">Sigue una secuencia con un objetivo concreto: entender el proceso, identificar oportunidades y diseñar una mejora medible.</p></div>', unsafe_allow_html=True)
-part = st.radio("Parte del laboratorio", ["PARTE 1  ·  ENTENDER Y ANALIZAR", "PARTE 2  ·  DISEÑAR Y VALIDAR"], horizontal=True, label_visibility="collapsed")
+# Select area once, prominently, without a duplicate selector.
+st.markdown('<div class="step"><div class="kicker">PASO 1</div><div class="stitle">Selecciona tu área de trabajo</div><div class="sub">Elige el contexto que mejor representa tu trabajo; el caso práctico se adaptará a tu selección.</div></div>',unsafe_allow_html=True)
+area=st.selectbox("Área profesional",list(CASES.keys()),key="area")
+case=CASES[area]
+st.caption(case["intro"])
 
-st.markdown("### Caso práctico ficticio")
-st.write(flow["case"])
-st.markdown(f"**Objetivo del ejercicio:** {flow['goal']}")
+st.markdown('<div class="step"><div class="kicker">PASO 2</div><div class="stitle">Elige una ruta de aprendizaje</div><div class="sub">Ambas rutas trabajan el mismo caso mediante tres pasos conectados.</div></div>',unsafe_allow_html=True)
+c1,c2=st.columns(2,gap="large")
+with c1: st.markdown('<div class="partbox partblue"><span class="parttag blue-tag">PARTE 1 · EXPLORAR</span><h3>De una necesidad a un buen análisis</h3><p>Comprende el contexto, separa hechos de hipótesis y descubre oportunidades de mejora.</p></div>',unsafe_allow_html=True)
+with c2: st.markdown('<div class="partbox partgreen"><span class="parttag green-tag">PARTE 2 · APLICAR</span><h3>De los hallazgos a una mejora</h3><p>Prioriza una oportunidad y diseña cómo probarla y medirla.</p></div>',unsafe_allow_html=True)
+part=st.radio("Selecciona una parte",list(PARTS.keys()),horizontal=True,key="part",label_visibility="collapsed")
 
+st.markdown('<div class="step"><div class="kicker">CASO PRÁCTICO</div><div class="stitle">'+case["title"]+'</div></div>',unsafe_allow_html=True)
+a,b=st.columns([1.45,1],gap="large")
+with a: st.markdown('<div class="casebox"><b style="color:#24679B">SITUACIÓN FICTICIA</b><p style="color:#36586B;margin:.6rem 0 0">'+case["case"]+'</p></div>',unsafe_allow_html=True)
+with b: st.markdown('<div class="goalbox"><b style="color:#8A6415">OBJETIVO</b><p style="font-weight:800;color:#624C19">'+case["goal"]+'</p><p style="color:#765F2A;font-size:.92rem"><b>Producto final:</b> '+case["deliverable"]+'</p></div>',unsafe_allow_html=True)
+with st.expander("Ver los datos del caso"): st.write(case["data"])
+
+st.markdown('<div class="step"><div class="kicker">PASO 3</div><div class="stitle">Trabaja con 3 prompts conectados</div><div class="sub">La IA se ejecuta dentro de esta página. Cada paso recibe el caso y las respuestas anteriores; no tienes que copiar y pegar entre aplicaciones.</div></div>',unsafe_allow_html=True)
+
+# API key belongs to the app owner in Streamlit Secrets or environment; students do not need access to Settings.
+api_key=None
 try:
-    api_key = st.secrets.get("OPENAI_API_KEY", "")
-    model = st.secrets.get("OPENAI_MODEL", "gpt-4.1-mini")
+    api_key=st.secrets.get("OPENAI_API_KEY",None)
 except Exception:
-    api_key = ""
-    model = "gpt-4.1-mini"
+    api_key=os.getenv("OPENAI_API_KEY")
+if not api_key: api_key=os.getenv("OPENAI_API_KEY")
+model="gpt-4.1-mini"
+try:
+    model=st.secrets.get("OPENAI_MODEL",model)
+except Exception: pass
 
-if api_key:
-    st.success(f"Asistente de IA conectado · modelo configurado: {model}")
+if not api_key:
+    st.error("La conexión con el modelo aún no está configurada. La persona administradora debe añadir OPENAI_API_KEY en los Secrets de Streamlit Cloud. Los estudiantes no necesitan ver ni configurar esa clave.")
+    st.code('OPENAI_API_KEY = "tu_clave_api"\nOPENAI_MODEL = "gpt-4.1-mini"',language="toml")
+    st.stop()
+
+chain_id=f"{area}::{part}"
+if chain_id not in st.session_state: st.session_state[chain_id]={"answers":["","",""],"done":[False,False,False]}
+chain=st.session_state[chain_id]
+client=OpenAI(api_key=api_key)
+
+if part.startswith("PARTE 1"):
+    st.info("Parte 1: observa cómo se construye el análisis, desde entender el problema hasta plantear una mejora medible.")
 else:
-    st.info("Modo guiado: puedes copiar cada prompt y pegarlo en ChatGPT o Copilot. Para ejecutar las 3 etapas dentro de esta app, configura OPENAI_API_KEY en Streamlit Secrets.")
+    st.success("Parte 2: lleva el mismo caso hacia una oportunidad priorizada y un piloto que pueda evaluarse.")
 
-# Each step uses the prior answer, so this is a connected workflow rather than three unrelated prompts.
-state_prefix = f"{segment}_{'p1' if part.startswith('PARTE 1') else 'p2'}"
-for stage_num in (1, 2) if part.startswith("PARTE 1") else (3,):
-    stage_name = {1:"Prompt 1 · Entender el problema", 2:"Prompt 2 · Encontrar oportunidades", 3:"Prompt 3 · Diseñar una mejora medible"}[stage_num]
-    prompt_template = flow[f"stage{stage_num}"]
-    if stage_num == 1:
-        prompt = prompt_template.format(case=flow["case"])
-        prior_text = ""
-    elif stage_num == 2:
-        prior_text = st.session_state.get(f"{segment}_stage1", "")
-        prompt = prompt_template.format(previous=prior_text or "Aún no hay diagnóstico de la etapa 1; usa el caso y señala esta limitación.")
-    else:
-        first = st.session_state.get(f"{segment}_stage1", "")
-        second = st.session_state.get(f"{segment}_stage2", "")
-        combined = f"Diagnóstico etapa 1: {first or 'No completado'}\nOportunidades etapa 2: {second or 'No completado'}"
-        prompt = prompt_template.format(case=flow["case"], previous=combined)
-
-    with st.container(border=True):
-        st.subheader(stage_name)
-        if stage_num == 2 and not st.session_state.get(f"{segment}_stage1"):
-            st.caption("Sugerencia: ejecuta primero el Prompt 1 y usa su resultado como contexto.")
-        if stage_num == 3 and (not st.session_state.get(f"{segment}_stage1") or not st.session_state.get(f"{segment}_stage2")):
-            st.caption("Para obtener una propuesta más coherente, completa primero los dos prompts de la Parte 1.")
-        st.code(prompt + "\n\nRegla de salida: máximo 120 palabras o 5 viñetas. Usa solo la información suministrada; no inventes datos.", language=None)
-        col_run, col_manual = st.columns([1, 2])
-        with col_run:
-            run_label = "Ejecutar con IA" if api_key else "IA no conectada"
-            run_disabled = not bool(api_key)
-            run_now = st.button(run_label, key=f"run_{segment}_{stage_num}", disabled=run_disabled, type="primary")
-        with col_manual:
-            st.link_button("Abrir ChatGPT", "https://chatgpt.com/")
-            st.link_button("Abrir Copilot", "https://copilot.microsoft.com/")
-
-        if run_now and api_key:
-            try:
-                from openai import OpenAI
-                client = OpenAI(api_key=api_key)
-                response = client.chat.completions.create(
+for i,(heading,instruction) in enumerate(case["steps"]):
+    css=["s1","s2","s3"][i]
+    st.markdown(f'<div class="stage {css}"><div style="font-size:.76rem;font-weight:850;letter-spacing:.08em;color:#13818A">PROMPT {i+1} DE 3</div><h3>{heading}</h3><small>{["Comprender","Analizar","Probar y medir"][i]}</small></div>',unsafe_allow_html=True)
+    # The full prompt is displayed for transparency, but the model call uses the same context chain.
+    previous=""
+    if i>0 and chain["answers"][i-1]: previous=f"\n\nRESPUESTA DEL PASO {i}:\n{chain['answers'][i-1]}"
+    if i>1 and chain["answers"][0]: previous=f"\n\nRESPUESTA DEL PASO 1:\n{chain['answers'][0]}"+previous
+    full_prompt=f"Objetivo de la práctica: {case['goal']}\nÁrea profesional: {area}\nCaso ficticio: {case['case']}\nDatos disponibles: {case['data']}{previous}\n\nTarea: {instruction}\n\nReglas: responde en español, máximo 120 palabras o 5 viñetas. Usa solo la información suministrada. No inventes cifras, causas ni normas. Separa hechos de hipótesis y señala qué requiere validación humana."
+    with st.expander("Ver instrucciones de este paso",expanded=(i==0)):
+        st.code(full_prompt,language=None)
+    if i>0 and not chain["answers"][i-1]:
+        st.info(f"Completa el paso {i} antes de generar el paso {i+1}; así la IA tendrá el contexto previo.")
+    disabled=(i>0 and not chain["answers"][i-1].strip())
+    if st.button("Generar respuesta" if not chain["answers"][i] else "Volver a generar respuesta",key=f"generate_{i}_{area}_{part}",type="primary",use_container_width=True,disabled=disabled):
+        try:
+            with st.spinner(f"La IA está trabajando en el paso {i+1}..."):
+                response=client.chat.completions.create(
                     model=model,
                     messages=[
-                        {"role":"system", "content":"Eres un asistente de mejora de procesos en salud. Trabaja solo con casos ficticios. No des consejo clínico individual, no inventes hechos, distingue evidencia e hipótesis y responde con la brevedad indicada por el usuario."},
-                        {"role":"user", "content":prompt + "\n\nResponde en máximo 120 palabras o 5 viñetas."},
+                        {"role":"system","content":"Eres un facilitador experto en mejora de procesos de salud. Trabaja solo con casos ficticios y datos proporcionados. No des recomendaciones clínicas individuales. No inventes datos, causalidad ni normativa. Responde en español, máximo 120 palabras o 5 viñetas. Distingue hechos, hipótesis y datos faltantes. Indica qué debe validar un responsable humano."},
+                        {"role":"user","content":full_prompt},
                     ],
+                    max_tokens=240,
                     temperature=0.2,
-                    max_tokens=300,
                 )
-                answer = response.choices[0].message.content or "No se recibió texto de respuesta."
-                st.session_state[f"{segment}_stage{stage_num}"] = answer
-            except Exception as ex:
-                st.error(f"No se pudo ejecutar el modelo. Revisa la clave, el nombre del modelo y la configuración. Detalle: {ex}")
+                answer=response.choices[0].message.content or "No se recibió texto en la respuesta."
+                chain["answers"][i]=answer.strip()
+                chain["done"][i]=True
+                # Invalidate downstream answers if an earlier stage is regenerated.
+                if i<2:
+                    for j in range(i+1,3): chain["answers"][j]=""; chain["done"][j]=False
+                st.session_state[chain_id]=chain
+                st.rerun()
+        except Exception as e:
+            st.error(f"No fue posible generar la respuesta. Revisa la configuración de la API y vuelve a intentar. Detalle: {str(e)[:240]}")
+    if chain["answers"][i]:
+        st.markdown("**Respuesta de la IA**")
+        st.markdown(chain["answers"][i])
+        if st.button("Borrar esta respuesta y repetir desde aquí",key=f"clear_{i}_{area}_{part}"):
+            for j in range(i,3): chain["answers"][j]=""; chain["done"][j]=False
+            st.session_state[chain_id]=chain
+            st.rerun()
 
-        saved = st.session_state.get(f"{segment}_stage{stage_num}", "")
-        manual = st.text_area("Resultado de esta etapa", value=saved, key=f"manual_{segment}_{stage_num}", height=140, placeholder="Pega aquí la respuesta de tu asistente si estás trabajando en modo guiado.")
-        if st.button("Guardar resultado de esta etapa", key=f"save_{segment}_{stage_num}"):
-            st.session_state[f"{segment}_stage{stage_num}"] = manual
-            st.success("Resultado guardado para usarlo en el siguiente prompt.")
+if all(x.strip() for x in chain["answers"]):
+    st.markdown('<div class="step" style="background:#E2F7EE;border-color:#B8E7D1"><div class="kicker" style="color:#176D4B">RESULTADO FINAL</div><div class="stitle">Ruta de mejora completada</div><div class="sub">Antes de actuar, valida la evidencia, los indicadores y los riesgos con el equipo responsable.</div></div>',unsafe_allow_html=True)
+    export="\n\n".join(f"PASO {i+1}: {case['steps'][i][0]}\n{answer}" for i,answer in enumerate(chain["answers"]))
+    st.download_button("Descargar resultados (.txt)",data=export,file_name="laboratorio_ia_salud_resultados.txt",mime="text/plain")
+    if st.button("Reiniciar esta práctica"):
+        st.session_state[chain_id]={"answers":["","",""],"done":[False,False,False]}; st.rerun()
 
-st.markdown("### ¿Cómo sabrás si la propuesta es útil?")
-st.markdown("- Parte de un problema descrito con datos, no de una suposición.\n- Distingue hechos, hipótesis y datos faltantes.\n- Propone un cambio concreto y un indicador medible.\n- Incluye validación humana antes de implementar.")
-st.caption("Laboratorio educativo. Los resultados son preliminares y deben validarse con los equipos responsables y las fuentes institucionales aplicables.")
+st.markdown('<div class="notice">💡 <b>Uso responsable:</b> la IA puede ayudar a organizar información, identificar oportunidades y estructurar pruebas; la validación de los datos y las decisiones siguen siendo responsabilidad del equipo.</div>',unsafe_allow_html=True)
