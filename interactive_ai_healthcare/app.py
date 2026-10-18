@@ -19,6 +19,13 @@ st.markdown("""
 .small{font-size:.9rem;color:#5c7180}
 div.stButton>button{border-radius:10px;font-weight:650;min-height:2.5rem}
 a{font-weight:600}
+
+/* Instrucciones principales: agrandar etiquetas */
+div[data-testid="stSelectbox"] [data-testid="stWidgetLabel"] p,
+div[data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
+    font-size: 1.3rem !important;
+    font-weight: 700 !important;
+    line-height: 1.5 !important;
 </style>
 """, unsafe_allow_html=True)
 
