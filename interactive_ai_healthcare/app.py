@@ -196,7 +196,7 @@ else:
     st.markdown("<div class='sectionbox green'><h4>Extraer, explicar y verificar</h4><p><b>Temas de la sesión:</b> extracción de información clave y diagnósticos ya documentados; traducción de lenguaje técnico a lenguaje sencillo; buenas prácticas y riesgos, incluidas alucinaciones, verificación de información y uso responsable. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
 
 cases = SEGMENTS[seg][part]
-st.markdown(f"### Casos prácticos · {seg}")
+st.markdown(f"### Casos prácticos: {seg}")
 case_titles = [c["title"] for c in cases]
 chosen_title = st.selectbox("3. Elige un caso", case_titles, key=f"case::{seg}::{part}")
 case = next(c for c in cases if c["title"] == chosen_title)
