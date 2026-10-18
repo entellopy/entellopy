@@ -38,6 +38,12 @@ ul[role="listbox"] * {
     font-size: 1.15rem !important;
 }
 
+/* Updating prompts backgrounds */
+.blue .prompt-card{background:rgba(234,244,255,0.65)}
+.green .prompt-card{background:rgba(232,247,239,0.65)}
+.yellow .prompt-card{background:rgba(255,247,223,0.65)}
+.purple .prompt-card{background:rgba(242,237,255,0.65)}
+
 </style>
 """, unsafe_allow_html=True)
 
