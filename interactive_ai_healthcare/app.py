@@ -1,5 +1,6 @@
 import streamlit as st
 import re
+import textwrap
 import zipfile
 from pathlib import Path
 
@@ -186,18 +187,43 @@ st.caption("Los prompts están personalizados para el segmento y el caso elegido
 step_colors = ["blue", "purple", "yellow"]
 step_names = ["1 · Comprender y estructurar", "2 · Revisar y profundizar", "3 · Convertir en un producto útil"]
 
-def readable_prompt(prompt: str) -> str:
-    """Format prompt text for display without changing its wording."""
-    text = prompt.strip()
-    # Put each complete sentence on its own paragraph for easier reading/copying.
+def readable_prompt(prompt: str, width: int = 72) -> str:
+    """Break every prompt into readable lines while preserving its wording."""
+    text = prompt.strip().replace("\r\n", "\n").replace("\r", "\n")
+    # Separate sentences and key instructions into paragraphs first.
     text = re.sub(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÜÑ¿¡])", "\n\n", text)
-    # Give instructions after an introductory colon their own line where helpful.
     text = re.sub(
         r":\s+(?=(?:Organiza|Devuelve|Entrega|Incluye|Separa|Marca|Distingue|Calcula|Conserva|No inventes|No añadas|No asumas|No propongas|Identifica|Sugiere|Prepara|Genera|Revisa|Comprueba|Enumera|Para cada|Usa solo|A partir|Con base|Transforma|Extrae|Clasifica|Redacta|Explica|Actúa|Resume|Convierte|Crea|Diseña|Propón|Mantén|Aclara|Limita|Solicita|Pide|Verifica)\b)",
         ":\n",
         text,
     )
-    return text
+    # Hard-wrap long sentences so code blocks are readable on desktop and mobile.
+    wrapped_paragraphs = []
+    for paragraph in re.split(r"\n\s*\n", text):
+        lines = paragraph.splitlines()
+        if not paragraph.strip():
+            continue
+        wrapped_lines = []
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            # Preserve list formatting and indent wrapped continuation lines.
+            prefix = ""
+            content = line
+            match = re.match(r"^(\s*(?:[-•*]|\d+[.)])\s+)(.*)$", line)
+            if match:
+                prefix, content = match.group(1), match.group(2)
+            wrapped_lines.append(textwrap.fill(
+                content,
+                width=max(40, width - len(prefix)),
+                initial_indent=prefix,
+                subsequent_indent=" " * len(prefix) if prefix else "",
+                break_long_words=False,
+                break_on_hyphens=False,
+            ))
+        wrapped_paragraphs.append("\n".join(wrapped_lines))
+    return "\n\n".join(wrapped_paragraphs)
 for i, prompt in enumerate(case["prompts"]):
     st.markdown(f"<div class='sectionbox {step_colors[i]}'><h3>{step_names[i]}</h3><p>{['Primero, delimita el contexto y organiza la información disponible.','Después, comprueba la salida y corrige supuestos o errores.','Por último, prepara un resultado utilizable y pide una verificación explícita.'][i]}</p></div>", unsafe_allow_html=True)
     st.code(readable_prompt(prompt), language="text")
