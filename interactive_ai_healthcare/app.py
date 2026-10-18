@@ -14,7 +14,7 @@ st.markdown("""
 .intro{background:#f4f8fb;border-left:6px solid #2f80c9;border-radius:12px;padding:14px 17px;margin:12px 0 20px;color:#28485b}
 .sectionbox{border-radius:16px;padding:18px 20px;margin:12px 0 18px;border:1px solid}
 .blue{background:#eaf4ff;border-color:#b8d8f5}.green{background:#e8f7ef;border-color:#b9e4cc}.yellow{background:#fff7df;border-color:#f0d88a}.purple{background:#f2edff;border-color:#d6c9f7}
-.sectionbox h3{margin:0 0 7px;color:#17476b}.sectionbox p{margin:0;color:#3e5a6a}
+.sectionbox h4{margin:0 0 7px;color:#17476b}.sectionbox p{margin:0;color:#3e5a6a}
 .prompt-card{background:#f8fafc;border:1px solid #d9e4ed;border-radius:12px;padding:12px 15px;margin:8px 0}
 .small{font-size:.9rem;color:#5c7180}
 div.stButton>button{border-radius:10px;font-weight:650;min-height:2.5rem}
@@ -72,7 +72,7 @@ SEGMENTS = {
   "Entrega una versión final de máximo 80 palabras para el profesional que recibirá al paciente, seguida de tres preguntas de continuidad asistencial. Mantén la incertidumbre donde corresponda y no añadas recomendaciones terapéuticas."
  ]}
 ],
-"Parte 2": [
+"Extraer, explicar y verificar": [
  {"title":"Extraer información clínica y diagnósticos ya documentados", "context":"Caso ficticio de egreso: ‘Consulta por tos y fiebre. En impresión diagnóstica se registra infección respiratoria aguda. Se indica control por consulta externa. No se consigna alergia en este resumen’.", "prompts":[
   "Extrae únicamente la información explícita de este resumen ficticio: ‘Consulta por tos y fiebre. En impresión diagnóstica se registra infección respiratoria aguda. Se indica control por consulta externa. No se consigna alergia en este resumen’. Organiza en: síntomas referidos, diagnóstico escrito en la fuente, plan documentado y dato no consignado. No propongas diagnósticos nuevos.",
   "Verifica la extracción contra el texto original. Para cada elemento, incluye la frase de origen que lo respalda. Distingue ‘no consignado en este resumen’ de ‘el paciente no tiene ese antecedente’. Señala cualquier dato que no pueda confirmarse.",
@@ -97,7 +97,7 @@ SEGMENTS = {
   "Redacta una agenda de reunión de 15 minutos con tres decisiones operativas posibles, los datos que deben revisarse antes de decidir y un responsable funcional sugerido. Marca las decisiones como pendientes de validación, no como acciones ya aprobadas."
  ]}
 ],
-"Parte 2": [
+"Extraer, explicar y verificar": [
  {"title":"Extraer diagnósticos documentados y brechas de seguimiento", "context":"Caso ficticio de registro: diagnóstico escrito ‘diabetes mellitus tipo 2’; último control registrado hace 5 meses; HbA1c no visible en la base consultada; cita de seguimiento aparece como pendiente.", "prompts":[
   "Extrae del registro ficticio: diagnóstico tal como aparece escrito, fecha relativa del último control, estado del registro de HbA1c y estado de la cita. Usa ‘no visible en la base consultada’ en vez de asumir que el examen no se realizó. No clasifiques gravedad ni recomiendes tratamiento.",
   "Verifica cada campo con una columna de evidencia textual y otra de limitación. Identifica qué requiere confirmar el prestador o la fuente de datos antes de clasificar a la persona dentro de una ruta de seguimiento.",
@@ -122,7 +122,7 @@ SEGMENTS = {
   "Usando la tabla propuesta, plantea un piloto de mejora pequeño que solo se active tras revisar los datos. Incluye indicador de tiempo, indicador de reproceso, riesgo de trasladar la demora a otra etapa y responsable funcional; no inventes metas."
  ]}
 ],
-"Parte 2": [
+"Extraer, explicar y verificar": [
  {"title":"Extraer y estructurar motivos de reproceso", "context":"Caso ficticio: tres notas operativas dicen: ‘faltaba autorización’, ‘documento ilegible’ y ‘se corrigió el número de orden’. No hay categorías oficiales definidas.", "prompts":[
   "Clasifica estas notas ficticias: ‘faltaba autorización’, ‘documento ilegible’, ‘se corrigió el número de orden’. Propón una categoría provisional para cada una y conserva el texto original. No afirmes que las categorías son oficiales.",
   "Revisa si las categorías propuestas se solapan o dependen de interpretación. Sugiere un pequeño diccionario de categorías con definiciones y un estado ‘requiere revisión’ para los casos ambiguos.",
@@ -147,7 +147,7 @@ SEGMENTS = {
   "Crea una ficha de seguimiento con campos para identificador interno no nominativo, criterio, evidencia, estado de verificación, revisor y fecha de cierre. No inventes resultados ni conclusiones normativas."
  ]}
 ],
-"Parte 2": [
+"Extraer, explicar y verificar": [
  {"title":"Extraer datos clave y diagnósticos documentados de una auditoría", "context":"Caso ficticio: en una nota de egreso se lee ‘diagnóstico registrado: neumonía adquirida en la comunidad’; la firma aparece borrosa en el archivo digital; el documento original aún no se ha consultado.", "prompts":[
   "Extrae de la nota ficticia solo estos campos: diagnóstico tal como está escrito, estado de legibilidad de la firma en el archivo digital y verificación pendiente. No valides clínicamente el diagnóstico ni concluyas que el documento original carece de firma.",
   "Crea una tabla de evidencia con el fragmento fuente, campo extraído, certeza, limitación y paso de verificación. Diferencia ‘borroso en archivo digital’ de ‘ausente en el original’.",
@@ -172,7 +172,7 @@ SEGMENTS = {
   "Convierte el resumen verificado en una agenda de discusión de 10 minutos: decisiones que sí pueden tomarse con la evidencia actual, preguntas abiertas y datos adicionales necesarios. Distingue evidencia de opinión."
  ]}
 ],
-"Parte 2": [
+"Extraer, explicar y verificar": [
  {"title":"Extraer resultados y categorías desde una síntesis de investigación", "context":"Caso ficticio: una síntesis informa que 45 de 120 participantes reportaron dificultades de acceso; los temas cualitativos mencionados incluyen horarios, transporte y disponibilidad de citas. No se proporciona frecuencia por tema.", "prompts":[
   "Extrae los datos explícitos del caso ficticio: 45 de 120 reportaron dificultades y los temas mencionados fueron horarios, transporte y disponibilidad de citas. Calcula el porcentaje global; no asignes frecuencias a los temas porque no se proporcionaron.",
   "Verifica el cálculo y revisa si la redacción permite confundir temas mencionados con causas demostradas. Produce una versión corregida que distinga resultado cuantitativo, temas cualitativos y límites de la información.",
@@ -188,19 +188,19 @@ SEGMENTS = {
 
 # Top navigation: the two parts are parallel sections with different class themes, both case-based.
 seg = st.selectbox("1. Selecciona tu segmento profesional", list(SEGMENTS.keys()), key="segment")
-part = st.radio("2. Selecciona la parte de la clase", ["Aplicación práctica y prompt engineering", "Parte 2"], horizontal=True, key="part")
+part = st.radio("2. Selecciona la parte de la clase", ["Aplicación práctica y prompt engineering", "Extraer, explicar y verificar"], horizontal=True, key="part")
 
 if part == "Aplicación práctica y prompt engineering":
     st.markdown("<div class='sectionbox blue'><h4> Aplicación práctica y prompt engineering</h4><p><b>Temas de la sesión:</b> uso de ChatGPT, Copilot y otros asistentes en el entorno clínico; formulación de instrucciones claras y seguras; copilotos clínicos para redactar notas y evoluciones; resumen de historias clínicas extensas para consultas rápidas. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
 else:
-    st.markdown("<div class='sectionbox green'><h3>PARTE 2 · Extraer, explicar y verificar</h3><p><b>Temas de la sesión:</b> extracción de información clave y diagnósticos ya documentados; traducción de lenguaje técnico a lenguaje sencillo; buenas prácticas y riesgos, incluidas alucinaciones, verificación de información y uso responsable. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
+    st.markdown("<div class='sectionbox green'><h4>Extraer, explicar y verificar</h4><p><b>Temas de la sesión:</b> extracción de información clave y diagnósticos ya documentados; traducción de lenguaje técnico a lenguaje sencillo; buenas prácticas y riesgos, incluidas alucinaciones, verificación de información y uso responsable. Trabajaremos estos temas mediante casos de tu segmento.</p></div>", unsafe_allow_html=True)
 
 cases = SEGMENTS[seg][part]
 st.markdown(f"### Casos prácticos · {seg}")
 case_titles = [c["title"] for c in cases]
 chosen_title = st.selectbox("3. Elige un caso", case_titles, key=f"case::{seg}::{part}")
 case = next(c for c in cases if c["title"] == chosen_title)
-st.markdown(f"<div class='sectionbox yellow'><h3>Situación del caso</h3><p>{case['context']}</p></div>", unsafe_allow_html=True)
+st.markdown(f"<div class='sectionbox yellow'><h4>Situación del caso</h4><p>{case['context']}</p></div>", unsafe_allow_html=True)
 st.markdown("### Flujo de Prompts")
 st.caption("Los prompts están personalizados para el segmento y el caso elegido. Sigue el orden: cada paso usa el resultado anterior como referencia.")
 step_colors = ["blue", "purple", "yellow"]
@@ -244,7 +244,7 @@ def readable_prompt(prompt: str, width: int = 72) -> str:
         wrapped_paragraphs.append("\n".join(wrapped_lines))
     return "\n\n".join(wrapped_paragraphs)
 for i, prompt in enumerate(case["prompts"]):
-    st.markdown(f"<div class='sectionbox {step_colors[i]}'><h3>{step_names[i]}</h3><p>{['Primero, delimita el contexto y organiza la información disponible.','Después, comprueba la salida y corrige supuestos o errores.','Por último, prepara un resultado utilizable y pide una verificación explícita.'][i]}</p></div>", unsafe_allow_html=True)
+    st.markdown(f"<div class='sectionbox {step_colors[i]}'><h4>{step_names[i]}</h4><p>{['Primero, delimita el contexto y organiza la información disponible.','Después, comprueba la salida y corrige supuestos o errores.','Por último, prepara un resultado utilizable y pide una verificación explícita.'][i]}</p></div>", unsafe_allow_html=True)
     st.code(readable_prompt(prompt), language="text")
     st.caption("Selecciona el texto del bloque y cópialo para pegarlo en el asistente elegido.")
     if i < 2:
@@ -253,4 +253,4 @@ for i, prompt in enumerate(case["prompts"]):
 with st.expander("Lista rápida de verificación antes de usar un resultado"):
     st.markdown("- ¿Cada dato coincide con el caso o la fuente original?\n- ¿La IA distinguió hechos, hipótesis y datos faltantes?\n- ¿Inventó diagnósticos, citas, normas, cifras o recomendaciones?\n- ¿Se puede rastrear cada afirmación importante hasta su fuente?\n- ¿Una persona responsable revisó y aprobó el resultado antes de utilizarlo?")
 
-st.markdown("<div class='sectionbox purple'><h3>Uso responsable</h3><p>Estos casos son ficticios y educativos. La IA puede equivocarse o inventar información. No uses datos identificables, no copies automáticamente la salida a una historia clínica y no sustituyas el juicio profesional, la normativa aplicable ni los protocolos institucionales.</p></div>", unsafe_allow_html=True)
+st.markdown("<div class='sectionbox purple'><h4>Uso responsable</h4><p>Estos casos son ficticios y educativos. La IA puede equivocarse o inventar información. No uses datos identificables, no copies automáticamente la salida a una historia clínica y no sustituyas el juicio profesional, la normativa aplicable ni los protocolos institucionales.</p></div>", unsafe_allow_html=True)
