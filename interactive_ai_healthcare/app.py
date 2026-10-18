@@ -41,7 +41,7 @@ SEGMENTS = {
 "Atención clínica y rehabilitación": {
 "Parte 1": [
  {"title":"Consulta externa: preparar una nota clínica sin inventar datos", "context":"Caso: consulta de fisioterapia por dolor de hombro. La nota inicial dice: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. No incluye examen físico, antecedentes ni evaluación funcional.", "prompts":[
-   """Actúa como asistente de documentación clínica, no como diagnosticador. """ Con esta nota: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’."""Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. """No inventes examen físico, antecedentes ni diagnóstico.",
+   """Actúa como asistente de documentación clínica, no como diagnosticador. Con esta nota: dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar."""Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. """No inventes examen físico, antecedentes ni diagnóstico.",
   "Revisa la estructura que acabas de proponer. Separa explícitamente los datos aportados de los campos pendientes. Sugiere hasta cinco preguntas neutrales que el profesional podría considerar para completar la valoración, sin indicar tratamiento ni asumir una causa del dolor.",
   "Convierte la estructura revisada en una plantilla breve de nota inicial para fisioterapia, con campos editables y una sección ‘por confirmar’. """Añade una lista final para que el profesional verifique exactitud, pertinencia y consentimiento antes de incorporar cualquier texto a la historia clínica."
  ]},
