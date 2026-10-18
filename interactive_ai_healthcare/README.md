@@ -1,17 +1,20 @@
-# Laboratorio de IA aplicada a salud
+# Laboratorio de casos prácticos de IA en salud
 
-Aplicación educativa de Streamlit con cinco áreas profesionales y dos partes alineadas con las sesiones de clase.
+Aplicación Streamlit educativa con dos partes temáticas, ambas basadas en casos prácticos personalizados para cinco segmentos profesionales.
 
-- **Parte 1 / Sesión 1:** interactuar con asistentes y mejorar prompts.
-- **Parte 2 / Sesión 2:** aplicar IA para analizar, resumir, transformar y verificar información.
-- Dos ejercicios por parte y por área, con tres prompts visibles por ejercicio.
-- La Parte 2 queda bloqueada hasta completar los dos ejercicios de la Parte 1 en la misma área.
-- Sin API, claves, pagos ni llamadas externas. Los estudiantes copian los prompts a la herramienta de IA utilizada en clase.
+## Partes
+- **Parte 1:** uso práctico de asistentes conversacionales, prompt engineering, copilotos para documentación clínica y resumen de historias clínicas extensas.
+- **Parte 2:** extracción de información y diagnósticos ya documentados, traducción a lenguaje sencillo, verificación, alucinaciones y uso responsable.
 
-## Ejecutar localmente
+Cada caso incluye un flujo de hasta tres prompts: comprender/estructurar, revisar/profundizar y convertir el resultado en un producto útil. Los prompts cambian según el segmento y el caso.
+
+La aplicación no llama a modelos ni requiere API key. Los usuarios copian los prompts en ChatGPT, Gemini, Copilot, Perplexity u otra herramienta aprobada por su institución.
+
+## Ejecutar
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
 
-En Streamlit Community Cloud, despliega desde `app.py`; no se requieren Secrets. Usa solo casos ficticios y nunca introduzcas datos reales de pacientes.
+## Privacidad
+Todos los casos son ficticios. No ingresar historias clínicas reales ni datos identificables o confidenciales. Los resultados de la IA deben verificarse por una persona responsable antes de cualquier uso.
