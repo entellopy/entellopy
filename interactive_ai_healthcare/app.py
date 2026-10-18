@@ -299,7 +299,7 @@ SEGMENTS = {
 
 # Top navigation: the two parts are parallel sections with different class themes, both case-based.
 seg = st.selectbox("1. Selecciona un segmento", list(SEGMENTS.keys()), key="segment")
-part = st.radio("2. Selecciona la parte de la clase", ["Aplicación práctica y prompt engineering", "Extraer, explicar y verificar"], horizontal=True, key="part")
+part = st.radio("2. Selecciona un tema", ["Aplicación práctica y prompt engineering", "Extraer, explicar y verificar"], horizontal=True, key="part")
 
 if part == "Aplicación práctica y prompt engineering":
     st.markdown("<div class='sectionbox blue'><h4> Aplicación práctica y prompt engineering</h4><p><b>Temas de la sesión:</b> <br> • Uso de ChatGPT, Copilot y otros asistentes en el entorno clínico <br>• Formulación de instrucciones claras y seguras <br>• Copilotos clínicos para redactar notas y evoluciones <br>• Resumen de historias clínicas extensas para consultas rápidas.<br>Trabajaremos estos temas mediante casos de cada segmento.</p></div>", unsafe_allow_html=True)
