@@ -21,7 +21,7 @@ a{font-weight:600}
 """, unsafe_allow_html=True)
 
 st.markdown("<div class='hero'><h1>🩺 Laboratorio de casos prácticos de IA en salud</h1><p>Practica con situaciones cercanas a tu trabajo. Cada caso incluye hasta tres prompts conectados: comprender, aplicar y verificar.</p></div>", unsafe_allow_html=True)
-st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige tu segmento y la parte de la clase. 2. Abre un caso y copia sus prompts en el asistente de IA que prefieras. 3. Sigue el orden: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones. Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
+st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige tu segmento y la parte de la clase. </b><br>2. Abre un caso y copia sus prompts en el asistente de IA que prefieras. 3. Sigue el orden: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones. Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
 
 st.markdown("### Asistentes de IA para probar los prompts")
 links = [
