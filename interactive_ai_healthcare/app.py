@@ -26,6 +26,17 @@ div[data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
     font-size: 1.3rem !important;
     font-weight: 700 !important;
     line-height: 1.5 !important;
+
+/* Texto dentro de los dropdowns */
+div[data-testid="stSelectbox"] div[data-baseweb="select"] {
+    font-size: 1.1rem !important;
+}
+
+/* Opciones que aparecen al abrir el dropdown */
+div[data-testid="stSelectbox"] ul li {
+    font-size: 1.1rem !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
