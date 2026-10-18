@@ -1,5 +1,6 @@
 import streamlit as st
 import re
+import html
 import textwrap
 import zipfile
 from pathlib import Path
@@ -315,7 +316,18 @@ st.markdown(f"<div class='sectionbox yellow'><h4>Situación del caso</h4><p>{cas
 st.markdown("### Flujo de Prompts")
 st.caption("Los prompts están personalizados para el segmento y el caso elegido. Sigue el orden: cada paso usa el resultado anterior como referencia.")
 step_colors = ["blue", "purple", "yellow"]
-step_names = ["Prompt 1 · Comprender y estructurar", "Prompt 2 · Revisar y profundizar", "Prompt 3 · Convertir en un producto útil"]
+if part == "Aplicación práctica y prompt engineering":
+    step_names = [
+        "Prompt 1 · Dar contexto e instrucciones claras",
+        "Prompt 2 · Refinar y revisar la respuesta",
+        "Prompt 3 · Preparar un producto para revisión profesional",
+    ]
+else:
+    step_names = [
+        "Prompt 1 · Extraer o explicar información de la fuente",
+        "Prompt 2 · Verificar evidencia y detectar errores",
+        "Prompt 3 · Entregar un resultado verificado y utilizable",
+    ]
 
 def readable_prompt(prompt: str, width: int = 72) -> str:
     """Break every prompt into readable lines while preserving its wording."""
@@ -361,19 +373,82 @@ prompt_backgrounds = {
     "yellow": "#fff7df",
 }
 
+def build_structured_prompt(prompt: str, case: dict, segment: str, part: str, step: int) -> str:
+    """Wrap each case-specific instruction in a consistent, teachable prompt structure."""
+    if part == "Aplicación práctica y prompt engineering":
+        role = (
+            "Actúa como copiloto de apoyo al trabajo en salud. Tu función es organizar, resumir o redactar "
+            "información para revisión profesional; no reemplazas al personal de salud ni tomas decisiones clínicas."
+        )
+        objective = "Apoyar una tarea concreta del flujo clínico, administrativo o de gestión descrito en el caso."
+        base_constraints = [
+            "Trabaja únicamente con la información proporcionada.",
+            "No inventes datos, antecedentes, diagnósticos, resultados, acciones realizadas ni normas.",
+            "Distingue los hechos documentados de los datos faltantes, las hipótesis y las propuestas.",
+            "Usa lenguaje claro, respetuoso y adecuado al equipo destinatario.",
+            "La salida debe ser revisada por una persona autorizada antes de utilizarse."
+        ]
+        format_instruction = "Respeta el formato y la extensión solicitados en la tarea. Si no se especifican, organiza la respuesta con subtítulos y viñetas breves."
+    else:
+        role = (
+            "Actúa como asistente de extracción, comunicación y control de calidad de información en salud. "
+            "No confirmas diagnósticos por cuenta propia ni sustituyes la verificación humana."
+        )
+        objective = "Extraer, explicar o verificar información sin alterar el significado de la fuente ni añadir afirmaciones no respaldadas."
+        base_constraints = [
+            "Usa la fuente proporcionada como referencia principal y no agregues datos externos.",
+            "Conserva los diagnósticos tal como estén documentados; no propongas diagnósticos nuevos.",
+            "Distingue entre ‘no consta’, ‘no está visible’, ‘es ambiguo’ y ‘se confirmó que no existe’.",
+            "Señala cualquier afirmación que no pueda vincularse con la fuente; no rellenes vacíos por inferencia.",
+            "No incluyas datos personales identificables ni conviertas la respuesta en una decisión clínica."
+        ]
+        format_instruction = "Usa el formato solicitado en la tarea. Cuando extraigas información, incluye el dato, su evidencia textual y cualquier limitación o verificación pendiente."
+
+    if step == 0:
+        input_section = f"CONTEXTO DEL CASO:\n{case['context']}"
+        step_instruction = "Resuelve la tarea inicial a partir del contexto y de la fuente incluidos en este prompt."
+    else:
+        input_section = (
+            f"CONTEXTO DEL CASO:\n{case['context']}\n\n"
+            "RESULTADO DEL PASO ANTERIOR:\n"
+            "[Pega aquí la respuesta obtenida con el prompt anterior antes de ejecutar este prompt.]"
+        )
+        step_instruction = (
+            "Usa el resultado del paso anterior como borrador para revisar o continuar la tarea. "
+            "No lo trates automáticamente como correcto: contrástalo con el contexto y la fuente disponibles."
+        )
+
+    constraints = "\n".join(f"- {item}" for item in base_constraints)
+    return (
+        f"ROL:\n{role}\n\n"
+        f"OBJETIVO:\n{objective}\n\n"
+        f"{input_section}\n\n"
+        f"TAREA E INSTRUCCIONES ESPECÍFICAS:\n{prompt}\n\n"
+        f"REGLAS Y LÍMITES:\n{constraints}\n\n"
+        f"FORMATO DE SALIDA:\n{format_instruction}\n\n"
+        f"PASO DEL FLUJO:\n{step_instruction}"
+    )
+
+
 for i, prompt in enumerate(case["prompts"]):
     color = step_colors[i]
     background = prompt_backgrounds[color]
+    structured = build_structured_prompt(prompt, case, seg, part, i)
+    safe_prompt = html.escape(readable_prompt(structured))
 
     st.markdown(
         f"""
         <div class="sectionbox {color}">
             <h4>{step_names[i]}</h4>
-            <p>{[
-                'Primero, delimita el contexto y organiza la información disponible.',
-                'Después, comprueba la salida y corrige supuestos o errores.',
-                'Por último, prepara un resultado utilizable y pide una verificación explícita.'
-            ][i]}</p>
+            <p>{([
+                'Define el rol, el objetivo, el contexto, las instrucciones y los límites de la tarea.',
+                'Usa la respuesta anterior como borrador; revisa su calidad y corrige lo necesario.',
+                'Prepara el resultado solicitado para revisión humana antes de usarlo.'
+            ] if part == "Aplicación práctica y prompt engineering" else [
+                'Identifica la información explícita sin completar vacíos ni inferir datos.',
+                'Contrasta cada afirmación con la fuente y señala errores, ambigüedades o datos no respaldados.',
+                'Entrega la información verificada e indica las limitaciones y comprobaciones pendientes.'
+            ])[i]}</p>
             <div style="
                 background-color: {background};
                 border: 1px solid rgba(120, 150, 180, 0.25);
@@ -385,7 +460,7 @@ for i, prompt in enumerate(case["prompts"]):
                 overflow-wrap: anywhere;
                 font-family: monospace;
                 font-size: 0.9rem;
-            ">{readable_prompt(prompt)}</div>
+            ">{safe_prompt}</div>
         </div>
         """,
         unsafe_allow_html=True
