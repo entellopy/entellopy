@@ -27,17 +27,15 @@ div[data-testid="stRadio"] [data-testid="stWidgetLabel"] p {
     font-weight: 700 !important;
     line-height: 1.5 !important;
 
-/* Agrandar el texto seleccionado dentro del dropdown */
-div[data-testid="stSelectbox"] [data-baseweb="select"] div,
-div[data-testid="stSelectbox"] [data-baseweb="select"] input {
+/* Texto seleccionado en los dropdowns */
+div[data-baseweb="select"] * {
     font-size: 1.15rem !important;
 }
 
-/* Agrandar las opciones del menú desplegable */
-div[data-baseweb="popover"] li,
-div[data-baseweb="popover"] [role="option"] {
+/* Opciones del menú desplegable */
+div[role="listbox"] *,
+ul[role="listbox"] * {
     font-size: 1.15rem !important;
-    line-height: 1.6 !important;
 }
 
 </style>
