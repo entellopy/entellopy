@@ -23,7 +23,7 @@ a{font-weight:600}
 st.markdown("<div class='hero'><h1>🩺 Laboratorio de casos prácticos de IA en salud</h1><p>Practica con situaciones cercanas a tu trabajo. Cada caso incluye hasta tres prompts conectados: comprender, aplicar y verificar.</p></div>", unsafe_allow_html=True)
 st.markdown("<div class='intro'><b>Cómo usar el laboratorio</b><br>1. Elige tu segmento y la parte de la clase. </b><br>2. Abre un caso y copia sus prompts en el asistente de IA que prefieras. </b><br>3. Sigue el orden: el segundo prompt revisa o profundiza el primero; el tercero convierte el resultado en un producto útil y pide verificaciones. </b><br>Usa solo los datos ficticios y no ingreses información identificable de pacientes.</div>", unsafe_allow_html=True)
 
-st.markdown("### Asistentes de IA para probar los prompts")
+st.markdown("### Asistentes de IA")
 links = [
     ("ChatGPT", "https://chatgpt.com/", "#eaf3ff"),
     ("Gemini", "https://gemini.google.com/", "#f2edff"),
@@ -40,10 +40,10 @@ st.caption("Usa únicamente herramientas autorizadas por tu institución. No peg
 SEGMENTS = {
 "Atención clínica y rehabilitación": {
 "Parte 1": [
- {"title":"Consulta externa: preparar una nota clínica sin inventar datos", "context":"Caso ficticio: consulta de fisioterapia por dolor de hombro. La nota inicial dice: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. No incluye examen físico, antecedentes ni evaluación funcional.", "prompts":[
-  "Actúa como asistente de documentación clínica, no como diagnosticador. Con esta nota ficticia: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. No inventes examen físico, antecedentes ni diagnóstico.",
+ {"title":"Consulta externa: preparar una nota clínica sin inventar datos", "context":"Caso: consulta de fisioterapia por dolor de hombro. La nota inicial dice: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. No incluye examen físico, antecedentes ni evaluación funcional.", "prompts":[
+  "<b>Actúa como asistente de documentación clínica, no como diagnosticador.</b><b> Con esta nota: ‘dolor al elevar el brazo desde hace dos semanas; paciente quiere volver a nadar’. </b><b>Organiza la información en: motivo de consulta, evolución referida, objetivo del paciente y datos faltantes por preguntar. </b><b>No inventes examen físico, antecedentes ni diagnóstico.",
   "Revisa la estructura que acabas de proponer. Separa explícitamente los datos aportados de los campos pendientes. Sugiere hasta cinco preguntas neutrales que el profesional podría considerar para completar la valoración, sin indicar tratamiento ni asumir una causa del dolor.",
-  "Convierte la estructura revisada en una plantilla breve de nota inicial para fisioterapia, con campos editables y una sección ‘por confirmar’. Añade una lista final para que el profesional verifique exactitud, pertinencia y consentimiento antes de incorporar cualquier texto a la historia clínica."
+  "Convierte la estructura revisada en una plantilla breve de nota inicial para fisioterapia, con campos editables y una sección ‘por confirmar’. </b><b>Añade una lista final para que el profesional verifique exactitud, pertinencia y consentimiento antes de incorporar cualquier texto a la historia clínica."</b>
  ]},
  {"title":"Resumen rápido de una evolución para preparar la consulta", "context":"Caso ficticio: tres notas consecutivas describen que una persona mayor inició rehabilitación tras una caída; persiste dificultad para caminar y se menciona una recomendación de apoyo, pero las notas no precisan si se entregó el dispositivo.", "prompts":[
   "Resume este caso ficticio para preparar una consulta: ‘tras una caída inició rehabilitación; persiste dificultad para caminar; se menciona recomendación de apoyo, pero no consta si se entregó’. Devuelve máximo cinco viñetas bajo: evolución documentada, situación funcional descrita, acciones mencionadas y datos que no constan. No infieras diagnósticos.",
