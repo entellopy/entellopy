@@ -164,7 +164,7 @@ links = [
     ("Perplexity", "https://www.perplexity.ai/", "#fff5dc"),
     ("Claude", "https://claude.ai/", "#d97757"),
 ]
-link_cols = st.columns(4)
+link_cols = st.columns(5)
 for col, (label, url, color) in zip(link_cols, links):
     with col:
         st.markdown(f"<div style='background:{color};border-radius:12px;padding:13px;text-align:center'><a href='{url}' target='_blank'>{label} ↗</a></div>", unsafe_allow_html=True)
