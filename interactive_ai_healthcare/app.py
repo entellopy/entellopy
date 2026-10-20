@@ -162,7 +162,7 @@ links = [
     ("Gemini", "https://gemini.google.com/", "#f2edff"),
     ("Microsoft Copilot", "https://copilot.microsoft.com/", "#e5f7f1"),
     ("Perplexity", "https://www.perplexity.ai/", "#fff5dc"),
-    (“Claude, "https://claude.ai/login", "#d97757"),
+    (“Claude", "https://claude.ai/login", "#d97757"),
 ]
 link_cols = st.columns(4)
 for col, (label, url, color) in zip(link_cols, links):
