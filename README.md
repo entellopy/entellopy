@@ -31,13 +31,19 @@ _A standing agreement on how AI should serve human economic wellbeing and a publ
 
 
 ---
-#### 5. Applied AI/ML Lab:
+#### 5. Applied AI/ML Lab
 * **[5.1. Interactive Training Hub](https://interactive-training-app-fp8pyjehmhqfxdyqtkx3ey.streamlit.app/)**: Hands-on, interactive learning platform built with Python & Streamlit.
 * **[5.2. Retention Interactive Dashboard](https://f4uz4csdpz6hrvxqqmzgrj.streamlit.app/)**
 
+#### 6. Applied AI in Healthcare
+* **[6.1. AI in Healthcare – Prompting Lab](https://interactiveaihealthcare-alr5mynhaymrbmx33bptnw.streamlit.app/)**: Practical applications of generative AI in healthcare administration and management, using guided prompting exercises to solve real-world healthcare challenges.
+* **[6.2. GH AI in Healthcare – Operational Simulation](https://interactive-ai-healthcareops-simulation-ai-healthcarea-gedoes.streamlit.app/)**: Interactive simulation of healthcare operations, where AI-assisted decision-making supports inventory management, workforce allocation, equipment monitoring, and operational response. Built with Python & Streamlit.
 
-#### Resilience Mapping:
-* Developing models to help organizations navigate economic volatility using strategic foresight. <br>
+#### 7. Resilience Mapping
+* Developing economic and strategic frameworks to help organizations understand structural vulnerabilities, anticipate external disruptions, and identify actions to strengthen resilience amid economic volatility. <br>
+
+#### 8. AI Governance & Organizational Transformation
+Developing practical frameworks and interactive applications to help organizations assess AI adoption, evaluate its organizational implications, and guide responsible implementation.
 
 
 ### B. Skills & Tools
