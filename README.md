@@ -1,7 +1,10 @@
 
-## [Maria Elena Mejia](https://www.linkedin.com/in/mariaelenamp/) - **Economist & Data Strategist | Strategic Foresight & AI/ML** 
+## [Maria Elena Mejia](https://www.linkedin.com/in/mariaelenamp/) - **Economist Applying Analytics & AI to Business Performance and Growth | Research • Strategy • Technology** 
 <img src="/assests/me.jpg" alt="My Photo" width="200"/><br>
-**Bridging Economic Logic with Machine Learning. 10+ years of Analytics expertise** helping organizations refine processes, validate pre-launch strategies, and align marketing with data-driven insights. I bridge the gap between economic theory and applied AI/ML to build resilient, sustainable systems.
+**Applying economic thinking, analytics, and AI to business performance and growth** 
+With 12+ years of experience across analytics, digital strategy, and operations, I work at the intersection of research, strategy, and technology to understand business challenges, improve processes, and support better decisions.
+
+Through Entellopy, I explore and develop practical applications of AI/ML, strategic foresight, and data-driven approaches to business transformation across industries.
 
 ### A. Projects
 
