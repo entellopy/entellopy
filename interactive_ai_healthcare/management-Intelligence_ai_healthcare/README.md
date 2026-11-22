@@ -1,4 +1,4 @@
-# IPS Horizonte — Centro de inteligencia gerencial (M4T4)
+# IPS Horizonte — Centro de inteligencia gerencial
 
 Aplicación Streamlit para un laboratorio académico de inteligencia gerencial en salud.
 
