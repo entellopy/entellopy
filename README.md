@@ -40,7 +40,8 @@ _A standing agreement on how AI should serve human economic wellbeing and a publ
 
 #### 6. Applied AI in Healthcare
 * **[6.1. AI in Healthcare – Prompting Lab](https://interactiveaihealthcare-alr5mynhaymrbmx33bptnw.streamlit.app/)**: Practical applications of generative AI in healthcare administration and management, using guided prompting exercises to solve real-world healthcare challenges.
-* **[6.2. AI in Healthcare – Operational Simulation](https://interactive-ai-healthcareops-simulation-ai-healthcarea-gedoes.streamlit.app/)**: Interactive simulation of healthcare operations, where AI-assisted decision-making supports inventory management, workforce allocation, equipment monitoring, and operational response. Built with Python & Streamlit.
+* **[6.2. AI in Healthcare – Operational Simulation](https://interactive-ai-healthcareops-simulation-ai-healthcarea-gedoes.streamlit.app/)**: Interactive simulation of healthcare operations, where AI-assisted decision-making supports inventory management, workforce allocation, equipment monitoring, and operational response.
+* **[6.3. AI in Healthcare – Management Intelligence](https://entellopy-7a276yqvuw6wxhcjunawwe.streamlit.app/):** Interactive management intelligence dashboard that integrates healthcare operational, workforce, inventory, equipment, and quality data to explore institutional performance, identify risks, investigate trends, and support evidence-based managerial decisions.
 
 #### 7. Resilience Mapping
 * Developing economic and strategic frameworks to help organizations understand structural vulnerabilities, anticipate external disruptions, and identify actions to strengthen resilience amid economic volatility. <br>
