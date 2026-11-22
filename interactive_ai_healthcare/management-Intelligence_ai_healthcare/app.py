@@ -4,10 +4,11 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+from pathlib import Path
 
 st.set_page_config(page_title="IPS Horizonte | Management Intelligence", page_icon="🏥", layout="wide")
 
-DATA_FILE = "IPS_Horizonte_M4T4_datos_v2.xlsx"
+DATA_FILE = Path(__file__).resolve().parent / "IPS_Horizonte_M4T4_datos_v2.xlsx"
 
 @st.cache_data
 def load_data():
