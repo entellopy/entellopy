@@ -159,17 +159,29 @@ elif page == "Demanda y capacidad":
         ("Cancelación", f"{cancel:.1f}%", "Cancelaciones / citas asignadas."),
         ("Utilización", f"{utilization:.1f}%", "Horas utilizadas / disponibles.")
     ])
+
+    weekly = x.groupby("semana", as_index=False).agg(
+        solicitudes=("solicitudes", "sum"),
+        citas_asignadas=("citas_asignadas", "sum"),
+        citas_atendidas=("citas_atendidas", "sum"),
+        horas_disponibles=("horas_disponibles", "sum"),
+        horas_utilizadas=("horas_utilizadas", "sum"),
+    )
+
     left, right = st.columns(2)
     with left:
-        chart(px.line(x, x="semana", y=["solicitudes","citas_asignadas","citas_atendidas"],
-                      markers=True, title="Demanda, asignación y atención por semana",
+        chart(px.line(weekly, x="semana", y=["solicitudes","citas_asignadas","citas_atendidas"],
+                      markers=True,
+                      title=f"Demanda, asignación y atención ({'Consolidado' if selected == 'Todas' else selected})",
                       labels={"value":"Citas","semana":"Semana","variable":"Serie"}))
     with right:
-        chart(px.line(x, x="semana", y=["horas_disponibles","horas_utilizadas"],
-                      markers=True, title="Horas disponibles vs. utilizadas",
+        chart(px.line(weekly, x="semana", y=["horas_disponibles","horas_utilizadas"],
+                      markers=True,
+                      title=f"Horas disponibles vs. utilizadas ({'Consolidado' if selected == 'Todas' else selected})",
                       labels={"value":"Horas","semana":"Semana","variable":"Serie"}))
+
     st.markdown("**Brecha de demanda no atendida**")
-    gap = x.assign(brecha=x.solicitudes - x.citas_asignadas).groupby("semana", as_index=False).agg(brecha=("brecha", "sum"))
+    gap = weekly.assign(brecha=weekly.solicitudes - weekly.citas_asignadas)
     g1, g2 = st.columns([2, 1])
     with g1:
         chart(px.bar(gap, x="semana", y="brecha", text="brecha", title="Solicitudes menos citas asignadas por semana",
@@ -266,17 +278,38 @@ elif page == "Inventarios":
     ])
     l,r = st.columns(2)
     with l:
-        chart(px.line(x, x="Fecha", y=["Consumo_mensual","Existencias","Compras"],
-                      markers=True, title="Consumo, existencias y compras",
-                      labels={"value":"Unidades","Fecha":"Mes","variable":"Serie"}))
+        if i == "Todos":
+            inv_monthly = x.assign(
+                consumo_valido=x.Consumo_mensual.where(x.Consumo_mensual > 0)
+            ).groupby("Fecha", as_index=False).agg(
+                Consumo_mensual=("consumo_valido", "sum"),
+                Existencias=("Existencias", "sum"),
+                Compras=("Compras", "sum")
+            )
+            chart(px.line(inv_monthly, x="Fecha", y=["Consumo_mensual","Existencias","Compras"],
+                          markers=True, title="Consumo válido, existencias y compras (Total insumos)",
+                          labels={"value":"Unidades","Fecha":"Mes","variable":"Serie"}))
+        else:
+            chart(px.line(x, x="Fecha", y=["Consumo_mensual","Existencias","Compras"],
+                          markers=True, title=f"Consumo, existencias y compras · {i}",
+                          labels={"value":"Unidades","Fecha":"Mes","variable":"Serie"}))
     with r:
-        chart(px.bar(x, x="Fecha", y="ratio_existencias_consumo", title="Relación existencias / consumo positivo",
-                     labels={"ratio_existencias_consumo":"Ratio","Fecha":"Mes"}))
+        if i == "Todos":
+            by_item = x.groupby("Insumo", as_index=False).agg(
+                ratio_promedio=("ratio_existencias_consumo", "mean")
+            ).sort_values("ratio_promedio", ascending=False)
+            chart(px.bar(by_item, x="Insumo", y="ratio_promedio", text=by_item.ratio_promedio.round(2),
+                         title="Ratio promedio existencias / consumo por insumo",
+                         labels={"ratio_promedio":"Ratio promedio","Insumo":"Insumo"}))
+        else:
+            chart(px.bar(x, x="Fecha", y="ratio_existencias_consumo",
+                         title=f"Relación existencias / consumo positivo · {i}",
+                         labels={"ratio_existencias_consumo":"Ratio","Fecha":"Mes"}))
     st.markdown("**Excepciones que deben validarse**")
     flags = x[x.alerta_consumo_negativo | x.alerta_lead_time_atipico | x.alerta_existencias_faltantes]
     df_view(flags[["Fecha","Insumo","Consumo_mensual","Existencias","Lead_time_dias",
                    "alerta_consumo_negativo","alerta_lead_time_atipico","alerta_existencias_faltantes"]])
-    note("No hay dimensión de servicio. El ratio existencias/consumo es descriptivo; no se interpreta como cobertura futura ni predicción de quiebre.")
+    note("No hay dimensión de servicio. En vista 'Todos' se excluyen consumos negativos de la suma mensual para no distorsionar la serie. El ratio existencias/consumo es descriptivo.")
     prompt_box("página Inventarios de IPS Horizonte (datos mensuales por insumo, sin servicio asociado; "
                "el consumo negativo y los nulos se conservan como pendientes de validar).", x[["Fecha","Insumo","Consumo_mensual","Existencias","Compras","Lead_time_dias"]])
     export_csv(x, "inventarios_filtrados.csv")
@@ -401,35 +434,79 @@ elif page == "Laboratorio de escenarios":
 
 elif page == "Decisiones y calidad de datos":
     st.markdown('<div class="section-kicker">Gobernanza de la decisión</div>', unsafe_allow_html=True)
-    st.subheader("De la señal a una acción verificable")
-    st.write("Registra una decisión basada en evidencia. Los registros viven durante esta sesión; descarga el archivo para conservarlos.")
-    if "decisions" not in st.session_state:
-        st.session_state.decisions = []
-    with st.form("decision_form", clear_on_submit=True):
-        problem = st.text_input("Señal o problema observado")
-        evidence = st.text_area("Evidencia disponible")
-        hypothesis = st.text_area("Hipótesis por validar")
-        action = st.text_area("Acción propuesta")
-        responsible = st.text_input("Responsable")
-        indicator = st.text_input("Indicador de seguimiento")
-        expected = st.text_input("Resultado esperado")
-        submitted = st.form_submit_button("Guardar decisión")
-        if submitted:
-            if problem and action and responsible and indicator:
-                st.session_state.decisions.append({
-                    "Fecha de registro": date.today().isoformat(), "Problema":problem,
-                    "Evidencia":evidence, "Hipótesis":hypothesis, "Acción":action,
-                    "Responsable":responsible, "Indicador":indicator, "Resultado esperado":expected
-                })
-                st.success("Decisión agregada a la sesión.")
-            else:
-                st.error("Completa problema, acción, responsable e indicador.")
-    if st.session_state.decisions:
-        dec = pd.DataFrame(st.session_state.decisions)
-        df_view(dec, height=260)
-        export_csv(dec, "registro_decisiones_ips_horizonte.csv", "Descargar registro de decisiones")
-    else:
-        st.caption("Aún no hay decisiones registradas en esta sesión.")
+    st.subheader("Síntesis ejecutiva: de los hallazgos a las decisiones")
+    st.write("Resumen de las principales señales detectadas en cada fuente independiente, qué validar antes de intervenir y qué decisión gerencial habilitar.")
+
+    ops_by_spec = OPS.groupby("especialidad", as_index=False).agg(
+        solicitudes=("solicitudes", "sum"),
+        asignadas=("citas_asignadas", "sum"),
+        atendidas=("citas_atendidas", "sum"),
+        inasistencias=("inasistencias", "sum"),
+        h_disp=("horas_disponibles", "sum"),
+        h_uso=("horas_utilizadas", "sum"),
+    )
+    ops_by_spec["brecha"] = ops_by_spec.solicitudes - ops_by_spec.asignadas
+    ops_by_spec["util_pct"] = ops_by_spec.h_uso / ops_by_spec.h_disp * 100
+    ops_by_spec["inasist_pct"] = ops_by_spec.inasistencias / ops_by_spec.asignadas * 100
+    top_gap_spec = ops_by_spec.sort_values("brecha", ascending=False).iloc[0]
+    top_noshow_spec = ops_by_spec.sort_values("inasist_pct", ascending=False).iloc[0]
+
+    hr_extra_total = HR.Horas_extra.sum(min_count=1)
+    hr_missing = int(HR.alerta_horas_extra_faltantes.sum())
+    hr_outlier_abs = int(HR.alerta_ausencias_atipicas.sum())
+
+    inv_alerts = int((INV.alerta_consumo_negativo | INV.alerta_lead_time_atipico | INV.alerta_existencias_faltantes).sum())
+    inv_neg = int(INV.alerta_consumo_negativo.sum())
+
+    eq_oos = int(EQ.Estado.eq("Fuera de servicio").sum())
+    eq_dups = int(EQ.duplicated("ID_equipo").sum())
+
+    aud_comp = pct(AUD.registro_completo_basico.eq("Sí").sum(), len(AUD))
+    aud_obs = int(AUD.Auditoría_previa.eq("Observación").sum())
+
+    decision_matrix = pd.DataFrame([
+        {
+            "Dominio (Fuente)": "Operaciones (8 semanas)",
+            "Hallazgo clave": f"Brecha acumulada de {int(ops_by_spec.brecha.sum()):,} solicitudes sin asignar (liderada por {top_gap_spec.especialidad}: {int(top_gap_spec.brecha):,}) y tasa de inasistencia de {top_noshow_spec.inasist_pct:.1f}% en {top_noshow_spec.especialidad}.",
+            "Validación previa (Riesgo de sesgo)": "Confirmar si las solicitudes no asignadas corresponden a pacientes únicos o reintentos de agendamiento.",
+            "Decisión gerencial sugerida": "Priorizar recordatorios activos en la especialidad con mayor inasistencia y evaluar redistribución de agenda antes de ampliar horas.",
+            "Indicador de seguimiento": "Tasa de asistencia (%) y brecha semanal solicitudes vs. citas asignadas."
+        },
+        {
+            "Dominio (Fuente)": "Talento humano (12 meses)",
+            "Hallazgo clave": f"{hr_extra_total:,.0f} horas extra registradas, pero con {hr_missing} registros faltantes y {hr_outlier_abs} caso(s) de ausentismo atípico (>10 días).",
+            "Validación previa (Riesgo de sesgo)": "Verificar en nómina si los nulos en horas extra son cero real o subregistro, y auditar las ausencias atípicas.",
+            "Decisión gerencial sugerida": "Estandarizar el cierre mensual de novedades de turno y revisar carga en los servicios con recurrencia de horas extra.",
+            "Indicador de seguimiento": "% de registros completos de nómina y horas extra por servicio/turno."
+        },
+        {
+            "Dominio (Fuente)": "Inventarios (Mensual)",
+            "Hallazgo clave": f"{inv_alerts} registros presentan alertas de calidad, incluyendo {inv_neg} consumo(s) mensual(es) negativo(s) y tiempos de entrega atípicos.",
+            "Validación previa (Riesgo de sesgo)": "Revisar si los consumos negativos responden a devoluciones a bodega o ajustes contables mal clasificados.",
+            "Decisión gerencial sugerida": "Separar movimientos de devolución/ajuste del consumo real y recalibrar puntos de reorden en insumos con lead time alto.",
+            "Indicador de seguimiento": "Ratio existencias/consumo válido y lead time promedio por proveedor."
+        },
+        {
+            "Dominio (Fuente)": "Equipos biomédicos (Corte)",
+            "Hallazgo clave": f"{eq_oos} filas reportadas fuera de servicio y {eq_dups} fila(s) con ID de equipo duplicado.",
+            "Validación previa (Riesgo de sesgo)": "Depurar los IDs duplicados y confirmar la ventana temporal de las horas de indisponibilidad (ej. EQ-040).",
+            "Decisión gerencial sugerida": "Definir plan de mantenimiento preventivo/reposición para equipos críticos fuera de servicio tras depurar el maestro.",
+            "Indicador de seguimiento": "Disponibilidad efectiva de equipos críticos y tiempo medio de reparación."
+        },
+        {
+            "Dominio (Fuente)": "Calidad y auditoría (Registros)",
+            "Hallazgo clave": f"Completitud básica del {aud_comp:.1f}%, con {aud_obs} registros con observación previa y brechas en valoración del dolor.",
+            "Validación previa (Riesgo de sesgo)": "Distinguir entre omisión de diligenciamiento y campos no aplicables según el tipo de atención.",
+            "Decisión gerencial sugerida": "Implementar reglas de validación obligatoria en historia clínica electrónica para consentimiento, plan de alta y valoración del dolor.",
+            "Indicador de seguimiento": "% de completitud documental integral por servicio."
+        }
+    ])
+
+    df_view(decision_matrix, height=310)
+    export_csv(decision_matrix, "sintesis_decisiones_ips_horizonte.csv", "Descargar matriz de síntesis y decisiones")
+
+    st.info("**Regla de gobernanza:** Las cinco decisiones anteriores operan sobre dominios independientes. No se deben cruzar indicadores de operaciones (8 semanas) con talento humano (12 meses) ni con cortes de inventario sin homologar primero la unidad de tiempo y servicio.")
+
     st.divider()
     st.subheader("Control de calidad de las fuentes")
     st.write("Los valores atípicos y faltantes se conservan y se muestran como asuntos por validar. No se corrigen silenciosamente. Las banderas usan umbrales exploratorios didácticos (ausencias >10 días, lead time >60 días, indisponibilidad >100 horas), no estándares regulatorios ni clínicos.")
